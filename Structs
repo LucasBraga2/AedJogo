@@ -1,1 +1,25 @@
-a
+typedef int tp_acao;
+
+typedef struct{
+  int dano;
+  int vida;
+  char nome[20];
+  tp_acao;
+
+}monstro;
+
+typedef struct{
+  tp_carta 
+  char nome[20];
+  int custo;
+  int valor;
+  char tipo[10];
+
+}carta;
+
+typedef struct{
+  int vida;
+  int dano;
+  char nome[20];
+  
+}jogador;
