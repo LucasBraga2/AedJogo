@@ -22,6 +22,10 @@ void cura(){
 
 }
 
+void defende_monstro(){
+
+}
+
 
 
 int main(){
@@ -31,5 +35,5 @@ int main(){
     tp_fila seq;
     inicializa_fila(&seq);
     strcpy(nome, "carlos");
-    
+
 }
