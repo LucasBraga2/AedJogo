@@ -8,8 +8,11 @@ void cria_jogador(jogador *j){
     j->e = 5;
 }
 
-void cria_deck(){
+void cria_deck(tp_pilha *p_deck){
 
+    inicializa_pilha (p_deck);
+
+    
 }
 
 void cria_monstro(monstro *m, vida v,char nome, tp_fila s){
@@ -41,10 +44,12 @@ void defende_monstro(){
 
 int main(){
     void cria_cartas();
+    tp_pilha p_deck;
+    cria_deck(&p_deck);
     jogador j;
     cria_jogador(&j);
     printf("jogador :%s vida: %d energia: %d", j.nome, j.h, j.e );
-
+    
     
 
 }
