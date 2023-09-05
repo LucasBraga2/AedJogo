@@ -1,3 +1,7 @@
+#include "pilha.h"
+#include "fila.h"
+
+
 typedef int vida;
 typedef int energia;
 typedef int valor;
