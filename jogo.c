@@ -48,7 +48,7 @@ int main(){
     cria_deck(&p_deck);
     jogador j;
     cria_jogador(&j);
-    printf("jogador :%s vida: %d energia: %d", j.nome, j.h, j.e );
+    printf("Jogador :%s \nVida: %d \nEnergia: %d", j.nome, j.h, j.e );
     
     
 
