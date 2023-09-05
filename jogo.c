@@ -1,11 +1,7 @@
 #include "stru.h"
 
 void criamonstros(){
-    monstro m1;
-
-
-
-
+    monstro m1, m2, m3
 }
 
 

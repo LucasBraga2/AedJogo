@@ -7,16 +7,15 @@ typedef int energia;
 typedef int valor;
 typedef int tipo;
 typedef int custo;
-typedef char [20] nome;
 
 typedef struct{
   int vida;
-  nome m;
+  char nome [20] 
   tp_fila seq;
 }monstro;
 
 typedef struct{
-  nome c;
+  char nome [20]
   tipo t;
   valor v;
   custo c;
@@ -25,6 +24,6 @@ typedef struct{
 typedef struct{
   vida v;
   energia e;
-  nome j;
+  char nome [20]
   tp_pilha deck;
 }jogador;
