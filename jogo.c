@@ -1,7 +1,18 @@
 #include "stru.h"
 #include <string.h>
 
-void criamonstro(monstro *m, vida v,char nome, tp_fila s){
+void cria_jogador(jogador *j){
+    printf("\ninsira o nome do jogador\n");
+    scanf("%s", &j->nome);
+    j->h = 20;
+    j->e = 5;
+}
+
+void cria_deck(){
+
+}
+
+void cria_monstro(monstro *m, vida v,char nome, tp_fila s){
     m->h = v;
     m->seq = s;
 }  
@@ -29,11 +40,11 @@ void defende_monstro(){
 
 
 int main(){
-    char nome[20];
-    vida v;
-    v = 30;
-    tp_fila seq;
-    inicializa_fila(&seq);
-    strcpy(nome, "carlos");
+    void cria_cartas();
+    jogador j;
+    cria_jogador(&j);
+    printf("jogador :%s vida: %d energia: %d", j.nome, j.h, j.e );
+
+    
 
 }
