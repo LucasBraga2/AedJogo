@@ -43,11 +43,15 @@ void defende_monstro(){
 
 
 int main(){
-    void cria_cartas();
-    tp_pilha p_deck;
-    cria_deck(&p_deck);
     jogador j;
+    tp_pilha p_deck;
+    monstro m1;
+    tp_fila seqmons;
+    
+    void cria_cartas();
+    cria_deck(&p_deck);
     cria_jogador(&j);
+    cria_monstro(&m1, 50, monstro1, seqmons);
     printf("Jogador :%s \nVida: %d \nEnergia: %d", j.nome, j.h, j.e );
 
 }
