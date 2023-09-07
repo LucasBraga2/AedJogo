@@ -49,7 +49,5 @@ int main(){
     jogador j;
     cria_jogador(&j);
     printf("Jogador :%s \nVida: %d \nEnergia: %d", j.nome, j.h, j.e );
-    
-    
 
 }
