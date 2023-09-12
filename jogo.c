@@ -8,6 +8,10 @@ void cria_jogador(jogador *j){
     j->h = 20;
     j->e = 5;
 
+    printf("#####################################\n");
+    printf("Nome: %s \nVida: %d Hp \nEnergia: %d/%d \n", j->nome, j->h, j->e, j->e);
+    printf("#####################################\n");
+
 }
 
 void cria_deck(tp_pilha *p_deck){
@@ -109,6 +113,5 @@ int main(){
     cria_deck(&p_deck);
     cria_jogador(&j);
     //cria_monstro(&m1, 50, monstro1, seqmons);
-    printf("Nome: %s \nVida: %d \nEnergia: %d", j.nome, j.h, j.e );
 
 }
