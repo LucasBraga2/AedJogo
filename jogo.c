@@ -98,7 +98,7 @@ int main(){
 
     printf("Deseja visualizar as cartas disponiveis no jogo:\n");
     printf("S/N\n");
-    scanf("%c",&escolha);
+    scanf(" %c",&escolha);
     
     if(escolha == 'S' || escolha == 's'){
         mostrar_cartas();
