@@ -109,6 +109,6 @@ int main(){
     cria_deck(&p_deck);
     cria_jogador(&j);
     //cria_monstro(&m1, 50, monstro1, seqmons);
-    printf("Jogador :%s \nVida: %d \nEnergia: %d", j.nome, j.h, j.e );
+    printf("Nome: %s \nVida: %d \nEnergia: %d", j.nome, j.h, j.e );
 
 }
