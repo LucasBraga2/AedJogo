@@ -15,6 +15,10 @@ void cria_deck(tp_pilha *p_deck){
     
 }
 
+void mostrar_cartas(){
+    
+}
+
 void cria_monstro(monstro *m, vida v,char nome, tp_fila s){
     m->h = v;
     m->seq = s;
