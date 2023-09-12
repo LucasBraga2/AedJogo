@@ -2,10 +2,12 @@
 #include <string.h>
 
 void cria_jogador(jogador *j){
+
     printf("\nInsira o nome do jogador:\n");
     scanf("%s", &j->nome);
     j->h = 20;
     j->e = 5;
+
 }
 
 void cria_deck(tp_pilha *p_deck){
@@ -94,7 +96,7 @@ int main(){
     tp_fila seqmons;
     char escolha;
     
-    void cria_cartas();
+    //cria_cartas();
 
     printf("Deseja visualizar as cartas disponiveis no jogo:\n");
     printf("S/N\n");
