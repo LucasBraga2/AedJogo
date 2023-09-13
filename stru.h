@@ -13,6 +13,8 @@ typedef struct{
   vida h;
   char nome [20];
   tp_fila seq;
+  tipo t;
+  valor v;
 }monstro;
 
 typedef struct{

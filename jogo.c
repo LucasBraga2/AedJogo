@@ -66,9 +66,16 @@ while(t2 == 'N' || t2 =='n'){
 }
 }
 
-void cria_monstro(monstro *m, vida v,char nome, tp_fila s){
-    m->h = v;
-    m->seq = s;
+void cria_monstro(){
+
+monstro m1;
+tp_fila seqmons1;
+int v1 = 20;
+
+    m1.nome[20] = "Homem Gosma";
+    m1.h = v1;
+    inicializa_fila(&seqmons1);
+    insere_fila(&seqmons1, 10);
 }  
 
 void toma_dano(){
@@ -96,7 +103,7 @@ void defende_monstro(){
 int main(){
     jogador j;
     tp_pilha p_deck;
-    monstro m1;
+    monstro m;
     tp_fila seqmons;
     char escolha;
     
@@ -112,6 +119,6 @@ int main(){
     
     cria_deck(&p_deck);
     cria_jogador(&j);
-    //cria_monstro(&m1, 50, monstro1, seqmons);
+    cria_monstro();
 
 }
