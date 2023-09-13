@@ -49,7 +49,7 @@ while(t2 == 'N' || t2 =='n'){
         printf("Valor: 5\n");
         printf("Custo: 1 energia\n");
         printf("#####################################\n");//CARTA 4
-         printf("Nome: Espadada\n");
+        printf("Nome: Espadada\n");
         printf("Tipo: Ataque\n");
         printf("Valor: 5\n");
         printf("Custo: 1 energia\n");
@@ -64,7 +64,7 @@ while(t2 == 'N' || t2 =='n'){
         printf("Valor: 5\n");
         printf("Custo: 1 energia\n");
         printf("#####################################\n");//CARTA 7
-        printf("Nome: Lança-chamas\n");
+        printf("Nome: Lanca-chamas\n");
         printf("Tipo: Ataque\n");
         printf("Valor: 5\n");
         printf("Custo: 1 energia\n");
@@ -74,7 +74,7 @@ while(t2 == 'N' || t2 =='n'){
         printf("Valor: 5\n");
         printf("Custo: 1 energia\n");
         printf("#####################################\n");//CARTA 9
-        printf("Nome: Chuva de Asteróidess\n");
+        printf("Nome: Chuva de Asteroidess\n");
         printf("Tipo: Ataque\n");
         printf("Valor: 5\n");
         printf("Custo: 1 energia\n");
