@@ -9,7 +9,7 @@ void cria_jogador(jogador *j){
     j->e = 5;
 
     printf("#####################################\n");
-    printf("Nome: %s \nVida: %d Hp \nEnergia: %d/%d \n", j->nome, j->h, j->e, j->e);
+    printf("Nome: %s \nVida: %d Hp \nEnergia: %d/5 \n", j->nome, j->h, j->e);
     printf("#####################################\n");
 
 }
@@ -33,10 +33,61 @@ while(t2 == 'N' || t2 =='n'){
     scanf("%d", &t);
 
     if(t == 1){
-        printf("Carta 1 - Chute\n");
-        printf("Valor - 5\n");
-        printf("Custo - 1\n");
+        printf("#####################################\n");//CARTA 1
+        printf("Nome: Chute\n");
+        printf("Tipo: Ataque\n");
+        printf("Valor: 5\n");
+        printf("Custo: 1 energia\n");
+        printf("#####################################\n");//CARTA 2
+        printf("Nome: Soco\n");
+        printf("Tipo: Ataque\n");
+        printf("Valor: 5\n");
+        printf("Custo: 1 energia\n");
+        printf("#####################################\n");//CARTA 3
+        printf("Nome: Facada\n");
+        printf("Tipo: Ataque\n");
+        printf("Valor: 5\n");
+        printf("Custo: 1 energia\n");
+        printf("#####################################\n");//CARTA 4
+         printf("Nome: Espadada\n");
+        printf("Tipo: Ataque\n");
+        printf("Valor: 5\n");
+        printf("Custo: 1 energia\n");
+        printf("#####################################\n");//CARTA 5
+        printf("Nome: Facadas Duplas\n");
+        printf("Tipo: Ataque\n");
+        printf("Valor: 5\n");
+        printf("Custo: 1 energia\n");
+        printf("#####################################\n");//CARTA 6
+        printf("Nome: Martelo de Espinhos\n");
+        printf("Tipo: Ataque\n");
+        printf("Valor: 5\n");
+        printf("Custo: 1 energia\n");
+        printf("#####################################\n");//CARTA 7
+        printf("Nome: Lança-chamas\n");
+        printf("Tipo: Ataque\n");
+        printf("Valor: 5\n");
+        printf("Custo: 1 energia\n");
+        printf("#####################################\n");//CARTA 8
+        printf("Nome: Bombas Explosivas\n");
+        printf("Tipo: Ataque\n");
+        printf("Valor: 5\n");
+        printf("Custo: 1 energia\n");
+        printf("#####################################\n");//CARTA 9
+        printf("Nome: Chuva de Asteróidess\n");
+        printf("Tipo: Ataque\n");
+        printf("Valor: 5\n");
+        printf("Custo: 1 energia\n");
+        printf("#####################################\n");//CARTA 10
+        printf("Nome: Raios Infinitos\n");
+        printf("Tipo: Ataque\n");
+        printf("Valor: 5\n");
+        printf("Custo: 1 energia\n");
+        printf("#####################################\n");
     }
+    
+    
+  
 
     else if(t == 2){
         printf("Carta 1 - Chute\n");
