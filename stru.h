@@ -1,5 +1,6 @@
 #include "pilha.h"
 #include "fila.h"
+#include <string.h>
 
 
 typedef int vida;

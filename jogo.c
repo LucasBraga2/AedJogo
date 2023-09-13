@@ -1,5 +1,5 @@
 #include "stru.h"
-#include <string.h>
+
 
 void cria_jogador(jogador *j){
 
