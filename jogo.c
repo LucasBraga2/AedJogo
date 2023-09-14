@@ -22,7 +22,7 @@ void cria_deck(tp_pilha *p_deck){
 }
 
 void mostrar_cartas(){
-    int t;
+    int t;//TIPOS DE CARTAS
     char t2 = 'N';
 
 while(t2 == 'N' || t2 =='n'){
@@ -90,9 +90,57 @@ while(t2 == 'N' || t2 =='n'){
   
 
     else if(t == 2){
-        printf("Carta 1 - Chute\n");
-        printf("Valor - 5\n");
-        printf("Custo - 1\n");
+        printf("#####################################\n");//CARTA 1
+        printf("Nome: Chute\n");
+        printf("Tipo: Defesa\n");
+        printf("Valor: 5\n");
+        printf("Custo: 1 energia\n");
+        printf("#####################################\n");//CARTA 2
+        printf("Nome: Soco\n");
+        printf("Tipo: Defesa\n");
+        printf("Valor: 5\n");
+        printf("Custo: 1 energia\n");
+        printf("#####################################\n");//CARTA 3
+        printf("Nome: Facada\n");
+        printf("Tipo: Defesa\n");
+        printf("Valor: 5\n");
+        printf("Custo: 1 energia\n");
+        printf("#####################################\n");//CARTA 4
+        printf("Nome: Espadada\n");
+        printf("Tipo: Defesa\n");
+        printf("Valor: 5\n");
+        printf("Custo: 1 energia\n");
+        printf("#####################################\n");//CARTA 5
+        printf("Nome: Facadas Duplas\n");
+        printf("Tipo: Defesa\n");
+        printf("Valor: 5\n");
+        printf("Custo: 1 energia\n");
+        printf("#####################################\n");//CARTA 6
+        printf("Nome: Martelo de Espinhos\n");
+        printf("Tipo: Defesa\n");
+        printf("Valor: 5\n");
+        printf("Custo: 1 energia\n");
+        printf("#####################################\n");//CARTA 7
+        printf("Nome: Lanca-chamas\n");
+        printf("Tipo: Defesa\n");
+        printf("Valor: 5\n");
+        printf("Custo: 1 energia\n");
+        printf("#####################################\n");//CARTA 8
+        printf("Nome: Bombas Explosivas\n");
+        printf("Tipo: Defesa\n");
+        printf("Valor: 5\n");
+        printf("Custo: 1 energia\n");
+        printf("#####################################\n");//CARTA 9
+        printf("Nome: Chuva de Asteroidess\n");
+        printf("Tipo: Defesa\n");
+        printf("Valor: 5\n");
+        printf("Custo: 1 energia\n");
+        printf("#####################################\n");//CARTA 10
+        printf("Nome: Raios Infinitos\n");
+        printf("Tipo: Defesa\n");
+        printf("Valor: 5\n");
+        printf("Custo: 1 energia\n");
+        printf("#####################################\n");
 
     }
 
@@ -119,14 +167,36 @@ while(t2 == 'N' || t2 =='n'){
 
 void cria_monstro(){
 
-monstro m1;
-tp_fila seqmons1;
-int v1 = 20;
+monstro t1[20] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};//ATAQUE E DEFESA SEUS POSSIVEIS VALORES
+monstro t2[20] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};//ATAQUE E DEFESA SEUS POSSIVEIS VALORES
+
+monstro m1;//PRIMEIRO MONSTRO
+tp_fila seqmons1;//FILA DE POSSIVEIS ATAQUES E DEFESAS
+int v1 = 20;//VIDA DO PRIMEIRO MONSTRO
 
     m1.nome[20] = "Homem Gosma";
     m1.h = v1;
     inicializa_fila(&seqmons1);
-    insere_fila(&seqmons1, 10);
+    insere_fila(&seqmons1, t1);
+    insere_fila(&seqmons1, t2);
+    insere_fila(&seqmons1, t1);
+    insere_fila(&seqmons1, t2);
+    insere_fila(&seqmons1, t1);
+    insere_fila(&seqmons1, t2);
+
+monstro m2;//SEGUNDO MONSTRO
+tp_fila seqmons2;//FILA DE POSSIVEIS ATAQUES E DEFESAS
+int v2 = 30;//VIDA DO SEGUNDO MONSTRO
+
+    m2.nome[20] = "Gaviao Feroz";
+    m2.h = v2;
+    inicializa_fila(&seqmons2);
+    insere_fila(&seqmons2, t1);
+    insere_fila(&seqmons2, t2);
+    insere_fila(&seqmons2, t1);
+    insere_fila(&seqmons2, t2);
+    insere_fila(&seqmons2, t1);
+    insere_fila(&seqmons2, t2);
 }  
 
 void toma_dano(){
