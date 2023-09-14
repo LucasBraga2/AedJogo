@@ -34,8 +34,8 @@ while(t2 == 'N' || t2 =='n'){
 
     if(t == 1){
         printf("#####################################\n");//CARTA 1
-        printf("Nome: Chute\n");
-        printf("Tipo: Ataque\n");
+        printf("#             Nome: Chute           #\n");                    
+        printf("Tipo:           Ataque              #\n");
         printf("Valor: 5\n");
         printf("Custo: 1 energia\n");
         printf("#####################################\n");//CARTA 2
