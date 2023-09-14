@@ -4,7 +4,7 @@
 void cria_jogador(jogador *j){
 
     printf("\nInsira o nome do jogador:\n");
-    scanf("%s", &j->nome);
+    scanf("%[^\n]s", &j->nome);
     j->h = 20;
     j->e = 5;
 
