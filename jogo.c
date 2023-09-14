@@ -222,10 +222,8 @@ void defende_monstro(){
 
 
 int main(){
-    jogador j;
-    tp_pilha p_deck;
-    monstro m;
-    tp_fila seqmons;
+    jogador j;//Jogador Principal
+    tp_pilha p_deck;//Deck de Cartas do jogo
     char escolha;
     
     //cria_cartas();
