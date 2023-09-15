@@ -19,7 +19,7 @@ typedef struct{
 }monstro;
 
 typedef struct{
-  char nome [20];
+  char nome [30];
   tipo t;
   valor v;
   custo c;
