@@ -169,7 +169,11 @@ c[24].c = 1;//CUSTO
 
 void cria_deck(tp_pilha *p_deck, carta *c){
 
-  
+tp_item c[0];
+
+  inicializa_fila(p_deck);
+
+  //push(p_deck, c[0]);
 }
 
 void mostrar_cartas(carta *c){
