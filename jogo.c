@@ -233,36 +233,33 @@ while(t2 == 'N' || t2 =='n'){
 
 void cria_monstro(){
 
-monstro t1[20] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};//ATAQUE E DEFESA SEUS POSSIVEIS VALORES
-monstro t2[20] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};//ATAQUE E DEFESA SEUS POSSIVEIS VALORES
-
 monstro m1;//PRIMEIRO MONSTRO
 tp_fila seqmons1;//FILA DE POSSIVEIS ATAQUES E DEFESAS
 int v1 = 20;//VIDA DO PRIMEIRO MONSTRO
 
-    m1.nome[20] = "Homem Gosma";
+    strcpy(m1.nome, "Homem Gosma");//NOME DO MOSNTRO 1
     m1.h = v1;
     inicializa_fila(&seqmons1);
-    insere_fila(&seqmons1, t1);
-    insere_fila(&seqmons1, t2);
-    insere_fila(&seqmons1, t1);
-    insere_fila(&seqmons1, t2);
-    insere_fila(&seqmons1, t1);
-    insere_fila(&seqmons1, t2);
+    insere_fila(&seqmons1, 5);
+    insere_fila(&seqmons1, 5);
+    insere_fila(&seqmons1, 3);
+    insere_fila(&seqmons1, 5);
+    insere_fila(&seqmons1, 5);
+    insere_fila(&seqmons1, 5);
 
 monstro m2;//SEGUNDO MONSTRO
 tp_fila seqmons2;//FILA DE POSSIVEIS ATAQUES E DEFESAS
 int v2 = 30;//VIDA DO SEGUNDO MONSTRO
 
-    m2.nome[20] = "Gaviao Feroz";
+    strcpy(m2.nome, "Inserir Nome");//NOME DO MOSNTRO 2
     m2.h = v2;
     inicializa_fila(&seqmons2);
-    insere_fila(&seqmons2, t1);
-    insere_fila(&seqmons2, t2);
-    insere_fila(&seqmons2, t1);
-    insere_fila(&seqmons2, t2);
-    insere_fila(&seqmons2, t1);
-    insere_fila(&seqmons2, t2);
+    insere_fila(&seqmons2, 5);
+    insere_fila(&seqmons2, 5);
+    insere_fila(&seqmons2, 5);
+    insere_fila(&seqmons2, 5);
+    insere_fila(&seqmons2, 5);
+    insere_fila(&seqmons2, 5);
 }  
 
 void toma_dano(){
