@@ -258,7 +258,7 @@ int v1 = 20;//VIDA DO PRIMEIRO MONSTRO
 tp_fila seqmons2;//FILA DE POSSIVEIS ATAQUES E DEFESAS
 int v2 = 30;//VIDA DO SEGUNDO MONSTRO
 
-    strcpy(m[1].nome, "Inserir Nome");//NOME DO MOSNTRO 2
+    strcpy(m[1].nome, "Gaviao Feroz");//NOME DO MOSNTRO 2
     m[1].h = v2;
     inicializa_fila(&seqmons2);
     insere_fila(&seqmons2, 5);
@@ -272,7 +272,7 @@ int v2 = 30;//VIDA DO SEGUNDO MONSTRO
 tp_fila seqmons3;//FILA DE POSSIVEIS ATAQUES E DEFESAS
 int v3 = 40;//VIDA DO TERCEIRO MONSTRO
 
-    strcpy(m[2].nome, "Inserir Nome");//NOME DO MOSNTRO 3
+    strcpy(m[2].nome, "Gigante de Pedra");//NOME DO MOSNTRO 3
     m[2].h = v3;
     inicializa_fila(&seqmons3);
     insere_fila(&seqmons3, 5);
@@ -286,7 +286,7 @@ int v3 = 40;//VIDA DO TERCEIRO MONSTRO
 tp_fila seqmons4;//FILA DE POSSIVEIS ATAQUES E DEFESAS
 int v4 = 50;//VIDA DO QUARTO MONSTRO
 
-    strcpy(m[3].nome, "Inserir Nome");//NOME DO MOSNTRO 4
+    strcpy(m[3].nome, "Cobra de Duas Cabecas");//NOME DO MOSNTRO 4
     m[3].h = v4;
     inicializa_fila(&seqmons4);
     insere_fila(&seqmons4, 5);
@@ -300,7 +300,7 @@ int v4 = 50;//VIDA DO QUARTO MONSTRO
 tp_fila seqmons5;//FILA DE POSSIVEIS ATAQUES E DEFESAS
 int v5 = 60;//VIDA DO QUINTO MONSTRO
 
-    strcpy(m[4].nome, "Inserir Nome");//NOME DO MOSNTRO 5
+    strcpy(m[4].nome, "Mob Dick");//NOME DO MOSNTRO 5
     m[4].h = v5;
     inicializa_fila(&seqmons5);
     insere_fila(&seqmons5, 5);
@@ -323,7 +323,7 @@ printf("Mosntros:\n");
 }
         printf("#####################################\n");
 
-        printf("Deseja comecar o jogo? (Digite S)\n");
+        printf("Deseja comecar o jogo? (Digite S/s)\n");
         scanf(" %d", &e);
         
         if(e == 'S' || 's'){

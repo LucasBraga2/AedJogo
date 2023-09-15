@@ -12,7 +12,7 @@ typedef int custo;
 
 typedef struct{
   vida h;
-  char nome [20];
+  char nome [30];
   tp_fila seq;
   tipo t;
   valor v;
@@ -26,7 +26,7 @@ typedef struct{
 }carta;
 
 typedef struct{
-  char nome [20];
+  char nome [30];
   tipo t;
   valor v;
 }carta_monstro;
@@ -34,6 +34,6 @@ typedef struct{
 typedef struct{
   vida h;
   energia e;
-  char nome [20];
+  char nome [30];
   tp_pilha deck;
 }jogador;
