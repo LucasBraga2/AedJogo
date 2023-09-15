@@ -394,7 +394,7 @@ int main()
 
     if (escolha == 'S' || escolha == 's')
     {
-        mostra_monstro(monstros); // Funco para visualizacao dos Monstros do jogo
+        mostra_monstro(monstros); // Funcao para visualizacao dos Monstros do jogo
     }
 
     if (mostra_monstro(monstros) == 0)
