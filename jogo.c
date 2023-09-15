@@ -31,33 +31,54 @@ void mostrar_cartas(){
     char t2 = 'N';
 
 carta c1;//CARTA 1
-
+c1.t = 1;//TIPO
+c1.v = 5;//VALOR
+c1.c = 1;//CUSTO
 
 carta c2;//CARTA 2
-
+c2.t = 1;//TIPO
+c2.v = 5;//VALOR
+c2.c = 1;//CUSTO
 
 carta c3;//CARTA 3
-
+c3.t = 1;//TIPO
+c3.v = 5;//VALOR
+c3.c = 1;//CUSTO
 
 carta c4;//CARTA 4
-
+c4.t = 1;//TIPO
+c4.v = 5;//VALOR
+c4.c = 1;//CUSTO
 
 carta c5;//CARTA 5
-
+c5.t = 1;//TIPO
+c5.v = 5;//VALOR
+c5.c = 1;//CUSTO
 
 carta c6;//CARTA 6
-
+c6.t = 1;//TIPO
+c6.v = 5;//VALOR
+c6.c = 1;//CUSTO
 
 carta c7;//CARTA 7
+c7.t = 1;//TIPO
+c7.v = 5;//VALOR
+c7.c = 1;//CUSTO
 
 carta c8;//CARTA 8
-
+c8.t = 1;//TIPO
+c8.v = 5;//VALOR
+c8.c = 1;//CUSTO
 
 carta c9;//CARTA 9
-
+c9.t = 1;//TIPO
+c9.v = 5;//VALOR
+c9.c = 1;//CUSTO
 
 carta c10;//CARTA 10
-
+c10.t = 1;//TIPO
+c10.v = 5;//VALOR
+c10.c = 1;//CUSTO
 
 
 while(t2 == 'N' || t2 =='n'){
