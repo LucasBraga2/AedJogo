@@ -9,6 +9,7 @@ typedef int valor;
 typedef int tipo;
 typedef int custo;
 
+
 typedef struct{
   vida h;
   char nome [20];
