@@ -180,9 +180,6 @@ void mostrar_cartas(carta *c){
     int j;
     char t2 = 'N';
 
-
-
-
 while(t2 == 'N' || t2 =='n'){
     printf("Digite 1 para Ataques\n");
     printf("Digite 2 para Defesas\n");
@@ -248,14 +245,14 @@ while(t2 == 'N' || t2 =='n'){
 }
 }
 
-void cria_monstro(){
+void cria_monstro(monstro *m){
 
-monstro m1;//PRIMEIRO MONSTRO
+//MONSTRO 1
 tp_fila seqmons1;//FILA DE POSSIVEIS ATAQUES E DEFESAS
 int v1 = 20;//VIDA DO PRIMEIRO MONSTRO
 
-    strcpy(m1.nome, "Homem Gosma");//NOME DO MOSNTRO 1
-    m1.h = v1;
+    strcpy(m[0].nome, "Homem Gosma");//NOME DO MOSNTRO 1
+    m[0].h = v1;
     inicializa_fila(&seqmons1);
     insere_fila(&seqmons1, 5);
     insere_fila(&seqmons1, 5);
@@ -264,12 +261,12 @@ int v1 = 20;//VIDA DO PRIMEIRO MONSTRO
     insere_fila(&seqmons1, 5);
     insere_fila(&seqmons1, 5);
 
-monstro m2;//SEGUNDO MONSTRO
+//MONSTRO 2
 tp_fila seqmons2;//FILA DE POSSIVEIS ATAQUES E DEFESAS
 int v2 = 30;//VIDA DO SEGUNDO MONSTRO
 
-    strcpy(m2.nome, "Inserir Nome");//NOME DO MOSNTRO 2
-    m2.h = v2;
+    strcpy(m[1].nome, "Inserir Nome");//NOME DO MOSNTRO 2
+    m[1].h = v2;
     inicializa_fila(&seqmons2);
     insere_fila(&seqmons2, 5);
     insere_fila(&seqmons2, 5);
@@ -277,8 +274,69 @@ int v2 = 30;//VIDA DO SEGUNDO MONSTRO
     insere_fila(&seqmons2, 5);
     insere_fila(&seqmons2, 5);
     insere_fila(&seqmons2, 5);
+
+//MONSTRO 3
+tp_fila seqmons3;//FILA DE POSSIVEIS ATAQUES E DEFESAS
+int v3 = 30;//VIDA DO TERCEIRO MONSTRO
+
+    strcpy(m[2].nome, "Inserir Nome");//NOME DO MOSNTRO 3
+    m[2].h = v2;
+    inicializa_fila(&seqmons3);
+    insere_fila(&seqmons3, 5);
+    insere_fila(&seqmons3, 5);
+    insere_fila(&seqmons3, 5);
+    insere_fila(&seqmons3, 5);
+    insere_fila(&seqmons3, 5);
+    insere_fila(&seqmons3, 5);
+
+//MONSTRO 4
+tp_fila seqmons4;//FILA DE POSSIVEIS ATAQUES E DEFESAS
+int v4 = 30;//VIDA DO QUARTO MONSTRO
+
+    strcpy(m[3].nome, "Inserir Nome");//NOME DO MOSNTRO 4
+    m[3].h = v2;
+    inicializa_fila(&seqmons4);
+    insere_fila(&seqmons4, 5);
+    insere_fila(&seqmons4, 5);
+    insere_fila(&seqmons4, 5);
+    insere_fila(&seqmons4, 5);
+    insere_fila(&seqmons4, 5);
+    insere_fila(&seqmons4, 5);
+
+//MONSTRO 5 (BOSS FINAL)
+tp_fila seqmons5;//FILA DE POSSIVEIS ATAQUES E DEFESAS
+int v5 = 30;//VIDA DO QUINTO MONSTRO
+
+    strcpy(m[4].nome, "Inserir Nome");//NOME DO MOSNTRO 5
+    m[4].h = v2;
+    inicializa_fila(&seqmons5);
+    insere_fila(&seqmons5, 5);
+    insere_fila(&seqmons5, 5);
+    insere_fila(&seqmons5, 5);
+    insere_fila(&seqmons5, 5);
+    insere_fila(&seqmons5, 5);
+    insere_fila(&seqmons5, 5);
 }  
 
+int mostra_monstro(monstro *m){
+
+int e;
+
+printf("Mosntros:\n");
+    for(int i = 0; i <= 4; i++){
+        printf("#####################################\n");
+        printf("Nome: %s\n", m[i].nome);                    
+        printf("Vida: %d Hp\n", m[i].h);
+}
+        printf("#####################################\n");
+
+        printf("Deseja comecar o jogo? (Digite S)\n");
+        scanf(" %d", &e);
+        
+        if(e == 'S' || 's'){
+            return 0;
+        }
+}
 void toma_dano(){
 
 }
@@ -306,8 +364,10 @@ int main(){
     tp_pilha p_deck;//Deck de Cartas do jogo
     char escolha;
     carta cartas[25];//ARRAY PARA BOTAR AS CARTAS ATAQUE, DEFESA, ESPECIAL
-    
+    monstro monstros[5];//ARRAT PARA OS MONSTROS
+
     cria_cartas(cartas);
+    cria_monstro(monstros);
 
     printf("Deseja visualizar as cartas disponiveis no jogo:\n");
     printf("S/N\n");
@@ -316,8 +376,19 @@ int main(){
     if(escolha == 'S' || escolha == 's'){
         mostrar_cartas(cartas);
     }
+
+    printf("Deseja visualizar os monstros disponiveis no jogo:\n");
+    printf("S/N\n");
+    scanf(" %c",&escolha);
+    
+    if(escolha == 'S' || escolha == 's'){
+        mostra_monstro(monstros);
+    }
+    
+    if(mostra_monstro(monstros) == 0){
+        cria_jogador(&j);
+    }
     
     cria_deck(&p_deck);
     cria_jogador(&j);
-    cria_monstro();
 }
