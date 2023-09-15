@@ -1,6 +1,5 @@
 #include "stru.h"
 
-
 void cria_jogador(jogador *j){
 
     printf("\nInsira o nome do jogador:\n");
@@ -166,14 +165,11 @@ c[3].t = 3;//TIPO
 c[24].v = 5;//VALOR
 c[24].c = 1;//CUSTO
 
-
 }
 
-void cria_deck(tp_pilha *p_deck){
+void cria_deck(tp_pilha *p_deck, carta *c){
 
-    inicializa_pilha (p_deck);
-
-    
+  
 }
 
 void mostrar_cartas(carta *c){
@@ -200,9 +196,6 @@ while(t2 == 'N' || t2 =='n'){
         printf("#####################################\n");
     }
     
-    
-  
-
     else if(c[j].t == 2){
 
         printf("Cartas de Desefa:\n");
@@ -239,9 +232,9 @@ while(t2 == 'N' || t2 =='n'){
     printf("Deseja sair: (S/N)\n");
     scanf(" %c", &t2);
 
-        if(t2== 'S' || t2 == 's'){
-            break;
-        }
+    if(t2== 'S' || t2 == 's'){
+        break;
+    }
 }
 }
 
@@ -277,10 +270,10 @@ int v2 = 30;//VIDA DO SEGUNDO MONSTRO
 
 //MONSTRO 3
 tp_fila seqmons3;//FILA DE POSSIVEIS ATAQUES E DEFESAS
-int v3 = 30;//VIDA DO TERCEIRO MONSTRO
+int v3 = 40;//VIDA DO TERCEIRO MONSTRO
 
     strcpy(m[2].nome, "Inserir Nome");//NOME DO MOSNTRO 3
-    m[2].h = v2;
+    m[2].h = v3;
     inicializa_fila(&seqmons3);
     insere_fila(&seqmons3, 5);
     insere_fila(&seqmons3, 5);
@@ -291,10 +284,10 @@ int v3 = 30;//VIDA DO TERCEIRO MONSTRO
 
 //MONSTRO 4
 tp_fila seqmons4;//FILA DE POSSIVEIS ATAQUES E DEFESAS
-int v4 = 30;//VIDA DO QUARTO MONSTRO
+int v4 = 50;//VIDA DO QUARTO MONSTRO
 
     strcpy(m[3].nome, "Inserir Nome");//NOME DO MOSNTRO 4
-    m[3].h = v2;
+    m[3].h = v4;
     inicializa_fila(&seqmons4);
     insere_fila(&seqmons4, 5);
     insere_fila(&seqmons4, 5);
@@ -305,10 +298,10 @@ int v4 = 30;//VIDA DO QUARTO MONSTRO
 
 //MONSTRO 5 (BOSS FINAL)
 tp_fila seqmons5;//FILA DE POSSIVEIS ATAQUES E DEFESAS
-int v5 = 30;//VIDA DO QUINTO MONSTRO
+int v5 = 60;//VIDA DO QUINTO MONSTRO
 
     strcpy(m[4].nome, "Inserir Nome");//NOME DO MOSNTRO 5
-    m[4].h = v2;
+    m[4].h = v5;
     inicializa_fila(&seqmons5);
     insere_fila(&seqmons5, 5);
     insere_fila(&seqmons5, 5);
@@ -368,6 +361,7 @@ int main(){
 
     cria_cartas(cartas);
     cria_monstro(monstros);
+    cria_deck(&p_deck, cartas);
 
     printf("Deseja visualizar as cartas disponiveis no jogo:\n");
     printf("S/N\n");
@@ -389,6 +383,5 @@ int main(){
         cria_jogador(&j);
     }
     
-    cria_deck(&p_deck);
     cria_jogador(&j);
 }
