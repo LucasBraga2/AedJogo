@@ -234,7 +234,7 @@ void mostrar_cartas(carta *c)
                 printf("#####################################\n");
                 printf("Nome: %s\n", c[i].nome);
                 printf("Tipo: Especial\n");
-                printf("Valor: %d\n", c[i].v);
+                printf("Habilidade: %s\n", c[i].habilidade);
                 printf("Custo: %d energia\n", c[i].c);
             }
             printf("#####################################\n");
