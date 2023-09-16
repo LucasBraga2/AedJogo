@@ -170,9 +170,9 @@ void cria_cartas(carta *c)
 void cria_deck(tp_pilha *p_deck, carta *c)
 {
 
-    tp_item c[0];
+    //tp_item c[0];
 
-    inicializa_fila(p_deck);
+    //inicializa_fila(p_deck);
 
     // push(p_deck, c[0]);
 }
@@ -328,7 +328,7 @@ void cria_monstro(monstro *m)
 int mostra_monstro(monstro *m)
 {
 
-    int e;
+    char e;
 
     printf("Mosntros:\n");
     for (int i = 0; i <= 4; i++)
@@ -340,7 +340,7 @@ int mostra_monstro(monstro *m)
     printf("#####################################\n");
 
     printf("Deseja comecar o jogo? (Digite S/s)\n");
-    scanf(" %d", &e);
+    scanf(" %c", &e);
 
     if (e == 'S' || 's')
     {
@@ -397,10 +397,12 @@ int main()
         mostra_monstro(monstros); // Funcao para visualizacao dos Monstros do jogo
     }
 
-    if (mostra_monstro(monstros) == 0)
-    {
-        cria_jogador(&j);
-    }
-
     cria_jogador(&j); // Funcao para criar o jogador
+
+    printf("Pressione qualquer tecla para fechar o programa...\n");
+    
+    // Espera até que qualquer tecla seja pressionada
+    getchar();
+
+    return 0;
 }

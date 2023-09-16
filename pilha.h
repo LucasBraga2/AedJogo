@@ -2,7 +2,7 @@
 #define PILHA_H
 #include <stdio.h>
 #define MAX 100
-#include"stru.h"
+
 
 typedef int tp_item;
 

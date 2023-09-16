@@ -2,14 +2,11 @@
 #include "fila.h"
 #include <string.h>
 
-
 typedef int vida;
 typedef int energia;
 typedef int valor;
 typedef int tipo;
 typedef int custo;
-
-
 typedef struct{
   vida h;
   char nome [30];
@@ -37,3 +34,5 @@ typedef struct{
   char nome [30];
   tp_pilha deck;
 }jogador;
+
+
