@@ -137,42 +137,47 @@ void cria_cartas(carta *c)
     c[19].c = 1;                     // CUSTO
 
     // CARTA 20 ESPECIAL
-    strcpy(c[20].nome, "Piada"); // NOME
-    c[3].t = 3;                  // TIPO
-    c[20].v = 5;                 // VALOR
-    c[20].c = 1;                 // CUSTO
+    strcpy(c[20].nome, "Piada");         // NOME
+    strcpy(c[20].habilidade, "Inserir"); // HABILIDADE
+    c[3].t = 3;                          // TIPO
+    c[20].v = 5;                         // VALOR
+    c[20].c = 1;                         // CUSTO
 
     // CARTA 21 ESPECIAL
-    strcpy(c[21].nome, "Esparadrapo"); // NOME
-    c[3].t = 3;                        // TIPO
-    c[21].v = 5;                       // VALOR
-    c[21].c = 1;                       // CUSTO
+    strcpy(c[21].nome, "Esparadrapo");   // NOME
+    strcpy(c[21].habilidade, "Inserir"); // HABILIDADE
+    c[3].t = 3;                          // TIPO
+    c[21].v = 5;                         // VALOR
+    c[21].c = 1;                         // CUSTO
 
     // CARTA 22 ESPECIAL
     strcpy(c[22].nome, "Sopro da Abstracao"); // NOME
+    strcpy(c[22].habilidade, "Inserir");      // HABILIDADE
     c[3].t = 3;                               // TIPO
     c[22].v = 5;                              // VALOR
     c[22].c = 1;                              // CUSTO
 
     // CARTA 23 ESPECIAL
-    strcpy(c[23].nome, "Renato Paiva"); // NOME
-    c[3].t = 3;                         // TIPO
-    c[23].v = 5;                        // VALOR
-    c[23].c = 1;                        // CUSTO
+    strcpy(c[23].nome, "Renato Paiva");  // NOME
+    strcpy(c[23].habilidade, "Inserir"); // HABILIDADE
+    c[3].t = 3;                          // TIPO
+    c[23].v = 5;                         // VALOR
+    c[23].c = 1;                         // CUSTO
 
     // CARTA 24 ESPECIAL
-    strcpy(c[24].nome, "SUS"); // NOME
-    c[3].t = 3;                // TIPO
-    c[24].v = 5;               // VALOR
-    c[24].c = 1;               // CUSTO
+    strcpy(c[24].nome, "SUS");           // NOME
+    strcpy(c[24].habilidade, "Inserir"); // HABILIDADE
+    c[3].t = 3;                          // TIPO
+    c[24].v = 5;                         // VALOR
+    c[24].c = 1;                         // CUSTO
 }
 
 void cria_deck(tp_pilha *p_deck, carta *c)
 {
 
-    //tp_item c[0];
+    // tp_item c[0];
 
-    //inicializa_fila(p_deck);
+    // inicializa_fila(p_deck);
 
     // push(p_deck, c[0]);
 }
@@ -398,7 +403,7 @@ int main()
     }
 
     cria_jogador(&j); // Funcao para criar o jogador
-    
+
     printf("Pressione Enter para fechar o programa...\n");
 
     system("pause"); // Pausa até que o usuário pressione Enter

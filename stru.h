@@ -7,6 +7,7 @@ typedef int energia;
 typedef int valor;
 typedef int tipo;
 typedef int custo;
+
 typedef struct{
   vida h;
   char nome [30];
@@ -18,6 +19,7 @@ typedef struct{
 typedef struct{
   char nome [30];
   tipo t;
+  char habilidade[50];
   valor v;
   custo c;
 }carta;
