@@ -1,4 +1,6 @@
 #include "stru.h"
+#include <time.h>
+#include <stdlib.h>
 
 void cria_jogador(jogador *j)
 {
@@ -202,13 +204,13 @@ void mostrar_cartas(carta *c)
             printf("Cartas de Ataque:\n");
             for (int i = 0; i <= 9; i++)
             {
-                printf("#####################################\n");
+                printf("-----------------------------------\n");
                 printf("Nome: %s\n", c[i].nome);
                 printf("Tipo: Ataque\n");
                 printf("Valor: %d\n", c[i].v);
                 printf("Custo: %d energia\n", c[i].c);
             }
-            printf("#####################################\n");
+            printf("-----------------------------------\n");
         }
 
         else if (j == 2)
@@ -217,13 +219,13 @@ void mostrar_cartas(carta *c)
             printf("Cartas de Desefa:\n");
             for (int i = 10; i <= 19; i++)
             {
-                printf("#####################################\n");
+                printf("-----------------------------------\n");
                 printf("Nome: %s\n", c[i].nome);
                 printf("Tipo: Defesa\n");
                 printf("Valor: %d\n", c[i].v);
                 printf("Custo: %d energia\n", c[i].c);
             }
-            printf("#####################################\n");
+            printf("-----------------------------------\n");
         }
 
         else if (j == 3)
@@ -232,13 +234,13 @@ void mostrar_cartas(carta *c)
             printf("Cartas Especias:\n");
             for (int i = 20; i <= 24; i++)
             {
-                printf("#####################################\n");
+                printf("-----------------------------------\n");
                 printf("Nome: %s\n", c[i].nome);
                 printf("Tipo: Especial\n");
                 printf("Habilidade: %s\n", c[i].habilidade);
                 printf("Custo: %d energia\n", c[i].c);
             }
-            printf("#####################################\n");
+            printf("-----------------------------------\n");
         }
 
         else
@@ -339,11 +341,11 @@ int mostra_monstro(monstro *m)
     printf("Mosntros:\n");
     for (int i = 0; i <= 4; i++)
     {
-        printf("#####################################\n");
+        printf("-----------------------------------\n");
         printf("Nome: %s\n", m[i].nome);
         printf("Vida: %d Hp\n", m[i].h);
     }
-    printf("#####################################\n");
+    printf("-----------------------------------\n");
 
     printf("Deseja comecar o jogo? (Digite S/s)\n");
     scanf(" %c", &e);
@@ -391,7 +393,7 @@ void defende_monstro()
 int main()
 {
     jogador j;           // Jogador Principal
-    tp_pilha p_deck;     // Deck de Cartas do jogo
+    tp_pilha p_deck, p_geral;     // Deck de Cartas do jogo, pilha de cartas disponiveis no total
     carta cartas[25];    // ARRAY PARA BOTAR AS CARTAS ATAQUE, DEFESA, ESPECIAL
     monstro monstros[5]; // ARRAY PARA OS MONSTROS
     char escolha;

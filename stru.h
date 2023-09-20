@@ -2,6 +2,7 @@
 #include "fila.h"
 #include <string.h>
 
+
 typedef int vida;
 typedef int energia;
 typedef int valor;
