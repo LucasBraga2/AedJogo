@@ -175,7 +175,6 @@ void cria_cartas(carta *c)
 void cria_deck(tp_pilha *p_deck)
 {
     inicializa_pilha(p_deck);
-
 }
 
 
@@ -399,7 +398,7 @@ int main()
     cria_cartas(cartas);        // Funcao de Cricao das Cartas
     cria_monstro(monstros);     // Funcao para Criar os Monstros
     //print_carta(cartas[14]); // Funcao para printar uma carta especifica
-    cria_deck(&p_deck); // Funcao que Cria o deck de cartas
+    cria_deck(&p_deck, cartas); // Funcao que Cria o deck de cartas
 
 
     printf("Deseja visualizar as cartas disponiveis no jogo:\n");
