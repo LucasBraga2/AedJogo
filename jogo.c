@@ -314,18 +314,18 @@ void cria_monstro(monstro *m)
     strcpy(m[0].nome, "Homem Gosma"); // NOME DO MOSNTRO 1
     m[0].h = vida1;
     inicializa_fila(&seqmons1);
-    m[0].v = dano1;
-    insere_fila(&seqmons1, dano1);
-    m[0].v = defesa1;
-    insere_fila(&seqmons1, defesa1);
-    m[0].v = dano2;
-    insere_fila(&seqmons1, dano2);
-    m[0].v=defesa2;
-    insere_fila(&seqmons1, defesa2);
-    m[0].v=dano3;
-    insere_fila(&seqmons1, dano3);
-    m[0].v=defesa3;
-    insere_fila(&seqmons1, defesa3);
+    m[0].v = dano1_m1;
+    insere_fila(&seqmons1, dano1_m1);
+    m[0].v = defesa1_m1;
+    insere_fila(&seqmons1, defesa1_m1);
+    m[0].v = dano2_m1;
+    insere_fila(&seqmons1, dano2_m1);
+    m[0].v=defesa2_m1;
+    insere_fila(&seqmons1, defesa2_m1);
+    m[0].v=dano3_m1;
+    insere_fila(&seqmons1, dano3_m1);
+    m[0].v=defesa3_m1;
+    insere_fila(&seqmons1, defesa3_m1);
 
     // MONSTRO 2
     tp_fila seqmons2; // FILA DE POSSIVEIS ATAQUES E DEFESAS
