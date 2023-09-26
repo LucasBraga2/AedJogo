@@ -4,7 +4,7 @@
 #define MAX 100
 
 
-typedef int tp_item;
+typedef carta tp_item;
 
     typedef struct{
         int topo;
