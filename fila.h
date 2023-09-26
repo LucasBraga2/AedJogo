@@ -1,10 +1,14 @@
 #ifndef FILA_H
 #define FILA_H
 #include <stdio.h>
-#define MAX 100
+#define MAX 25
 
+typedef int vida;
+typedef int energia;
 typedef int valor;
 typedef int tipo;
+typedef int custo;
+
 typedef struct{
   char nome [30];
   tipo t;
@@ -17,6 +21,14 @@ typedef struct {
     tp_item item[MAX];
     int ini, fim;
 }tp_fila;
+
+typedef struct{
+  vida h;
+  char nome [30];
+  tp_fila seq;
+  tipo t;
+  valor v;
+}monstro;
 
 void inicializa_fila(tp_fila *f){
     f->ini = f->fim = MAX-1; 

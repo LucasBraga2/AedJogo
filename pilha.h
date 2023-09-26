@@ -7,6 +7,7 @@ typedef int valor;
 typedef int tipo;
 typedef int custo;
 typedef int numero;
+
 typedef struct{
   char nome [30];
   tipo t;
@@ -16,7 +17,7 @@ typedef struct{
   numero n;
 }carta;
 
-typedef int tp_item;
+typedef numero tp_item;
 
     typedef struct{
         int topo;
@@ -62,6 +63,7 @@ typedef int tp_item;
     int altura_pilha (tp_pilha *p){
         return p->topo+1;
     }
+
     void imprime_pilha (tp_pilha p){
         tp_item e;
         printf ("\n");
@@ -71,24 +73,6 @@ typedef int tp_item;
         }
     }
 
-    int empilha_pilha(tp_pilha *p, tp_pilha *p1){
-        if (altura_pilha(p)+altura_pilha(p1)>100 ){
-            return 0;
-        }
-        tp_pilha a;
-        inicializa_pilha(&a);
-        tp_item e;
-        while (!pilha_vazia(p1)){
-            pop(p1, &e);
-            push(&a, e);
-        }
-        while (!pilha_vazia(&a)){
-            pop(&a, &e);
-            push(p, e);
-        }
-        return 1;
-    }
-    
 
 #endif
 

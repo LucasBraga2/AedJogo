@@ -19,30 +19,35 @@ void cria_cartas(carta *c)
 {
 
     // CARTA 0 ATAQUE
+    c[0].n = 0;
     strcpy(c[0].nome, "Chute"); // NOME
     c[0].t = 1;                 // TIPO
     c[0].v = 5;                 // VALOR
     c[0].c = 1;                 // CUSTO
 
     // CARTA 1 ATAQUE
+    c[1].n = 1;
     strcpy(c[1].nome, "Soco"); // NOME
     c[1].t = 1;                // TIPO
     c[1].v = 6;                // VALOR
     c[1].c = 1;                // CUSTO
 
     // CARTA 2 ATAQUE
+    c[2].n = 2;
     strcpy(c[2].nome, "Facada"); // NOME
     c[2].t = 1;                  // TIPO
     c[2].v = 9;                  // VALOR
     c[2].c = 2;                  // CUSTO
 
     // CARTA 3 ATAQUE
+    c[3].n = 3;
     strcpy(c[3].nome, "Espadada"); // NOME
     c[3].t = 1;                    // TIPO
     c[3].v = 10;                   // VALOR
     c[3].c = 2;                    // CUSTO
 
     // CARTA 4 ATAQUE
+    c[4].n = 4;
     strcpy(c[4].nome, "Facadas Duplas"); // NOME
     c[4].t = 1;                          // TIPO
     c[4].v = 14;                         // VALOR
@@ -180,13 +185,19 @@ void cria_deck(tp_pilha *p_deck)
 
 }
 
-void embaralhar_deck(tp_pilha *p_deck, carta *c[])
+void embaralhar_deck(tp_pilha *p_deck, carta *c)
 {
-    push(p_deck, c[0]);
-    push(p_deck, c[1]);
-    push(p_deck, c[2]);
-    push(p_deck, c[3]);
-    push(p_deck, c[4]);
+    tp_item e;
+
+    push(p_deck, c[0].n);
+    push(p_deck, c[1].n);
+    push(p_deck, c[2].n);
+    push(p_deck, c[3].n);
+    push(p_deck, c[4].n);
+
+    pop(&p_deck, e);
+    print_carta(c[e]);
+
 }
 
 
@@ -406,10 +417,11 @@ void defende_monstro()
 int main()
 {
     jogador j;                // Jogador Principal
-    tp_pilha p_deck, p_geral; // Deck de Cartas do jogo, pilha de cartas disponiveis no total
+    tp_pilha p_deck; // Deck de Cartas do jogo, pilha de cartas disponiveis no total
     carta cartas[25];         // ARRAY PARA BOTAR AS CARTAS ATAQUE, DEFESA, ESPECIAL
     monstro monstros[5];      // ARRAY PARA OS MONSTROS
     char escolha;
+    tp_item e;
 
     cria_cartas(cartas);    // Funcao de Cricao das Cartas
     cria_monstro(monstros); // Funcao para Criar os Monstros

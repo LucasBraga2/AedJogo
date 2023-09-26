@@ -10,28 +10,6 @@ typedef int tipo;
 typedef int custo;
 typedef int numero;
 
-typedef struct{
-  vida h;
-  char nome [30];
-  tp_fila seq;
-  tipo t;
-  valor v;
-}monstro;
-
-typedef struct{
-  char nome [30];
-  tipo t;
-  char habilidade[50];
-  valor v;
-  custo c;
-  numero n;
-}carta;
-
-typedef struct{
-  char nome [30];
-  tipo t;
-  valor v;
-}carta_monstro;
 
 typedef struct{
   vida h;
