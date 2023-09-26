@@ -534,7 +534,7 @@ int main()
     //print_carta(&cartas[14]); // Funcao para printar uma carta especifica
     cria_deck(&p_deck); // Funcao que Cria o deck de cartas
     embaralhar_deck(&p_deck, cartas);
-    print_pilha(&p_deck, cartas); // Funcao para printar pilha
+    //print_pilha(&p_deck, cartas); // Funcao para printar pilha
    
 
     printf("Deseja visualizar as cartas disponiveis no jogo:\n");
