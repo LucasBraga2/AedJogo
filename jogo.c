@@ -180,8 +180,25 @@ void cria_deck(tp_pilha *p_deck, carta *c)
 }
 
 
-void embaralha_carta(tp_pilha *p_deck, carta *c){
+void embaralha_deck(tp_pilha *p_deck, tp_item *e){
 
+    srand( time (NULL)); // inicializa a pra numeros aleatórios
+    int i, k;
+    tp_item temp;
+
+    for (i=0; i<altura_pilha; i++){
+        p_deck->item[i] = i+1;
+    }
+
+    // Randomização dos valores (embaralhamento)
+
+    for (i = altura_pilha - 1; i>0; i--){
+        k = rand () % (i + 1);
+
+        temp = p_deck->item[i];
+        p_deck->item[i] = p_deck->item[k]; // Troca os valores das posições i e k
+        p_deck->item[k] = temp;
+    }
 }
 
 void mostrar_cartas(carta *c)
@@ -267,6 +284,8 @@ void cria_monstro(monstro *m)
 
     strcpy(m[0].nome, "Homem Gosma"); // NOME DO MOSNTRO 1
     m[0].h = v1;
+    valor dano;
+    valor defesa;
     inicializa_fila(&seqmons1);
     insere_fila(&seqmons1, 5);
     insere_fila(&seqmons1, 5);

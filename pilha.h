@@ -1,6 +1,7 @@
 #ifndef PILHA_H
 #define PILHA_H
 #include <stdio.h>
+#include"stru.h"
 #define MAX 100
 
 
@@ -58,24 +59,8 @@ typedef carta tp_item;
             printf("%d ", e);
         }
     }
-    void retira_impar(tp_pilha *p){
-    tp_pilha a;
-    tp_item e;
-    inicializa_pilha(&a);
-    while (!pilha_vazia(p)){
-        pop (p, &e);
-        if (e%2 ==0){
-            push(&a,e);
-        }
-    }
- 
-    while (!pilha_vazia(&a)){
-        pop (&a, &e);
-        push(p,e);
-        
-    }
-}
-    int compara_pilha (tp_pilha p, tp_pilha p1){
+
+   /* int compara_pilha (tp_pilha p, tp_pilha p1){
         if (altura_pilha(&p)!= altura_pilha(&p1)){
             return 0;
         }
@@ -87,7 +72,7 @@ typedef carta tp_item;
                 return 0;
             }
         }
-        return 1;
+        return 1;*/
     }
     int empilha_pilha(tp_pilha *p, tp_pilha *p1){
         if (altura_pilha(p)+altura_pilha(p1)>100 ){

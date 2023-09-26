@@ -1,6 +1,7 @@
 #ifndef FILA_H
 #define FILA_H
 #include <stdio.h>
+#include"stru.h"
 #define MAX 100
 
 typedef int tp_item;
@@ -61,10 +62,6 @@ int tamanho_fila(tp_fila f){
     }
     return cont;
 }
-
-
-
-
 
 
 #endif
