@@ -429,7 +429,7 @@ void print_carta(carta c)
 }
 
 void print_pilha(tp_pilha *p_deck, carta *c) {
-    printf("A pilha:\n");
+    printf("Deck de cartas:\n");
     tp_pilha pilha_temp;
     inicializa_pilha(&pilha_temp);
 
