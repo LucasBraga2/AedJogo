@@ -305,11 +305,11 @@ void cria_monstro(monstro *m)
     m[2].h = v3;
     inicializa_fila(&seqmons3);
     insere_fila(&seqmons3, dano);
-    insere_fila(&seqmons3, 5);
-    insere_fila(&seqmons3, 5);
-    insere_fila(&seqmons3, 5);
-    insere_fila(&seqmons3, 5);
-    insere_fila(&seqmons3, 5);
+    insere_fila(&seqmons3, defesa);
+    insere_fila(&seqmons3, defesa);
+    insere_fila(&seqmons3, dano);
+    insere_fila(&seqmons3, defesa);
+    insere_fila(&seqmons3, dano);
 
     // MONSTRO 4
     tp_fila seqmons4; // FILA DE POSSIVEIS ATAQUES E DEFESAS
@@ -318,12 +318,12 @@ void cria_monstro(monstro *m)
     strcpy(m[3].nome, "Cobra de Duas Cabecas"); // NOME DO MOSNTRO 4
     m[3].h = v4;
     inicializa_fila(&seqmons4);
-    insere_fila(&seqmons4, 5);
-    insere_fila(&seqmons4, 5);
-    insere_fila(&seqmons4, 5);
-    insere_fila(&seqmons4, 5);
-    insere_fila(&seqmons4, 5);
-    insere_fila(&seqmons4, 5);
+    insere_fila(&seqmons4, defesa);
+    insere_fila(&seqmons4, dano);
+    insere_fila(&seqmons4, dano);
+    insere_fila(&seqmons4, defesa);
+    insere_fila(&seqmons4, dano);
+    insere_fila(&seqmons4, dano);
 
     // MONSTRO 5 (BOSS FINAL)
     tp_fila seqmons5; // FILA DE POSSIVEIS ATAQUES E DEFESAS
@@ -332,12 +332,12 @@ void cria_monstro(monstro *m)
     strcpy(m[4].nome, "Mob Dick(Boss Final)"); // NOME DO MOSNTRO 5
     m[4].h = v5;
     inicializa_fila(&seqmons5);
-    insere_fila(&seqmons5, 5);
-    insere_fila(&seqmons5, 5);
-    insere_fila(&seqmons5, 5);
-    insere_fila(&seqmons5, 5);
-    insere_fila(&seqmons5, 5);
-    insere_fila(&seqmons5, 5);
+    insere_fila(&seqmons5, dano);
+    insere_fila(&seqmons5, dano);
+    insere_fila(&seqmons5, defesa);
+    insere_fila(&seqmons5, defesa);
+    insere_fila(&seqmons5, dano);
+    insere_fila(&seqmons5, dano);
 }
 
 int mostra_monstro(monstro *m)
