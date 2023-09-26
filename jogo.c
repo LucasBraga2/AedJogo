@@ -304,12 +304,12 @@ void cria_monstro(monstro *m)
     // MONSTRO 1
     tp_fila seqmons1; // FILA DE POSSIVEIS ATAQUES E DEFESAS
     int vida1 = 20;      // VIDA DO PRIMEIRO MONSTRO
-    int dano1 = 5;
-    int defesa1 = 5;
-    int dano2 = 5;
-    int defesa2 = 5;
-    int dano3 = 5;
-    int defesa3 = 5;
+    int dano1_m1 = 5;
+    int defesa1_m1 = 5;
+    int dano2_m1 = 5;
+    int defesa2_m1 = 5;
+    int dano3_m1 = 5;
+    int defesa3_m1 = 5;
 
     strcpy(m[0].nome, "Homem Gosma"); // NOME DO MOSNTRO 1
     m[0].h = vida1;
