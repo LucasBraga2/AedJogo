@@ -396,11 +396,12 @@ int main()
     carta cartas[25];    // ARRAY PARA BOTAR AS CARTAS ATAQUE, DEFESA, ESPECIAL
     monstro monstros[5]; // ARRAY PARA OS MONSTROS
     char escolha;
+    int x;
 
     cria_cartas(cartas);        // Funcao de Cricao das Cartas
     cria_monstro(monstros);     // Funcao para Criar os Monstros
     //print_carta(cartas[14]); // Funcao para printar uma carta especifica
-    cria_deck(&p_deck, cartas); // Funcao que Cria o deck de cartas
+    cria_deck(&p_deck); // Funcao que Cria o deck de cartas
 
 
     printf("Deseja visualizar as cartas disponiveis no jogo:\n");
