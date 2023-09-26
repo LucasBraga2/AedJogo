@@ -1,13 +1,8 @@
 #ifndef FILA_H
 #define FILA_H
 #include <stdio.h>
+#include "stru.h"
 #define MAX 25
-
-typedef int vida;
-typedef int energia;
-typedef int valor;
-typedef int tipo;
-typedef int custo;
 
 typedef struct{
   char nome [30];
@@ -29,6 +24,7 @@ typedef struct{
   tipo t;
   valor v;
 }monstro;
+
 
 void inicializa_fila(tp_fila *f){
     f->ini = f->fim = MAX-1; 

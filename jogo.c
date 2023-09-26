@@ -1,4 +1,5 @@
-#include "stru.h"
+#include "fila.h"
+#include "pilha.h"
 #include <time.h>
 #include <stdlib.h>
 
@@ -187,16 +188,18 @@ void cria_deck(tp_pilha *p_deck)
 
 void embaralhar_deck(tp_pilha *p_deck, carta *c)
 {
-    tp_item e;
 
     push(p_deck, c[0].n);
     push(p_deck, c[1].n);
     push(p_deck, c[2].n);
     push(p_deck, c[3].n);
     push(p_deck, c[4].n);
+    
 
-    pop(&p_deck, e);
-    print_carta(c[e]);
+}
+
+void retira_carta(tp_pilha *p_deck, carta *c){
+
 
 }
 
@@ -281,18 +284,28 @@ void cria_monstro(monstro *m)
     // MONSTRO 1
     tp_fila seqmons1; // FILA DE POSSIVEIS ATAQUES E DEFESAS
     int v1 = 20;      // VIDA DO PRIMEIRO MONSTRO
+    int dano1 = 5;
+    int defesa1 = 5;
+    int dano2 = 5;
+    int defesa2 = 5;
+    int dano3 = 5;
+    int defesa3 = 5;
 
     strcpy(m[0].nome, "Homem Gosma"); // NOME DO MOSNTRO 1
     m[0].h = v1;
-    valor dano;
-    valor defesa;
     inicializa_fila(&seqmons1);
-    insere_fila(&seqmons1, dano);
-    insere_fila(&seqmons1, defesa);
-    insere_fila(&seqmons1, defesa);
-    insere_fila(&seqmons1, dano);
-    insere_fila(&seqmons1, defesa);
-    insere_fila(&seqmons1, dano);
+    m[0].v = dano1;
+    insere_fila(&seqmons1, dano1);
+    m[0].v = defesa1;
+    insere_fila(&seqmons1, defesa1);
+    m[0].v = dano2;
+    insere_fila(&seqmons1, dano2);
+    m[0].v=defesa2;
+    insere_fila(&seqmons1, defesa2);
+    m[0].v=dano3;
+    insere_fila(&seqmons1, dano3);
+    m[0].v=defesa3;
+    insere_fila(&seqmons1, defesa3);
 
     // MONSTRO 2
     tp_fila seqmons2; // FILA DE POSSIVEIS ATAQUES E DEFESAS
@@ -374,24 +387,35 @@ int mostra_monstro(monstro *m)
     }
 }
 
-void print_carta(carta c)
+void print_carta(carta *c)
 {
 
-    printf("Nome: %s\n", c.nome);
-    if (c.t == 1)
+    printf("Nome: %s\n", c->nome);
+    if (c->t == 1)
     {
         printf("Tipo: Ataque\n");
     }
-    if (c.t == 2)
+    if (c->t == 2)
     {
         printf("Tipo: Defesa\n");
     }
-    if (c.t == 3)
+    if (c->t == 3)
     {
         printf("Tipo: Especial\n");
     }
-    printf("Valor: %d\n", c.v);
-    printf("Custo: %d\n", c.c);
+    printf("Valor: %d\n", c->v);
+    printf("Custo: %d\n", c->c);
+}
+
+void imprime_pilha(tp_pilha p, carta *c)
+{
+    tp_item e;
+    printf("\n");
+    while (!pilha_vazia(&p))
+    {
+        pop(&p, &e);
+        
+    }
 }
 
 void toma_dano()
@@ -421,13 +445,12 @@ int main()
     carta cartas[25];         // ARRAY PARA BOTAR AS CARTAS ATAQUE, DEFESA, ESPECIAL
     monstro monstros[5];      // ARRAY PARA OS MONSTROS
     char escolha;
-    tp_item e;
 
     cria_cartas(cartas);    // Funcao de Cricao das Cartas
     cria_monstro(monstros); // Funcao para Criar os Monstros
-    // print_carta(cartas[14]); // Funcao para printar uma carta especifica
+    //print_carta(&cartas[14]); // Funcao para printar uma carta especifica
     cria_deck(&p_deck); // Funcao que Cria o deck de cartas
-    embaralha_deck(&p_deck, cartas);
+    embaralhar_deck(&p_deck, cartas);
 
     printf("Deseja visualizar as cartas disponiveis no jogo:\n");
     printf("S/N\n");
