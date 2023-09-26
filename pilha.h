@@ -1,11 +1,22 @@
 #ifndef PILHA_H
 #define PILHA_H
 #include <stdio.h>
-#include"stru.h"
-#define MAX 100
+#define MAX 25
 
+typedef int valor;
+typedef int tipo;
+typedef int custo;
+typedef int numero;
+typedef struct{
+  char nome [30];
+  tipo t;
+  char habilidade[50];
+  valor v;
+  custo c;
+  numero n;
+}carta;
 
-typedef carta tp_item;
+typedef int tp_item;
 
     typedef struct{
         int topo;
@@ -60,20 +71,6 @@ typedef carta tp_item;
         }
     }
 
-   /* int compara_pilha (tp_pilha p, tp_pilha p1){
-        if (altura_pilha(&p)!= altura_pilha(&p1)){
-            return 0;
-        }
-        tp_item e, e1;
-        while (!pilha_vazia(&p)){
-            pop(&p,&e);
-            pop (&p1, &e1);
-            if (e!=e1){
-                return 0;
-            }
-        }
-        return 1;*/
-    }
     int empilha_pilha(tp_pilha *p, tp_pilha *p1){
         if (altura_pilha(p)+altura_pilha(p1)>100 ){
             return 0;

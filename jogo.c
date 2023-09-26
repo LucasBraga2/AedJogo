@@ -39,167 +39,156 @@ void cria_cartas(carta *c)
     // CARTA 3 ATAQUE
     strcpy(c[3].nome, "Espadada"); // NOME
     c[3].t = 1;                    // TIPO
-    c[3].v = 10;                    // VALOR
+    c[3].v = 10;                   // VALOR
     c[3].c = 2;                    // CUSTO
 
     // CARTA 4 ATAQUE
     strcpy(c[4].nome, "Facadas Duplas"); // NOME
     c[4].t = 1;                          // TIPO
-    c[4].v = 14;                          // VALOR
+    c[4].v = 14;                         // VALOR
     c[4].c = 3;                          // CUSTO
 
     // CARTA 5 ATAQUE
     strcpy(c[5].nome, "Martelo de Espinhos"); // NOME
     c[5].t = 1;                               // TIPO
-    c[5].v = 15;                               // VALOR
+    c[5].v = 15;                              // VALOR
     c[5].c = 3;                               // CUSTO
 
     // CARTA 6 ATAQUE
     strcpy(c[6].nome, "Lanca chamas"); // NOME
     c[6].t = 1;                        // TIPO
-    c[6].v = 18;                        // VALOR
+    c[6].v = 18;                       // VALOR
     c[6].c = 4;                        // CUSTO
 
     // CARTA 7 ATAQUE
     strcpy(c[7].nome, "Bombas Explosivas"); // NOME
     c[7].t = 1;                             // TIPO
-    c[7].v = 21;                             // VALOR
+    c[7].v = 21;                            // VALOR
     c[7].c = 4;                             // CUSTO
 
     // CARTA 8 ATAQUE
     strcpy(c[8].nome, "Chuva de Asteroides"); // NOME
     c[8].t = 1;                               // TIPO
-    c[8].v = 26;                               // VALOR
+    c[8].v = 26;                              // VALOR
     c[8].c = 5;                               // CUSTO
 
     // CARTA 9 ATAQUE
     strcpy(c[9].nome, "Raios Infinitos"); // NOME
     c[9].t = 1;                           // TIPO
-    c[9].v = 30;                           // VALOR
+    c[9].v = 30;                          // VALOR
     c[9].c = 6;                           // CUSTO
 
     // CARTA 10 DEFESA
     strcpy(c[10].nome, "Escudo"); // NOME
-    c[10].t = 2;                   // TIPO
+    c[10].t = 2;                  // TIPO
     c[10].v = 4;                  // VALOR
     c[10].c = 1;                  // CUSTO
 
     // CARTA 11 DEFESA
     strcpy(c[11].nome, "Capacete Blindado"); // NOME
     c[11].t = 2;                             // TIPO
-    c[11].v = 5;                            // VALOR
-    c[11].c = 1;                            // CUSTO
+    c[11].v = 5;                             // VALOR
+    c[11].c = 1;                             // CUSTO
 
     // CARTA 12 DEFESA
     strcpy(c[12].nome, "Armadura Dourada"); // NOME
-    c[12].t = 2;                               // TIPO
-    c[12].v = 9;                              // VALOR
-    c[12].c = 2;                              // CUSTO
+    c[12].t = 2;                            // TIPO
+    c[12].v = 9;                            // VALOR
+    c[12].c = 2;                            // CUSTO
 
     // CARTA 13 DEFESA
     strcpy(c[13].nome, "Barreira de Pedras"); // NOME
-    c[13].t = 2;                            // TIPO
-    c[13].v = 11;                           // VALOR
-    c[13].c = 2;                           // CUSTO
+    c[13].t = 2;                              // TIPO
+    c[13].v = 11;                             // VALOR
+    c[13].c = 2;                              // CUSTO
 
     // CARTA 14 DEFESA
     strcpy(c[14].nome, "Parade de Vento"); // NOME
-    c[14].t = 2;                               // TIPO
-    c[14].v = 15;                              // VALOR
-    c[14].c = 3;                              // CUSTO
+    c[14].t = 2;                           // TIPO
+    c[14].v = 15;                          // VALOR
+    c[14].c = 3;                           // CUSTO
 
     // CARTA 15 DEFESA
     strcpy(c[15].nome, "Muro Impenetravel"); // NOME
-    c[15].t = 2;                              // TIPO
-    c[15].v = 17;                             // VALOR
+    c[15].t = 2;                             // TIPO
+    c[15].v = 17;                            // VALOR
     c[15].c = 3;                             // CUSTO
 
     // CARTA 16 DEFESA
     strcpy(c[16].nome, "Colete balistico"); // NOME
-    c[16].t = 2;                             // TIPO
-    c[16].v = 21;                            // VALOR
+    c[16].t = 2;                            // TIPO
+    c[16].v = 21;                           // VALOR
     c[16].c = 4;                            // CUSTO
 
     // CARTA 17 DEFESA
     strcpy(c[17].nome, "Almofadas"); // NOME
-    c[17].t = 2;                                 // TIPO
-    c[17].v = 22;                                // VALOR
-    c[17].c = 4;                                // CUSTO
+    c[17].t = 2;                     // TIPO
+    c[17].v = 22;                    // VALOR
+    c[17].c = 4;                     // CUSTO
 
     // CARTA 18 DEFESA
     strcpy(c[18].nome, "Camisa de Laranjinha"); // NOME
-    c[18].t = 2;                                     // TIPO
-    c[18].v = 28;                                    // VALOR
-    c[18].c = 5;                                    // CUSTO
+    c[18].t = 2;                                // TIPO
+    c[18].v = 28;                               // VALOR
+    c[18].c = 5;                                // CUSTO
 
     // CARTA 19 DEFESA
     strcpy(c[19].nome, "Carro blindado de Soussa"); // NOME
-    c[19].t = 2;                      // TIPO
-    c[19].v = 30;                     // VALOR
-    c[19].c = 5;                     // CUSTO
+    c[19].t = 2;                                    // TIPO
+    c[19].v = 30;                                   // VALOR
+    c[19].c = 5;                                    // CUSTO
 
     // CARTA 20 ESPECIAL
     strcpy(c[20].nome, "Piada");         // NOME
     strcpy(c[20].habilidade, "Inserir"); // HABILIDADE
-    c[20].t = 3;                          // TIPO
+    c[20].t = 3;                         // TIPO
     c[20].v = 5;                         // VALOR
     c[20].c = 1;                         // CUSTO
 
     // CARTA 21 ESPECIAL
     strcpy(c[21].nome, "Esparadrapo");   // NOME
     strcpy(c[21].habilidade, "Inserir"); // HABILIDADE
-    c[21].t = 3;                          // TIPO
+    c[21].t = 3;                         // TIPO
     c[21].v = 5;                         // VALOR
     c[21].c = 2;                         // CUSTO
 
     // CARTA 22 ESPECIAL
     strcpy(c[22].nome, "Sopro da Abstracao"); // NOME
     strcpy(c[22].habilidade, "Inserir");      // HABILIDADE
-    c[22].t = 3;                               // TIPO
+    c[22].t = 3;                              // TIPO
     c[22].v = 5;                              // VALOR
     c[22].c = 3;                              // CUSTO
 
     // CARTA 23 ESPECIAL
     strcpy(c[23].nome, "Renato Paiva");  // NOME
     strcpy(c[23].habilidade, "Inserir"); // HABILIDADE
-    c[23].t = 3;                          // TIPO
+    c[23].t = 3;                         // TIPO
     c[23].v = 5;                         // VALOR
     c[23].c = 4;                         // CUSTO
 
     // CARTA 24 ESPECIAL
     strcpy(c[24].nome, "SUS");           // NOME
     strcpy(c[24].habilidade, "Inserir"); // HABILIDADE
-    c[24].t = 3;                          // TIPO
+    c[24].t = 3;                         // TIPO
     c[24].v = 5;                         // VALOR
     c[24].c = 3;                         // CUSTO
 }
 
-void cria_deck(tp_pilha *p_deck, carta *c)
+void cria_deck(tp_pilha *p_deck)
 {
     inicializa_pilha(p_deck);
+
 }
 
-
-void embaralha_deck(tp_pilha *p_deck, tp_item *e){
-
-    srand( time (NULL)); // inicializa a pra numeros aleatórios
-    int i, k;
-    tp_item temp;
-
-    for (i=0; i<altura_pilha; i++){
-        p_deck->item[i] = i+1;
-    }
-
-    // Randomização dos valores (embaralhamento)
-
-    for (i = altura_pilha - 1; i>0; i--){
-        k = rand () % (i + 1);
-
-        temp = p_deck->item[i];
-        p_deck->item[i] = p_deck->item[k]; // Troca os valores das posições i e k
-        p_deck->item[k] = temp;
-    }
+void embaralhar_deck(tp_pilha *p_deck, carta *c[])
+{
+    push(p_deck, c[0]);
+    push(p_deck, c[1]);
+    push(p_deck, c[2]);
+    push(p_deck, c[3]);
+    push(p_deck, c[4]);
 }
+
 
 void mostrar_cartas(carta *c)
 {
@@ -287,12 +276,12 @@ void cria_monstro(monstro *m)
     valor dano;
     valor defesa;
     inicializa_fila(&seqmons1);
-    insere_fila(&seqmons1, 5);
-    insere_fila(&seqmons1, 5);
-    insere_fila(&seqmons1, 3);
-    insere_fila(&seqmons1, 5);
-    insere_fila(&seqmons1, 5);
-    insere_fila(&seqmons1, 5);
+    insere_fila(&seqmons1, dano);
+    insere_fila(&seqmons1, defesa);
+    insere_fila(&seqmons1, defesa);
+    insere_fila(&seqmons1, dano);
+    insere_fila(&seqmons1, defesa);
+    insere_fila(&seqmons1, dano);
 
     // MONSTRO 2
     tp_fila seqmons2; // FILA DE POSSIVEIS ATAQUES E DEFESAS
@@ -301,12 +290,12 @@ void cria_monstro(monstro *m)
     strcpy(m[1].nome, "Gaviao Feroz"); // NOME DO MOSNTRO 2
     m[1].h = v2;
     inicializa_fila(&seqmons2);
-    insere_fila(&seqmons2, 5);
-    insere_fila(&seqmons2, 5);
-    insere_fila(&seqmons2, 5);
-    insere_fila(&seqmons2, 5);
-    insere_fila(&seqmons2, 5);
-    insere_fila(&seqmons2, 5);
+    insere_fila(&seqmons2, defesa);
+    insere_fila(&seqmons2, dano);
+    insere_fila(&seqmons2, dano);
+    insere_fila(&seqmons2, dano);
+    insere_fila(&seqmons2, defesa);
+    insere_fila(&seqmons2, dano);
 
     // MONSTRO 3
     tp_fila seqmons3; // FILA DE POSSIVEIS ATAQUES E DEFESAS
@@ -315,7 +304,7 @@ void cria_monstro(monstro *m)
     strcpy(m[2].nome, "Gigante de Pedra"); // NOME DO MOSNTRO 3
     m[2].h = v3;
     inicializa_fila(&seqmons3);
-    insere_fila(&seqmons3, 5);
+    insere_fila(&seqmons3, dano);
     insere_fila(&seqmons3, 5);
     insere_fila(&seqmons3, 5);
     insere_fila(&seqmons3, 5);
@@ -374,18 +363,24 @@ int mostra_monstro(monstro *m)
     }
 }
 
-void print_carta(carta c){
+void print_carta(carta c)
+{
 
     printf("Nome: %s\n", c.nome);
-    if(c.t== 1){
-    printf("Tipo: Ataque\n");}
-    if(c.t== 2){
-    printf("Tipo: Defesa\n");}
-    if(c.t== 3){
-    printf("Tipo: Especial\n");}
+    if (c.t == 1)
+    {
+        printf("Tipo: Ataque\n");
+    }
+    if (c.t == 2)
+    {
+        printf("Tipo: Defesa\n");
+    }
+    if (c.t == 3)
+    {
+        printf("Tipo: Especial\n");
+    }
     printf("Valor: %d\n", c.v);
     printf("Custo: %d\n", c.c);
-
 }
 
 void toma_dano()
@@ -410,17 +405,17 @@ void defende_monstro()
 
 int main()
 {
-    jogador j;           // Jogador Principal
-    tp_pilha p_deck, p_geral;     // Deck de Cartas do jogo, pilha de cartas disponiveis no total
-    carta cartas[25];    // ARRAY PARA BOTAR AS CARTAS ATAQUE, DEFESA, ESPECIAL
-    monstro monstros[5]; // ARRAY PARA OS MONSTROS
+    jogador j;                // Jogador Principal
+    tp_pilha p_deck, p_geral; // Deck de Cartas do jogo, pilha de cartas disponiveis no total
+    carta cartas[25];         // ARRAY PARA BOTAR AS CARTAS ATAQUE, DEFESA, ESPECIAL
+    monstro monstros[5];      // ARRAY PARA OS MONSTROS
     char escolha;
 
-    cria_cartas(cartas);        // Funcao de Cricao das Cartas
-    cria_monstro(monstros);     // Funcao para Criar os Monstros
-    //print_carta(cartas[14]); // Funcao para printar uma carta especifica
-    cria_deck(&p_deck, cartas); // Funcao que Cria o deck de cartas
-
+    cria_cartas(cartas);    // Funcao de Cricao das Cartas
+    cria_monstro(monstros); // Funcao para Criar os Monstros
+    // print_carta(cartas[14]); // Funcao para printar uma carta especifica
+    cria_deck(&p_deck); // Funcao que Cria o deck de cartas
+    embaralha_deck(&p_deck, cartas);
 
     printf("Deseja visualizar as cartas disponiveis no jogo:\n");
     printf("S/N\n");

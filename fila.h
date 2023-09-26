@@ -1,10 +1,17 @@
 #ifndef FILA_H
 #define FILA_H
 #include <stdio.h>
-#include"stru.h"
 #define MAX 100
 
-typedef int tp_item;
+typedef int valor;
+typedef int tipo;
+typedef struct{
+  char nome [30];
+  tipo t;
+  valor v;
+}carta_monstro;
+
+typedef valor tp_item;
 
 typedef struct {
     tp_item item[MAX];
