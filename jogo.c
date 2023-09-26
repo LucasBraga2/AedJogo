@@ -304,6 +304,7 @@ void cria_monstro(monstro *m)
     // MONSTRO 1
     tp_fila seqmons1; // FILA DE POSSIVEIS ATAQUES E DEFESAS
     int vida1 = 20;      // VIDA DO PRIMEIRO MONSTRO
+    //DANOS E DEFESAS E SEUS VALORES
     int dano1_m1 = 5;
     int defesa1_m1 = 5;
     int dano2_m1 = 5;
@@ -330,6 +331,7 @@ void cria_monstro(monstro *m)
     // MONSTRO 2
     tp_fila seqmons2; // FILA DE POSSIVEIS ATAQUES E DEFESAS
     int vida2 = 30;      // VIDA DO SEGUNDO MONSTRO
+    //DANOS E DEFESAS E SEUS VALORES
     int defesa1_m2 = 4;
     int dano1_m2 = 6;
     int dano2_m2 = 5;
@@ -356,6 +358,7 @@ void cria_monstro(monstro *m)
     // MONSTRO 3
     tp_fila seqmons3; // FILA DE POSSIVEIS ATAQUES E DEFESAS
     int vida3 = 40;      // VIDA DO TERCEIRO MONSTRO
+    //DANOS E DEFESAS E SEUS VALORES
     int dano1_m3 = 5;
     int defesa1_m3 = 5;
     int defesa2_m3 = 5;
@@ -382,6 +385,7 @@ void cria_monstro(monstro *m)
     // MONSTRO 4
     tp_fila seqmons4; // FILA DE POSSIVEIS ATAQUES E DEFESAS
     int vida4 = 50;      // VIDA DO QUARTO MONSTRO
+    //DANOS E DEFESAS E SEUS VALORES
     int defesa1_m4 = 5;
     int dano1_m4 = 8;
     int dano2_m4 = 5;
@@ -408,6 +412,7 @@ void cria_monstro(monstro *m)
     // MONSTRO 5 (BOSS FINAL)
     tp_fila seqmons5; // FILA DE POSSIVEIS ATAQUES E DEFESAS
     int vida5 = 60;      // VIDA DO QUINTO MONSTRO
+    //DANOS E DEFESAS E SEUS VALORES
     int dano1_m5 = 7;
     int dano2_m5 = 7;
     int defesa1_m5 = 5;
@@ -457,7 +462,6 @@ int mostra_monstro(monstro *m)
 
 void print_carta(carta c)
 {
-    printf("-----------------------------------\n");
     printf("Nome: %s\n", c.nome);
     if (c.t == 1)
     {
@@ -478,6 +482,7 @@ void print_carta(carta c)
 
 void print_pilha(tp_pilha *p_deck, carta *c) {
     printf("Deck de cartas:\n");
+    printf("-----------------------------------\n");
     tp_pilha pilha_temp;
     inicializa_pilha(&pilha_temp);
 
@@ -527,9 +532,9 @@ int main()
     cria_cartas(cartas);    // Funcao de Cricao das Cartas
     cria_monstro(monstros); // Funcao para Criar os Monstros
     //print_carta(&cartas[14]); // Funcao para printar uma carta especifica
-    //print_pilha(&p_deck, cartas); // Funcao para printar pilha
     cria_deck(&p_deck); // Funcao que Cria o deck de cartas
     embaralhar_deck(&p_deck, cartas);
+    print_pilha(&p_deck, cartas); // Funcao para printar pilha
    
 
     printf("Deseja visualizar as cartas disponiveis no jogo:\n");
