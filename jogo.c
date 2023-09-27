@@ -507,6 +507,7 @@ void defende_monstro()
 
 int main()
 {
+    system("cls");
 	system("color 1F");
     jogador j;           // Jogador Principal
     tp_pilha p_deck;     // Deck de Cartas do jogo, pilha de cartas disponiveis no total
@@ -556,11 +557,11 @@ int main()
     printf("                                   |   __| |__|  | |     |\n");
     printf("                                   |_____________________|\n");
     
-    printf("\n\n\n\nDigite 'j' para jogar ou 's' para sair: ");
+    printf("\n\n\n\nDigite 'J' para jogar ou 'S' para sair: \n");
     scanf("%c", &menu);
     printf("\n\n");
     
-    if(menu == 's') return 0;
+    if(menu == 's' || menu == 'S') return 0;
     
 
     printf("Deseja visualizar as cartas disponiveis no jogo:\n");
