@@ -200,55 +200,22 @@ void cria_cartas(carta *c)
     c[24].c = 3;                         // CUSTO
 }
 
-void cria_deck(tp_pilha *p_deck, tp_pilha *p_deck_aux1, tp_pilha *p_deck_aux2)
+void cria_deck(tp_pilha *p_deck)
 {
     inicializa_pilha(p_deck);
-    inicializa_pilha(p_deck_aux1);
-    inicializa_pilha(p_deck_aux2);
 }
 
-void embaralhar_deck(tp_pilha p_deck, tp_pilha p_deck_aux1, tp_pilha p_deck_aux2, carta c)
-{/*
- srand( time (NULL)); // inicializa o gerador de numeros aleatórios
-        int push(carta);
+void embaralhar_deck(tp_pilha *p_deck, carta *c)
+{
+    int a;
+    srand( time (NULL)); // inicializa o gerador de numeros aleatório
 
-    printf("valor das cartas geradas (1-25): \n");
-
-        for (int i=0; i<MAX; i++){
-        push = (rand () % MAX) + 1;
-
-        printf ("\n %d ", push);
+        for (int i=0; i < 10; i++){
+        a = rand() % 25; // Gera valores de 0 a 24
+        push(p_deck, c[a].n);//inserindo na pilha de cava
         }
-        // Randomização dos valores (embaralhamento)
-    printf("\n");
 
-
-*/
-int i, j, aux;
-
-    for (i = 0; i < MAX; i++)
-    {
-        push(p_deck, c[i]);
-    }
-
-    for (i = 0; i < MAX; i++)
-    {
-        j = rand() % MAX;
-        aux = c[i].n;
-        c[i].n = c[j].n;
-        c[j].n = aux;
-    }
-
-    for (i = 0; i < MAX; i++)
-    {
-        pop(p_deck, &c[i]);
-        push(p_deck_aux1, c[i]);
-    }
 }
-
-
-
-
 
 void retira_carta()
 {
@@ -564,8 +531,8 @@ int main()
     cria_cartas(cartas);    // Funcao de Cricao das Cartas
     cria_monstro(monstros); // Funcao para Criar os Monstros
     // print_carta(&cartas[14]); // Funcao para printar uma carta especifica
-    cria_deck(&p_deck,  &p_deck_aux1,  &p_deck_aux2,); // Funcao que Cria o deck de cartas
-    embaralhar_deck(&p_deck,  &p_deck_aux1,  &p_deck_aux2, cartas);
+    cria_deck(&p_deck); // Funcao que Cria o deck de cartas
+    embaralhar_deck(&p_deck, cartas);
     print_pilha(&p_deck, cartas); // Funcao para printar pilha
 
     printf("Deseja visualizar as cartas disponiveis no jogo:\n");
