@@ -212,6 +212,7 @@ void embaralhar_deck(tp_pilha *p_deck, carta *c)
 
         for (int i=0; i < 10; i++){
         a = rand() % 25; // Gera valores de 0 a 24
+        //printf("%d\n", a); // Exibe o valor gerado
         push(p_deck, c[a].n);//inserindo na pilha de cava
         }
 
