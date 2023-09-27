@@ -507,11 +507,12 @@ void defende_monstro()
 
 int main()
 {
+	system("color 1F");
     jogador j;           // Jogador Principal
     tp_pilha p_deck;     // Deck de Cartas do jogo, pilha de cartas disponiveis no total
     carta cartas[25];    // ARRAY PARA BOTAR AS CARTAS ATAQUE, DEFESA, ESPECIAL
     monstro monstros[5]; // ARRAY PARA OS MONSTROS
-    char escolha;
+    char escolha, menu;
     tp_fila seqmons1, seqmons2, seqmons3, seqmons4, seqmons5;
 
     cria_cartas(cartas);    // Funcao de Cricao das Cartas
@@ -519,6 +520,48 @@ int main()
     // print_carta(&cartas[14]); // Funcao para printar uma carta especifica
     cria_deck(&p_deck); // Funcao que Cria o deck de cartas
     embaralhar_deck(&p_deck, cartas);//Funcao que embaralha o deck inicial
+    
+    printf("\n\n");
+    printf("       ______________________________________________________________________________________________ \n");
+    printf("      /                                                                                            / |\n");
+    printf("     /############################################################################################/# |\n");
+    printf("    /____________________________________________________________________________________________/ # |\n");
+    printf("    |                                                                                            | # |\n");
+    printf("    |    ====                                                   ====                             | # |\n");
+    printf("    |   |                                        ||            |                                 | # |\n");
+    printf("    |   |        ===           ===    ===    ==     ===        |        ===   *   | ===   ===    | # |\n");
+    printf("    |    ====   |   |  |   |  |      |         |   |            ====   |   |      |/     |   |   | # |\n");
+    printf("    |        |  |   |  |   |   ===    ===    ===    ===             |  |===   |   |      |===    | # |\n");
+    printf("    |        |  |   |  |   |      |      |  |  |       |            |  |      |   |      |       | # |\n");
+    printf("    |    ====    ===    ===    ===    ===    ===    ===         ====   |      |   |       ===    | #/ \n");
+    printf("    |                                                                  |                         | /  \n");
+    printf("    |____________________________________________________________________________________________|/   \n");
+    
+    printf("\n\n\n\n");
+    
+    
+    printf("                                 ___________________________ \n");
+    printf("                                |                           |\n");
+    printf("                                |    *            __        |\n");
+    printf("                                |    |  ==   ==     |   ___ |\n");
+    printf("                                |    | |  | |  |  ==| |/    |\n");
+    printf("                                |  | | |  |  ==| |  | |     |\n");
+    printf("                                |  |_/  ==   __/  ==  |     |\n");
+    printf("                                |___________________________|\n");
+    printf("                                    _____________________ \n");
+    printf("                                   |                     |\n");
+    printf("                                   |   __   __       __  |\n");
+    printf("                                   |  |       |  * |/    |\n");
+    printf("                                   |   ==  |==|  | |     |\n");
+    printf("                                   |   __| |__|  | |     |\n");
+    printf("                                   |_____________________|\n");
+    
+    printf("\n\n\n\nDigite 'j' para jogar ou 's' para sair: ");
+    scanf("%c", &menu);
+    printf("\n\n");
+    
+    if(menu == 's') return 0;
+    
 
     printf("Deseja visualizar as cartas disponiveis no jogo:\n");
     printf("S/N\n");
