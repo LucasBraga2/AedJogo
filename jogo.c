@@ -200,20 +200,55 @@ void cria_cartas(carta *c)
     c[24].c = 3;                         // CUSTO
 }
 
-void cria_deck(tp_pilha *p_deck)
+void cria_deck(tp_pilha *p_deck, tp_pilha *p_deck_aux1, tp_pilha *p_deck_aux2)
 {
     inicializa_pilha(p_deck);
+    inicializa_pilha(p_deck_aux1);
+    inicializa_pilha(p_deck_aux2);
 }
 
-void embaralhar_deck(tp_pilha *p_deck, carta *c)
-{
+void embaralhar_deck(tp_pilha p_deck, tp_pilha p_deck_aux1, tp_pilha p_deck_aux2, carta c)
+{/*
+ srand( time (NULL)); // inicializa o gerador de numeros aleatórios
+        int push(carta);
 
-    push(p_deck, c[0].n);
-    push(p_deck, c[1].n);
-    push(p_deck, c[2].n);
-    push(p_deck, c[3].n);
-    push(p_deck, c[4].n);
+    printf("valor das cartas geradas (1-25): \n");
+
+        for (int i=0; i<MAX; i++){
+        push = (rand () % MAX) + 1;
+
+        printf ("\n %d ", push);
+        }
+        // Randomização dos valores (embaralhamento)
+    printf("\n");
+
+
+*/
+int i, j, aux;
+
+    for (i = 0; i < MAX; i++)
+    {
+        push(p_deck, c[i]);
+    }
+
+    for (i = 0; i < MAX; i++)
+    {
+        j = rand() % MAX;
+        aux = c[i].n;
+        c[i].n = c[j].n;
+        c[j].n = aux;
+    }
+
+    for (i = 0; i < MAX; i++)
+    {
+        pop(p_deck, &c[i]);
+        push(p_deck_aux1, c[i]);
+    }
 }
+
+
+
+
 
 void retira_carta()
 {
@@ -529,9 +564,9 @@ int main()
     cria_cartas(cartas);    // Funcao de Cricao das Cartas
     cria_monstro(monstros); // Funcao para Criar os Monstros
     // print_carta(&cartas[14]); // Funcao para printar uma carta especifica
-    cria_deck(&p_deck); // Funcao que Cria o deck de cartas
-    embaralhar_deck(&p_deck, cartas);
-    // print_pilha(&p_deck, cartas); // Funcao para printar pilha
+    cria_deck(&p_deck,  &p_deck_aux1,  &p_deck_aux2,); // Funcao que Cria o deck de cartas
+    embaralhar_deck(&p_deck,  &p_deck_aux1,  &p_deck_aux2, cartas);
+    print_pilha(&p_deck, cartas); // Funcao para printar pilha
 
     printf("Deseja visualizar as cartas disponiveis no jogo:\n");
     printf("S/N\n");
