@@ -208,14 +208,14 @@ void cria_deck(tp_pilha *p_deck)
 void embaralhar_deck(tp_pilha *p_deck, carta *c)
 {
     int a;
-    srand( time (NULL)); // inicializa o gerador de numeros aleatório
+    srand(time(NULL)); // inicializa o gerador de numeros aleatório
 
-        for (int i=0; i < 10; i++){
+    for (int i = 0; i < 10; i++)
+    {
         a = rand() % 25; // Gera valores de 0 a 24
-        //printf("%d\n", a); // Exibe o valor gerado
-        push(p_deck, c[a].n);//inserindo na pilha de cava
-        }
-
+        // printf("%d\n", a); // Exibe o valor gerado
+        push(p_deck, c[a].n); // inserindo na pilha de cava
+    }
 }
 
 void retira_carta()
@@ -296,11 +296,11 @@ void mostrar_cartas(carta *c)
     }
 }
 
-void cria_monstro(monstro *m,  tp_fila *seqmons1, tp_fila *seqmons2, tp_fila *seqmons3, tp_fila *seqmons4, tp_fila *seqmons5)
+void cria_monstro(monstro *m, tp_fila *seqmons1, tp_fila *seqmons2, tp_fila *seqmons3, tp_fila *seqmons4, tp_fila *seqmons5)
 {
 
     // MONSTRO 1
-    int vida1 = 20;   // VIDA DO PRIMEIRO MONSTRO
+    int vida1 = 20; // VIDA DO PRIMEIRO MONSTRO
     // DANOS E DEFESAS E SEUS VALORES
     int dano1_m1 = 5;
     int defesa1_m1 = 5;
@@ -326,7 +326,7 @@ void cria_monstro(monstro *m,  tp_fila *seqmons1, tp_fila *seqmons2, tp_fila *se
     insere_fila(seqmons1, defesa3_m1);
 
     // MONSTRO 2
-    int vida2 = 30;   // VIDA DO SEGUNDO MONSTRO
+    int vida2 = 30; // VIDA DO SEGUNDO MONSTRO
     // DANOS E DEFESAS E SEUS VALORES
     int defesa1_m2 = 4;
     int dano1_m2 = 6;
@@ -352,7 +352,7 @@ void cria_monstro(monstro *m,  tp_fila *seqmons1, tp_fila *seqmons2, tp_fila *se
     insere_fila(seqmons2, dano4_m2);
 
     // MONSTRO 3
-    int vida3 = 40;   // VIDA DO TERCEIRO MONSTRO
+    int vida3 = 40; // VIDA DO TERCEIRO MONSTRO
     // DANOS E DEFESAS E SEUS VALORES
     int dano1_m3 = 5;
     int defesa1_m3 = 5;
@@ -378,7 +378,7 @@ void cria_monstro(monstro *m,  tp_fila *seqmons1, tp_fila *seqmons2, tp_fila *se
     insere_fila(seqmons3, dano3_m3);
 
     // MONSTRO 4
-    int vida4 = 50;   // VIDA DO QUARTO MONSTRO
+    int vida4 = 50; // VIDA DO QUARTO MONSTRO
     // DANOS E DEFESAS E SEUS VALORES
     int defesa1_m4 = 5;
     int dano1_m4 = 8;
@@ -404,7 +404,7 @@ void cria_monstro(monstro *m,  tp_fila *seqmons1, tp_fila *seqmons2, tp_fila *se
     insere_fila(seqmons4, dano4_m4);
 
     // MONSTRO 5 (BOSS FINAL)
-    int vida5 = 60;   // VIDA DO QUINTO MONSTRO
+    int vida5 = 60; // VIDA DO QUINTO MONSTRO
     // DANOS E DEFESAS E SEUS VALORES
     int dano1_m5 = 7;
     int dano2_m5 = 7;
@@ -440,7 +440,7 @@ void mostra_monstro(monstro *m)
         printf("Nome: %s\n", m[i].nome);
         printf("Vida: %d Hp\n", m[i].h);
     }
-        printf("-----------------------------------\n");
+    printf("-----------------------------------\n");
 }
 void print_carta(carta c)
 {
@@ -508,7 +508,7 @@ void defende_monstro()
 int main()
 {
     system("cls");
-	system("color 1F");
+    system("color 1F");
     jogador j;           // Jogador Principal
     tp_pilha p_deck;     // Deck de Cartas do jogo, pilha de cartas disponiveis no total
     carta cartas[25];    // ARRAY PARA BOTAR AS CARTAS ATAQUE, DEFESA, ESPECIAL
@@ -516,53 +516,11 @@ int main()
     char escolha, menu;
     tp_fila seqmons1, seqmons2, seqmons3, seqmons4, seqmons5;
 
-    cria_cartas(cartas);    // Funcao de Cricao das Cartas
+    cria_cartas(cartas);                                                           // Funcao de Cricao das Cartas
     cria_monstro(monstros, &seqmons1, &seqmons2, &seqmons3, &seqmons4, &seqmons5); // Funcao para Criar os Monstros
     // print_carta(&cartas[14]); // Funcao para printar uma carta especifica
-    cria_deck(&p_deck); // Funcao que Cria o deck de cartas
-    embaralhar_deck(&p_deck, cartas);//Funcao que embaralha o deck inicial
-    
-    printf("\n\n");
-    printf("       ______________________________________________________________________________________________ \n");
-    printf("      /                                                                                            / |\n");
-    printf("     /############################################################################################/# |\n");
-    printf("    /____________________________________________________________________________________________/ # |\n");
-    printf("    |                                                                                            | # |\n");
-    printf("    |    ====                                                   ====                             | # |\n");
-    printf("    |   |                                        ||            |                                 | # |\n");
-    printf("    |   |        ===           ===    ===    ==     ===        |        ===   *   | ===   ===    | # |\n");
-    printf("    |    ====   |   |  |   |  |      |         |   |            ====   |   |      |/     |   |   | # |\n");
-    printf("    |        |  |   |  |   |   ===    ===    ===    ===             |  |===   |   |      |===    | # |\n");
-    printf("    |        |  |   |  |   |      |      |  |  |       |            |  |      |   |      |       | # |\n");
-    printf("    |    ====    ===    ===    ===    ===    ===    ===         ====   |      |   |       ===    | #/ \n");
-    printf("    |                                                                  |                         | /  \n");
-    printf("    |____________________________________________________________________________________________|/   \n");
-    
-    printf("\n\n\n\n");
-    
-    
-    printf("                                 ___________________________ \n");
-    printf("                                |                           |\n");
-    printf("                                |    *            __        |\n");
-    printf("                                |    |  ==   ==     |   ___ |\n");
-    printf("                                |    | |  | |  |  ==| |/    |\n");
-    printf("                                |  | | |  |  ==| |  | |     |\n");
-    printf("                                |  |_/  ==   __/  ==  |     |\n");
-    printf("                                |___________________________|\n");
-    printf("                                    _____________________ \n");
-    printf("                                   |                     |\n");
-    printf("                                   |   __   __       __  |\n");
-    printf("                                   |  |       |  * |/    |\n");
-    printf("                                   |   ==  |==|  | |     |\n");
-    printf("                                   |   __| |__|  | |     |\n");
-    printf("                                   |_____________________|\n");
-    
-    printf("\n\n\n\nDigite 'J' para jogar ou 'S' para sair: \n");
-    scanf("%c", &menu);
-    printf("\n\n");
-    
-    if(menu == 's' || menu == 'S') return 0;
-    
+    cria_deck(&p_deck);               // Funcao que Cria o deck de cartas
+    embaralhar_deck(&p_deck, cartas); // Funcao que embaralha o deck inicial
 
     printf("Deseja visualizar as cartas disponiveis no jogo:\n");
     printf("S/N\n");
@@ -589,6 +547,50 @@ int main()
     if (escolha == 'S' || escolha == 's')
     {
         print_pilha(&p_deck, cartas); // Funcao para printar pilha
+    }
+
+    printf("\n\n");
+    printf("       ______________________________________________________________________________________________ \n");
+    printf("      /                                                                                            / |\n");
+    printf("     /############################################################################################/# |\n");
+    printf("    /____________________________________________________________________________________________/ # |\n");
+    printf("    |                                                                                            | # |\n");
+    printf("    |    ====                                                   ====                             | # |\n");
+    printf("    |   |                                        ||            |                                 | # |\n");
+    printf("    |   |        ===           ===    ===    ==     ===        |        ===   *   | ===   ===    | # |\n");
+    printf("    |    ====   |   |  |   |  |      |         |   |            ====   |   |      |/     |   |   | # |\n");
+    printf("    |        |  |   |  |   |   ===    ===    ===    ===             |  |===   |   |      |===    | # |\n");
+    printf("    |        |  |   |  |   |      |      |  |  |       |            |  |      |   |      |       | # |\n");
+    printf("    |    ====    ===    ===    ===    ===    ===    ===         ====   |      |   |       ===    | #/ \n");
+    printf("    |                                                                  |                         | /  \n");
+    printf("    |____________________________________________________________________________________________|/   \n");
+
+    printf("\n\n\n\n");
+
+    printf("                                 ___________________________ \n");
+    printf("                                |                           |\n");
+    printf("                                |    *            __        |\n");
+    printf("                                |    |  ==   ==     |   ___ |\n");
+    printf("                                |    | |  | |  |  ==| |/    |\n");
+    printf("                                |  | | |  |  ==| |  | |     |\n");
+    printf("                                |  |_/  ==   __/  ==  |     |\n");
+    printf("                                |___________________________|\n");
+    printf("                                    _____________________ \n");
+    printf("                                   |                     |\n");
+    printf("                                   |   __   __       __  |\n");
+    printf("                                   |  |       |  * |/    |\n");
+    printf("                                   |   ==  |==|  | |     |\n");
+    printf("                                   |   __| |__|  | |     |\n");
+    printf("                                   |_____________________|\n");
+
+    printf("\n\n\n\nDigite 'J' para jogar ou 'S' para sair: \n");
+    scanf(" %c", &menu);
+    printf("\n\n");
+
+    if (menu == 's' || menu == 'S')
+    {
+        printf("Saindo...\n");
+        return 0;
     }
 
     cria_jogador(&j); // Funcao para criar o jogador
