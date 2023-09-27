@@ -430,7 +430,7 @@ void cria_monstro(monstro *m,  tp_fila *seqmons1, tp_fila *seqmons2, tp_fila *se
     insere_fila(seqmons5, dano4_m5);
 }
 
-int mostra_monstro(monstro *m)
+void mostra_monstro(monstro *m)
 {
 
     printf("Mosntros:\n");
