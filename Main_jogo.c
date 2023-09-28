@@ -31,6 +31,7 @@ int main()
     jogador j;           // Jogador Principal
     tp_pilha p_deck;     // Deck de Cartas do jogo, pilha de cartas disponiveis no total
     carta cartas[25];    // ARRAY PARA BOTAR AS CARTAS ATAQUE, DEFESA, ESPECIAL
+    carta_monstro cartas_m[25];
     monstro monstros[5]; // ARRAY PARA OS MONSTROS
     char escolha, menu;
     tp_fila seqmons1, seqmons2, seqmons3, seqmons4, seqmons5;
