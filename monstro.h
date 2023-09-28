@@ -174,7 +174,7 @@ void mostra_monstro(monstro *m)
     printf("-----------------------------------\n");
 }
 
-void sequencia_monstro(carta_monstro *c_m *seqmons1, tp_fila *seqmons2, tp_fila *seqmons3, tp_fila *seqmons4, tp_fila *seqmons5){
+void sequencia_monstro(carta_monstro *c_m, tp_fila *seqmons1, tp_fila *seqmons2, tp_fila *seqmons3, tp_fila *seqmons4, tp_fila *seqmons5){
 
     inicializa_fila(seqmons1);
     insere_fila(seqmons1, c_m[0].n);
