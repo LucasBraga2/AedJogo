@@ -1,7 +1,6 @@
 #ifndef PILHA_H
 #define PILHA_H
-#include <stdio.h>
-#include "stru.h"
+#include "Bible.h"
 #define MAX 25
 
 typedef struct{
