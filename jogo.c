@@ -485,6 +485,75 @@ void print_pilha(tp_pilha *p_deck, carta *c)
     }
 }
 
+void print_fila(monstro m, tp_fila seqmons1, tp_fila seqmons2, tp_fila seqmons3, tp_fila seqmons4, tp_fila seqmons5){
+
+    int e;
+    tp_fila f_aux;
+
+    for(int i = 0; i <= 4; i++){
+        if(i == 0){
+            while(!fila_vazia(&seqmons1)){
+            remove_fila(&seqmons1, &e);
+            printf("%d      ", e);
+            insere_fila(&f_aux, e);
+            }
+
+            while(!fila_vazia(&f_aux)){
+            remove_fila(&f_aux, &e);
+            insere_fila(&seqmons1, e);
+            }
+        }
+        if(i == 1){
+            while(!fila_vazia(&seqmons2)){
+            remove_fila(&seqmons2, &e);
+            printf("%d      ", e);
+            insere_fila(&f_aux, e);
+            }
+
+            while(!fila_vazia(&f_aux)){
+            remove_fila(&f_aux, &e);
+            insere_fila(&seqmons2, e);
+            }
+        }
+        if(i == 2){
+            while(!fila_vazia(&seqmons3)){
+            remove_fila(&seqmons3, &e);
+            printf("%d      ", e);
+            insere_fila(&f_aux, e);
+            }
+
+            while(!fila_vazia(&f_aux)){
+            remove_fila(&f_aux, &e);
+            insere_fila(&seqmons3, e);
+            }
+        }
+        if(i == 3){
+            while(!fila_vazia(&seqmons4)){
+            remove_fila(&seqmons4, &e);
+            printf("%d      ", e);
+            insere_fila(&f_aux, e);
+            }
+
+            while(!fila_vazia(&f_aux)){
+            remove_fila(&f_aux, &e);
+            insere_fila(&seqmons4, e);
+            }
+        }
+        if(i == 4){
+            while(!fila_vazia(&seqmons5)){
+            remove_fila(&seqmons5, &e);
+            printf("%d      ", e);
+            insere_fila(&f_aux, e);
+            }
+
+            while(!fila_vazia(&f_aux)){
+            remove_fila(&f_aux, &e);
+            insere_fila(&seqmons5, e);
+            }
+        }
+    }
+
+}
 void toma_dano()
 {
 }
