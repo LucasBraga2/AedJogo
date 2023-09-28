@@ -7,6 +7,7 @@ typedef struct{
   char nome [30];
   tipo t;
   valor v;
+  numero n;
 }carta_monstro;
 
 typedef valor tp_item;
