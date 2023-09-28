@@ -161,7 +161,7 @@ void cria_monstro(monstro *m)
     m[4].h = vida5;
 }
 
-void mostra_monstro(monstro *m)
+void mostra_monstro(monstro *m, tp_fila seqmonstro1, tp_fila seqmonstro2, tp_fila seqmonstro3, tp_fila seqmonstro4, tp_fila seqmonstro5, carta_monstro *c_m)
 {
 
     printf("Monstros:\n");
@@ -170,6 +170,21 @@ void mostra_monstro(monstro *m)
         printf("-----------------------------------\n");
         printf("Nome: %s\n", m[i].nome);
         printf("Vida: %d Hp\n", m[i].h);
+        /*if(i == 0){
+           print_fila1(&seqmonstro1, c_m);
+        }
+        if(i == 1){
+            print_fila2(&seqmonstro2, c_m);
+        }
+        if(i == 2){
+            print_fila3(&seqmonstro3, c_m);
+        }
+        if(i == 3){
+            print_fila4(&seqmonstro4, c_m);
+        }
+        if(i == 4){
+            print_fila5(&seqmonstro5, c_m);
+        }*/
     }
     printf("-----------------------------------\n");
 }
@@ -178,66 +193,64 @@ void sequencia_monstro(carta_monstro *c_m, tp_fila *seqmons1, tp_fila *seqmons2,
 
     inicializa_fila(seqmons1);
     insere_fila(seqmons1, c_m[0].n);
-    insere_fila();
-    insere_fila();
-    insere_fila();
-    insere_fila();
+    insere_fila(seqmons1, c_m[1].n);
+    insere_fila(seqmons1, c_m[2].n);
+    insere_fila(seqmons1, c_m[3].n);
+    insere_fila(seqmons1, c_m[4].n);
     inicializa_fila(seqmons2);
-    insere_fila(seqmons2, c_m[2].n);
-    insere_fila();
-    insere_fila();
-    insere_fila();
-    insere_fila();
+    insere_fila(seqmons2, c_m[5].n);
+    insere_fila(seqmons2, c_m[6].n);
+    insere_fila(seqmons2, c_m[7].n);
+    insere_fila(seqmons2, c_m[8].n);
+    insere_fila(seqmons2, c_m[9].n);
     inicializa_fila(seqmons3);
-    insere_fila(seqmons3, c_m[5].n);
-    insere_fila();
-    insere_fila();
-    insere_fila();
-    insere_fila();
+    insere_fila(seqmons3, c_m[10].n);
+    insere_fila(seqmons3, c_m[11].n);
+    insere_fila(seqmons3, c_m[12].n);
+    insere_fila(seqmons3, c_m[13].n);
+    insere_fila(seqmons3, c_m[14].n);
     inicializa_fila(seqmons4);
-    insere_fila(seqmons4, c_m[4].n);
-    insere_fila();
-    insere_fila();
-    insere_fila();
-    insere_fila();
+    insere_fila(seqmons4, c_m[15].n);
+    insere_fila(seqmons4, c_m[16].n);
+    insere_fila(seqmons4, c_m[17].n);
+    insere_fila(seqmons4, c_m[18].n);
+    insere_fila(seqmons4, c_m[19].n);
     inicializa_fila(seqmons5);
-    insere_fila(seqmons5, c_m[7].n);
-    insere_fila();
-    insere_fila();
-    insere_fila();
-    insere_fila();
+    insere_fila(seqmons5, c_m[20].n);
+    insere_fila(seqmons5, c_m[21].n);
+    insere_fila(seqmons5, c_m[22].n);
+    insere_fila(seqmons5, c_m[23].n);
+    insere_fila(seqmons5, c_m[24].n);
 
 
 }
 void print_carta_monstro(carta_monstro c_m){
-    {
-    printf("Nome: %s\n", c_m.nome);
+
+    printf("Valor: %d   /", c_m.v);
     if (c_m.t == 1)
     {
-        printf("Tipo: Ataque\n");
+        printf("Tipo: Ataque  ");
     }
     if (c_m.t == 2)
     {
-        printf("Tipo: Defesa\n");
+        printf("Tipo: Defesa  ");
     }
-   
-    printf("Valor: %d\n", c_m.v);
   
     printf("-----------------------------------\n");
-}
+
 }
 
-void print_fila(tp_fila *sequencia_monstro, carta_monstro *c_m){
-    {
-    printf("Sequência de ataques do monstro:\n");
+void print_fila1(tp_fila *seqmonstro1, carta_monstro *c_m){
+    
+    printf("Sequencia de acoes do monstro:\n");
     printf("-----------------------------------\n");
     tp_fila fila_aux;
     inicializa_fila(&fila_aux);
 
-    while (!fila_vazia(sequencia_monstro))
+    while (!fila_vazia(seqmonstro1))
     {
         int e;
-        remove_fila(sequencia_monstro, &e);
+        remove_fila(seqmonstro1, &e);
         carta_monstro card_m = c_m[e];
         print_carta_monstro(card_m);
         insere_fila(&fila_aux, e);
@@ -246,8 +259,98 @@ void print_fila(tp_fila *sequencia_monstro, carta_monstro *c_m){
     {
         int e;
         remove_fila(&fila_aux, &e);
-        insere_fila(sequencia_monstro, e);
-    }
+        insere_fila(seqmonstro1, e);
+}
 }
 
+void print_fila2(tp_fila *seqmonstro2, carta_monstro *c_m){
+    
+    printf("Sequência de ataques do monstro:\n");
+    printf("-----------------------------------\n");
+    tp_fila fila_aux;
+    inicializa_fila(&fila_aux);
+
+    while (!fila_vazia(seqmonstro2))
+    {
+        int e;
+        remove_fila(seqmonstro2, &e);
+        carta_monstro card_m = c_m[e];
+        print_carta_monstro(card_m);
+        insere_fila(&fila_aux, e);
+    }
+    while (!fila_vazia(&fila_aux))
+    {
+        int e;
+        remove_fila(&fila_aux, &e);
+        insere_fila(seqmonstro2, e);
+}
+}
+
+void print_fila3(tp_fila *seqmonstro3, carta_monstro *c_m){
+    
+    printf("Sequência de ataques do monstro:\n");
+    printf("-----------------------------------\n");
+    tp_fila fila_aux;
+    inicializa_fila(&fila_aux);
+
+    while (!fila_vazia(seqmonstro3))
+    {
+        int e;
+        remove_fila(seqmonstro3, &e);
+        carta_monstro card_m = c_m[e];
+        print_carta_monstro(card_m);
+        insere_fila(&fila_aux, e);
+    }
+    while (!fila_vazia(&fila_aux))
+    {
+        int e;
+        remove_fila(&fila_aux, &e);
+        insere_fila(seqmonstro3, e);
+}
+}
+
+void print_fila4(tp_fila *seqmonstro4, carta_monstro *c_m){
+    
+    printf("Sequência de ataques do monstro:\n");
+    printf("-----------------------------------\n");
+    tp_fila fila_aux;
+    inicializa_fila(&fila_aux);
+
+    while (!fila_vazia(seqmonstro4))
+    {
+        int e;
+        remove_fila(seqmonstro4, &e);
+        carta_monstro card_m = c_m[e];
+        print_carta_monstro(card_m);
+        insere_fila(&fila_aux, e);
+    }
+    while (!fila_vazia(&fila_aux))
+    {
+        int e;
+        remove_fila(&fila_aux, &e);
+        insere_fila(seqmonstro4, e);
+}
+}
+
+void print_fila5(tp_fila *seqmonstro5, carta_monstro *c_m){
+    
+    printf("Sequência de ataques do monstro:\n");
+    printf("-----------------------------------\n");
+    tp_fila fila_aux;
+    inicializa_fila(&fila_aux);
+
+    while (!fila_vazia(seqmonstro5))
+    {
+        int e;
+        remove_fila(seqmonstro5, &e);
+        carta_monstro card_m = c_m[e];
+        print_carta_monstro(card_m);
+        insere_fila(&fila_aux, e);
+    }
+    while (!fila_vazia(&fila_aux))
+    {
+        int e;
+        remove_fila(&fila_aux, &e);
+        insere_fila(seqmonstro5, e);
+}
 }

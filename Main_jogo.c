@@ -38,6 +38,7 @@ int main()
 
     cria_cartas(cartas);                                                           // Funcao de Cricao das Cartas
     cria_monstro(monstros); // Funcao para Criar os Monstros
+    sequencia_monstro(cartas_m, &seqmons1, &seqmons2, &seqmons3, &seqmons4, &seqmons5);//Funcao que cria e inseri os elementos na sequencia
     // print_carta(&cartas[14]); // Funcao para printar uma carta especifica
     cria_deck(&p_deck);               // Funcao que Cria o deck de cartas
     embaralhar_deck(&p_deck, cartas); // Funcao que embaralha o deck inicial
@@ -57,7 +58,7 @@ int main()
 
     if (escolha == 'S' || escolha == 's')
     {
-        mostra_monstro(monstros); // Funcao para visualizacao dos Monstros do jogo
+        mostra_monstro(monstros, seqmons1, seqmons2, seqmons3, seqmons4, seqmons5, cartas_m); // Funcao para visualizacao dos Monstros do jogo
     }
 
     printf("Deseja visualizar o deck de 10 cartas inicial(Embaralhado):\n");
@@ -68,6 +69,8 @@ int main()
     {
         print_pilha(&p_deck, cartas); // Funcao para printar pilha
     }
+
+    print_fila1(&seqmons1, cartas_m);
 
     printf("Pressione Enter para iniciar o jogo...\n");
 

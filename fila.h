@@ -10,7 +10,7 @@ typedef struct{
   numero n;
 }carta_monstro;
 
-typedef valor tp_item;
+typedef numero tp_item;
 
 typedef struct {
     tp_item item[MAX];
