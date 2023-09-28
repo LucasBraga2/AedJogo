@@ -174,3 +174,45 @@ void mostra_monstro(monstro *m)
     printf("-----------------------------------\n");
 }
 
+void sequencia_monstro(carta_monstro *c_m *seqmons1, tp_fila *seqmons2, tp_fila *seqmons3, tp_fila *seqmons4, tp_fila *seqmons5){
+
+    inicializa_fila(seqmons1);
+    insere_fila(seqmons1, c_m[0].n);
+    insere_fila();
+    insere_fila();
+    insere_fila();
+    insere_fila();
+    inicializa_fila(seqmons2);
+    insere_fila(seqmons2, c_m[2].n);
+    insere_fila();
+    insere_fila();
+    insere_fila();
+    insere_fila();
+    inicializa_fila(seqmons3);
+    insere_fila(seqmons3, c_m[5].n);
+    insere_fila();
+    insere_fila();
+    insere_fila();
+    insere_fila();
+    inicializa_fila(seqmons4);
+    insere_fila(seqmons4, c_m[4].n);
+    insere_fila();
+    insere_fila();
+    insere_fila();
+    insere_fila();
+    inicializa_fila(seqmons5);
+    insere_fila(seqmons5, c_m[7].n);
+    insere_fila();
+    insere_fila();
+    insere_fila();
+    insere_fila();
+
+
+}
+void print_carta_monstro(){
+
+}
+
+void print_fila(){
+
+}
