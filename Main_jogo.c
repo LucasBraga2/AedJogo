@@ -42,6 +42,7 @@ int main()
     // print_carta(&cartas[14]); // Funcao para printar uma carta especifica
     cria_deck(&p_deck);               // Funcao que Cria o deck de cartas
     embaralhar_deck(&p_deck, cartas); // Funcao que embaralha o deck inicial
+    //print_fila(&seqmons1, cartas_m);
 
     printf("Deseja visualizar as cartas disponiveis no jogo:\n");
     printf("S/N\n");
@@ -70,7 +71,7 @@ int main()
         print_pilha(&p_deck, cartas); // Funcao para printar pilha
     }
 
-    print_fila1(&seqmons1, cartas_m);
+    
 
     printf("Pressione Enter para iniciar o jogo...\n");
 

@@ -170,21 +170,21 @@ void mostra_monstro(monstro *m, tp_fila seqmonstro1, tp_fila seqmonstro2, tp_fil
         printf("-----------------------------------\n");
         printf("Nome: %s\n", m[i].nome);
         printf("Vida: %d Hp\n", m[i].h);
-        /*if(i == 0){
-           print_fila1(&seqmonstro1, c_m);
+       if(i == 0){
+           print_fila(&seqmonstro1, c_m);
         }
         if(i == 1){
-            print_fila2(&seqmonstro2, c_m);
+            print_fila(&seqmonstro2, c_m);
         }
         if(i == 2){
-            print_fila3(&seqmonstro3, c_m);
+            print_fila(&seqmonstro3, c_m);
         }
         if(i == 3){
-            print_fila4(&seqmonstro4, c_m);
+            print_fila(&seqmonstro4, c_m);
         }
         if(i == 4){
-            print_fila5(&seqmonstro5, c_m);
-        }*/
+            print_fila(&seqmonstro5, c_m);
+        }
     }
     printf("-----------------------------------\n");
 }
@@ -240,17 +240,17 @@ void print_carta_monstro(carta_monstro c_m){
 
 }
 
-void print_fila1(tp_fila *seqmonstro1, carta_monstro *c_m){
+void print_fila(tp_fila *f, carta_monstro *c_m){
     
     printf("Sequencia de acoes do monstro:\n");
     printf("-----------------------------------\n");
     tp_fila fila_aux;
     inicializa_fila(&fila_aux);
 
-    while (!fila_vazia(seqmonstro1))
+    while (!fila_vazia(f))
     {
         int e;
-        remove_fila(seqmonstro1, &e);
+        remove_fila(f, &e);
         carta_monstro card_m = c_m[e];
         print_carta_monstro(card_m);
         insere_fila(&fila_aux, e);
@@ -259,98 +259,7 @@ void print_fila1(tp_fila *seqmonstro1, carta_monstro *c_m){
     {
         int e;
         remove_fila(&fila_aux, &e);
-        insere_fila(seqmonstro1, e);
+        insere_fila(f, e);
 }
 }
 
-void print_fila2(tp_fila *seqmonstro2, carta_monstro *c_m){
-    
-    printf("Sequência de ataques do monstro:\n");
-    printf("-----------------------------------\n");
-    tp_fila fila_aux;
-    inicializa_fila(&fila_aux);
-
-    while (!fila_vazia(seqmonstro2))
-    {
-        int e;
-        remove_fila(seqmonstro2, &e);
-        carta_monstro card_m = c_m[e];
-        print_carta_monstro(card_m);
-        insere_fila(&fila_aux, e);
-    }
-    while (!fila_vazia(&fila_aux))
-    {
-        int e;
-        remove_fila(&fila_aux, &e);
-        insere_fila(seqmonstro2, e);
-}
-}
-
-void print_fila3(tp_fila *seqmonstro3, carta_monstro *c_m){
-    
-    printf("Sequência de ataques do monstro:\n");
-    printf("-----------------------------------\n");
-    tp_fila fila_aux;
-    inicializa_fila(&fila_aux);
-
-    while (!fila_vazia(seqmonstro3))
-    {
-        int e;
-        remove_fila(seqmonstro3, &e);
-        carta_monstro card_m = c_m[e];
-        print_carta_monstro(card_m);
-        insere_fila(&fila_aux, e);
-    }
-    while (!fila_vazia(&fila_aux))
-    {
-        int e;
-        remove_fila(&fila_aux, &e);
-        insere_fila(seqmonstro3, e);
-}
-}
-
-void print_fila4(tp_fila *seqmonstro4, carta_monstro *c_m){
-    
-    printf("Sequência de ataques do monstro:\n");
-    printf("-----------------------------------\n");
-    tp_fila fila_aux;
-    inicializa_fila(&fila_aux);
-
-    while (!fila_vazia(seqmonstro4))
-    {
-        int e;
-        remove_fila(seqmonstro4, &e);
-        carta_monstro card_m = c_m[e];
-        print_carta_monstro(card_m);
-        insere_fila(&fila_aux, e);
-    }
-    while (!fila_vazia(&fila_aux))
-    {
-        int e;
-        remove_fila(&fila_aux, &e);
-        insere_fila(seqmonstro4, e);
-}
-}
-
-void print_fila5(tp_fila *seqmonstro5, carta_monstro *c_m){
-    
-    printf("Sequência de ataques do monstro:\n");
-    printf("-----------------------------------\n");
-    tp_fila fila_aux;
-    inicializa_fila(&fila_aux);
-
-    while (!fila_vazia(seqmonstro5))
-    {
-        int e;
-        remove_fila(seqmonstro5, &e);
-        carta_monstro card_m = c_m[e];
-        print_carta_monstro(card_m);
-        insere_fila(&fila_aux, e);
-    }
-    while (!fila_vazia(&fila_aux))
-    {
-        int e;
-        remove_fila(&fila_aux, &e);
-        insere_fila(seqmonstro5, e);
-}
-}
