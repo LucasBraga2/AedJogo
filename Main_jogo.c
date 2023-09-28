@@ -37,7 +37,7 @@ int main()
     tp_fila seqmons1, seqmons2, seqmons3, seqmons4, seqmons5;
 
     cria_cartas(cartas);                                                           // Funcao de Cricao das Cartas
-    cria_monstro(monstros, &seqmons1, &seqmons2, &seqmons3, &seqmons4, &seqmons5); // Funcao para Criar os Monstros
+    cria_monstro(monstros); // Funcao para Criar os Monstros
     // print_carta(&cartas[14]); // Funcao para printar uma carta especifica
     cria_deck(&p_deck);               // Funcao que Cria o deck de cartas
     embaralhar_deck(&p_deck, cartas); // Funcao que embaralha o deck inicial
