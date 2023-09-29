@@ -1,6 +1,7 @@
 #include "fila.h"
 #include "pilha.h"
 
+void print_fila(tp_fila *f, carta_monstro *c_m);
 void cria_carta_monstro(carta_monstro *c_m){
 
     //CARTA_M 0
@@ -160,34 +161,6 @@ void cria_monstro(monstro *m)
     m[4].h = vida5;
 }
 
-void mostra_monstro(monstro *m, tp_fila seqmons1, tp_fila seqmons2, tp_fila seqmons3, tp_fila seqmons4, tp_fila seqmons5, carta_monstro *c_m)
-{
-
-    printf("Monstros:\n");
-    for (int i = 0; i <= 4; i++)
-    {
-        printf("-----------------------------------\n");
-        printf("Nome: %s\n", m[i].nome);
-        printf("Vida: %d Hp\n", m[i].h);
-       if(i == 0){
-           print_fila(seqmons1, c_m);
-        }
-        if(i == 1){
-            print_fila(seqmons2, c_m);
-        }
-        if(i == 2){
-            print_fila(seqmons3, c_m);
-        }
-        if(i == 3){
-            print_fila(seqmons4, c_m);
-        }
-        if(i == 4){
-            print_fila(seqmons5, c_m);
-        }
-    }
-    printf("-----------------------------------\n");
-}
-
 void sequencia_monstro(carta_monstro *c_m, tp_fila *seqmons1, tp_fila *seqmons2, tp_fila *seqmons3, tp_fila *seqmons4, tp_fila *seqmons5){
 
     inicializa_fila(seqmons1);
@@ -223,26 +196,58 @@ void sequencia_monstro(carta_monstro *c_m, tp_fila *seqmons1, tp_fila *seqmons2,
 
 
 }
+void mostra_monstro(monstro *m, tp_fila seqmons1, tp_fila seqmons2, tp_fila seqmons3, tp_fila seqmons4, tp_fila seqmons5, carta_monstro *c_m)
+{
+
+    printf("Monstros:\n");
+    for (int i = 0; i <= 4; i++)
+    {
+        printf("----------------------------------------------------------\n");
+        printf("Nome: %s\n", m[i].nome);
+        printf("Vida: %d Hp\n", m[i].h);
+         
+     if(i == 0){
+           print_fila(&seqmons1, c_m);
+           printf("\n");
+        }
+        if(i == 1){
+            print_fila(&seqmons2, c_m);
+            printf("\n");
+        }
+        if(i == 2){
+            print_fila(&seqmons3, c_m);
+            printf("\n");
+        }
+        if(i == 3){
+            print_fila(&seqmons4, c_m);
+            printf("\n");
+        }
+        if(i == 4){
+            print_fila(&seqmons5, c_m);
+            printf("\n");
+        }
+    }
+    printf("----------------------------------------------------------\n");
+}
+
+
 void print_carta_monstro(carta_monstro c_m){
 
-    printf("Valor: %d   /", c_m.v);
+    printf("%d ", c_m.v);
     if (c_m.t == 1)
     {
-        printf("Tipo: Ataque  ");
+        printf("Ataque  ");
     }
     if (c_m.t == 2)
     {
-        printf("Tipo: Defesa  ");
+        printf("Defesa  ");
     }
-  
-    printf("-----------------------------------\n");
 
 }
 
 void print_fila(tp_fila *f, carta_monstro *c_m){
     
-    printf("Sequencia de acoes do monstro:\n");
-    printf("-----------------------------------\n");
+    printf("Acoes: ");
     tp_fila fila_aux;
     inicializa_fila(&fila_aux);
 
@@ -254,11 +259,12 @@ void print_fila(tp_fila *f, carta_monstro *c_m){
         print_carta_monstro(card_m);
         insere_fila(&fila_aux, e);
     }
-    while (!fila_vazia(&fila_aux))
-    {
+    while (!fila_vazia(&fila_aux)){
+    
         int e;
         remove_fila(&fila_aux, &e);
         insere_fila(f, e);
+    }
 }
-}
+
 

@@ -36,13 +36,15 @@ int main()
     char escolha, menu;
     tp_fila seqmons1, seqmons2, seqmons3, seqmons4, seqmons5;
 
-    cria_cartas(cartas);                                                           // Funcao de Cricao das Cartas
+    cria_cartas(cartas); //Funcao que cria as cartas do jogo
+    cria_carta_monstro(cartas_m);//Funcao que cria as cartas do mosntro                                    // Funcao de Cricao das Cartas
     cria_monstro(monstros); // Funcao para Criar os Monstros
     sequencia_monstro(cartas_m, &seqmons1, &seqmons2, &seqmons3, &seqmons4, &seqmons5);//Funcao que cria e inseri os elementos na sequencia
-    // print_carta(&cartas[14]); // Funcao para printar uma carta especifica
+    //print_carta(cartas[14]); // Funcao para printar uma carta especifica
+    //print_fila(&seqmons1, cartas_m);//Funcao que printa fila
     cria_deck(&p_deck);               // Funcao que Cria o deck de cartas
     embaralhar_deck(&p_deck, cartas); // Funcao que embaralha o deck inicial
-    //print_fila(&seqmons1, cartas_m);
+    
 
     printf("Deseja visualizar as cartas disponiveis no jogo:\n");
     printf("S/N\n");
