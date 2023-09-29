@@ -6,7 +6,7 @@
 typedef struct{
   char nome [30];
   tipo t;
-  char habilidade[50];
+  char habilidade[200];
   valor v;
   custo c;
   numero n;

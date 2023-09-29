@@ -149,7 +149,7 @@ setlocale(LC_ALL, "Portuguese");
     // CARTA 20 ESPECIAL
     c[20].n = 20;                        // IDENTIFICADOR DA CARTA
     strcpy(c[20].nome, "Piada");         // NOME
-    strcpy(c[20].habilidade, "Voce conta uma piada pro monstro, ele achou tao engraçado que te mostrou uma carta que estava escondida no chao (+1 carta). Porem, ele te deu um tapa de tao engracada que foi a piada. (-1HP.)"); // HABILIDADE
+    strcpy(c[20].habilidade, "Voce conta uma piada pro monstro, ele achou tao engracado que te mostrou uma carta que estava escondida no chao (+1 carta). Porem, ele te deu um tapa de tao engracada que foi a piada. (-1HP.)"); // HABILIDADE
     c[20].t = 3;                         // TIPO
     c[20].v = 5;                         // VALOR
     c[20].c = 1;                         // CUSTO
