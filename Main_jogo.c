@@ -3,6 +3,7 @@
 #include "cartas_deck.h"
 #include "monstro.h"
 #include "player.h"
+#include <locale.h>
 
 void toma_dano()
 {
@@ -26,6 +27,7 @@ void defende_monstro()
 
 int main()
 {
+    setlocale(LC_ALL, "Portuguese");
     system("cls");
     system("color 1F");
     jogador j;           // Jogador Principal
@@ -80,6 +82,7 @@ int main()
     printf("Pressione Enter para iniciar o jogo...\n");
 
     system("pause"); // Pausa até que o usuário pressione Enter
+    system("clear");
 
     printf("\n\n");
     printf("       ______________________________________________________________________________________________ \n");

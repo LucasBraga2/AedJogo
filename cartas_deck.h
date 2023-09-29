@@ -1,9 +1,11 @@
 #include "fila.h"
 #include "pilha.h"
+#include <locale.h>
+
 
 void cria_cartas(carta *c)
 {
-
+setlocale(LC_ALL, "Portuguese");
     // CARTA 0 ATAQUE
     c[0].n = 0;                 // IDENTIFICADOR DA CARTA
     strcpy(c[0].nome, "Chute"); // NOME
@@ -147,7 +149,7 @@ void cria_cartas(carta *c)
     // CARTA 20 ESPECIAL
     c[20].n = 20;                        // IDENTIFICADOR DA CARTA
     strcpy(c[20].nome, "Piada");         // NOME
-    strcpy(c[20].habilidade, "Inserir"); // HABILIDADE
+    strcpy(c[20].habilidade, "Voce conta uma piada pro monstro, ele achou tao engraçado que te mostrou uma carta que estava escondida no chao (+1 carta). Porem, ele te deu um tapa de tao engracada que foi a piada. (-1HP.)"); // HABILIDADE
     c[20].t = 3;                         // TIPO
     c[20].v = 5;                         // VALOR
     c[20].c = 1;                         // CUSTO
@@ -155,7 +157,7 @@ void cria_cartas(carta *c)
     // CARTA 21 ESPECIAL
     c[21].n = 21;                        // IDENTIFICADOR DA CARTA
     strcpy(c[21].nome, "Esparadrapo");   // NOME
-    strcpy(c[21].habilidade, "Inserir"); // HABILIDADE
+    strcpy(c[21].habilidade, "Voce achou um esparadrapo. Recupere 8HP! Ops... Parece que ele grudou em uma de suas cartas (-1 carta)."); // HABILIDADE
     c[21].t = 3;                         // TIPO
     c[21].v = 5;                         // VALOR
     c[21].c = 2;                         // CUSTO
@@ -163,7 +165,7 @@ void cria_cartas(carta *c)
     // CARTA 22 ESPECIAL
     c[22].n = 22;                             // IDENTIFICADOR DA CARTA
     strcpy(c[22].nome, "Sopro da Abstracao"); // NOME
-    strcpy(c[22].habilidade, "Inserir");      // HABILIDADE
+    strcpy(c[22].habilidade, "Voce pede ajuda a um experiente mestre e ele lhe concede 8HP! Opa, na verdade era so um mendigo. Ele te deu algo estranho pra comer (-2HP(+6 no toal!).");      // HABILIDADE
     c[22].t = 3;                              // TIPO
     c[22].v = 5;                              // VALOR
     c[22].c = 3;                              // CUSTO
@@ -171,7 +173,7 @@ void cria_cartas(carta *c)
     // CARTA 23 ESPECIAL
     c[23].n = 23;                        // IDENTIFICADOR DA CARTA
     strcpy(c[23].nome, "Renato Paiva");  // NOME
-    strcpy(c[23].habilidade, "Inserir"); // HABILIDADE
+    strcpy(c[23].habilidade, " O monstro se distrai da partida e sai correndo atras da outra monstruosidade que saiu dessa carta, va para a proxima fase!"); // HABILIDADE
     c[23].t = 3;                         // TIPO
     c[23].v = 5;                         // VALOR
     c[23].c = 4;                         // CUSTO
@@ -179,7 +181,7 @@ void cria_cartas(carta *c)
     // CARTA 24 ESPECIAL
     c[24].n = 24;                        // IDENTIFICADOR DA CARTA
     strcpy(c[24].nome, "SUS");           // NOME
-    strcpy(c[24].habilidade, "Inserir"); // HABILIDADE
+    strcpy(c[24].habilidade, "Cura 2HP, mas como o servico e lento, so na proxima rodada."); // HABILIDADE
     c[24].t = 3;                         // TIPO
     c[24].v = 5;                         // VALOR
     c[24].c = 3;                         // CUSTO
