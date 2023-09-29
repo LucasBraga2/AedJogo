@@ -1,7 +1,6 @@
 #include "fila.h"
 #include "pilha.h"
 
-
 void cria_carta_monstro(carta_monstro *c_m){
 
     //CARTA_M 0
@@ -161,7 +160,7 @@ void cria_monstro(monstro *m)
     m[4].h = vida5;
 }
 
-void mostra_monstro(monstro *m, tp_fila seqmonstro1, tp_fila seqmonstro2, tp_fila seqmonstro3, tp_fila seqmonstro4, tp_fila seqmonstro5, carta_monstro *c_m)
+void mostra_monstro(monstro *m, tp_fila seqmons1, tp_fila seqmons2, tp_fila seqmons3, tp_fila seqmons4, tp_fila seqmons5, carta_monstro *c_m)
 {
 
     printf("Monstros:\n");
@@ -171,19 +170,19 @@ void mostra_monstro(monstro *m, tp_fila seqmonstro1, tp_fila seqmonstro2, tp_fil
         printf("Nome: %s\n", m[i].nome);
         printf("Vida: %d Hp\n", m[i].h);
        if(i == 0){
-           print_fila(&seqmonstro1, c_m);
+           print_fila(seqmons1, c_m);
         }
         if(i == 1){
-            print_fila(&seqmonstro2, c_m);
+            print_fila(seqmons2, c_m);
         }
         if(i == 2){
-            print_fila(&seqmonstro3, c_m);
+            print_fila(seqmons3, c_m);
         }
         if(i == 3){
-            print_fila(&seqmonstro4, c_m);
+            print_fila(seqmons4, c_m);
         }
         if(i == 4){
-            print_fila(&seqmonstro5, c_m);
+            print_fila(seqmons5, c_m);
         }
     }
     printf("-----------------------------------\n");
