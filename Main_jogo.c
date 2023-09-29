@@ -39,7 +39,7 @@ int main()
     cria_cartas(cartas); //Funcao que cria as cartas do jogo
     cria_carta_monstro(cartas_m);//Funcao que cria as cartas do mosntro                                    // Funcao de Cricao das Cartas
     cria_monstro(monstros); // Funcao para Criar os Monstros
-    sequencia_monstro(cartas_m, &seqmons1, &seqmons2, &seqmons3, &seqmons4, &seqmons5);//Funcao que cria e inseri os elementos na sequencia
+    sequencia_monstro(cartas_m, &seqmons1, &seqmons2, &seqmons3, &seqmons4, &seqmons5);//Funcao que cria e vai inserir os elementos na sequencia
     //print_carta(cartas[14]); // Funcao para printar uma carta especifica
     //print_fila(&seqmons1, cartas_m);//Funcao que printa fila
     cria_deck(&p_deck);               // Funcao que Cria o deck de cartas
@@ -54,6 +54,7 @@ int main()
     {
         mostrar_cartas(cartas); // Funcao para visualizacao de todas cartas disponiveis no jogo
     }
+    
 
     printf("Deseja visualizar os monstros disponiveis no jogo:\n");
     printf("S/N\n");
@@ -63,8 +64,9 @@ int main()
     {
         mostra_monstro(monstros, seqmons1, seqmons2, seqmons3, seqmons4, seqmons5, cartas_m); // Funcao para visualizacao dos Monstros do jogo
     }
+     
 
-    printf("Deseja visualizar o deck de 10 cartas inicial(Embaralhado):\n");
+    printf("Deseja visualizar o deck das 10 cartas iniciais(Embaralhado):\n");
     printf("S/N\n");
     scanf(" %c", &escolha);
 
@@ -72,7 +74,7 @@ int main()
     {
         print_pilha(&p_deck, cartas); // Funcao para printar pilha
     }
-
+    
     
 
     printf("Pressione Enter para iniciar o jogo...\n");
