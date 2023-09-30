@@ -163,31 +163,31 @@ void cria_monstro(monstro *m)
 
 void sequencia_monstro(carta_monstro *c_m, tp_fila *seqmons1, tp_fila *seqmons2, tp_fila *seqmons3, tp_fila *seqmons4, tp_fila *seqmons5){
 
-    inicializa_fila(seqmons1);
+    inicializa_fila(seqmons1);//incializa 1 sequencia de acoes do monstro
     insere_fila(seqmons1, c_m[0].n);
     insere_fila(seqmons1, c_m[1].n);
     insere_fila(seqmons1, c_m[2].n);
     insere_fila(seqmons1, c_m[3].n);
     insere_fila(seqmons1, c_m[4].n);
-    inicializa_fila(seqmons2);
+    inicializa_fila(seqmons2);//incializa 2 sequencia de acoes do monstro
     insere_fila(seqmons2, c_m[5].n);
     insere_fila(seqmons2, c_m[6].n);
     insere_fila(seqmons2, c_m[7].n);
     insere_fila(seqmons2, c_m[8].n);
     insere_fila(seqmons2, c_m[9].n);
-    inicializa_fila(seqmons3);
+    inicializa_fila(seqmons3);//incializa 3 sequencia de acoes do monstro
     insere_fila(seqmons3, c_m[10].n);
     insere_fila(seqmons3, c_m[11].n);
     insere_fila(seqmons3, c_m[12].n);
     insere_fila(seqmons3, c_m[13].n);
     insere_fila(seqmons3, c_m[14].n);
-    inicializa_fila(seqmons4);
+    inicializa_fila(seqmons4);//incializa 4 sequencia de acoes do monstro
     insere_fila(seqmons4, c_m[15].n);
     insere_fila(seqmons4, c_m[16].n);
-    insere_fila(seqmons4, c_m[17].n);
+    insere_fila(seqmons4, c_m[17].n);  
     insere_fila(seqmons4, c_m[18].n);
     insere_fila(seqmons4, c_m[19].n);
-    inicializa_fila(seqmons5);
+    inicializa_fila(seqmons5);//incializa 5 sequencia de acoes do monstro
     insere_fila(seqmons5, c_m[20].n);
     insere_fila(seqmons5, c_m[21].n);
     insere_fila(seqmons5, c_m[22].n);
@@ -248,22 +248,22 @@ void print_carta_monstro(carta_monstro c_m){
 void print_fila(tp_fila *f, carta_monstro *c_m){
     
     printf("Acoes: ");
-    tp_fila fila_aux;
+    tp_fila fila_aux; //Criando uma fila auxiliar
     inicializa_fila(&fila_aux);
 
     while (!fila_vazia(f))
     {
         int e;
-        remove_fila(f, &e);
-        carta_monstro card_m = c_m[e];
-        print_carta_monstro(card_m);
-        insere_fila(&fila_aux, e);
+        remove_fila(f, &e); //retira o elemento da frente da fila
+        carta_monstro card_m = c_m[e]; //cria uma variavel carta_monstro e faz ela receber c[o elemento retirado]
+        print_carta_monstro(card_m);// chama a funcao de printar as cartas, serao printadas ate acabar a pilha pelo while
+        insere_fila(&fila_aux, e);//manda o elemento pra fila auxiliar
     }
     while (!fila_vazia(&fila_aux)){
     
         int e;
-        remove_fila(&fila_aux, &e);
-        insere_fila(f, e);
+        remove_fila(&fila_aux, &e);//retira da fila auxuliar
+        insere_fila(f, e);//manda para a original preservando a ordem
     }
 }
 

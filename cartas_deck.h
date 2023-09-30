@@ -294,7 +294,7 @@ void embaralhar_deck(tp_pilha *p_deck, carta *c)
     for (int i = 0; i < 10; i++)
     {
         a = rand() % 25; // Gera valores de 0 a 24
-        // printf("%d\n", a); // Exibe o valor gerado
+        // printf("%d\n", a); // Exibe os valores gerado
         push(p_deck, c[a].n); // inserindo na pilha de cava
     }
 }
@@ -303,22 +303,22 @@ void print_pilha(tp_pilha *p_deck, carta *c)
 {
     printf("Deck de cartas:\n");
     printf("-----------------------------------\n");
-    tp_pilha pilha_temp;
-    inicializa_pilha(&pilha_temp);
+    tp_pilha pilha_aux; //Criando uma pilha auxiliar 
+    inicializa_pilha(&pilha_aux);
 
     while (!pilha_vazia(p_deck))
     {
         int e;
-        pop(p_deck, &e);
-        carta card = c[e];
-        print_carta(card);
-        push(&pilha_temp, e);
+        pop(p_deck, &e); //retira o elemento de cima do deck
+        carta card = c[e]; //cria uma variavel card e faz ela receber c[o elemento retirado]
+        print_carta(card);// chama a funcao de printar as cartas, serao printadas ate acabar a pilha pelo while
+        push(&pilha_aux, e);//manda o elemento pra pilha auxiliar
     }
-    while (!pilha_vazia(&pilha_temp))
+    while (!pilha_vazia(&pilha_aux))
     {
         int e;
-        pop(&pilha_temp, &e);
-        push(p_deck, e);
+        pop(&pilha_aux, &e);//retira da pilha auxuliar
+        push(p_deck, e);//manda para a original preservando a ordem
     }
 }
 
