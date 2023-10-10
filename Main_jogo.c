@@ -1,6 +1,6 @@
 #include "fila.h"
 #include "pilha.h"
-#include "cartas_deck.h"
+//#include "cartas_deck.h"
 #include "monstro.h"
 #include "player.h"
 #include <locale.h>
@@ -49,10 +49,6 @@ int main()
     //mostrar_cartas(cartas); // Funcao para visualizacao de todas cartas disponiveis no jogo
     //mostra_monstro(monstros, seqmons1, seqmons2, seqmons3, seqmons4, seqmons5, cartas_m); // Funcao para visualizacao dos Monstros do jogo
     //print_pilha(&p_deck, cartas); // Funcao para printar pilha
-
-    printf("Pressione Enter para iniciar o jogo...\n");
-
-    system("pause"); // Pausa até que o usuário pressione Enter
     system("clear");
 
     printf("\n\n");
@@ -100,6 +96,7 @@ int main()
     }
 
     cria_jogador(&j); // Funcao para criar o jogador
+    print_jogador(&j, &p_deck, cartas); // Funcao para printar o jogador
 
     printf("Pressione Enter para fechar o programa...\n");
 
