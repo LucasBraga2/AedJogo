@@ -4,27 +4,6 @@
 #include "monstro.h"
 #include "player.h"
 #include <locale.h>
-
-void toma_dano()
-{
-}
-
-void ataca()
-{
-}
-
-void defende()
-{
-}
-
-void cura()
-{
-}
-
-void defende_monstro()
-{
-}
-
 int main()
 {
     setlocale(LC_ALL, "Portuguese");
@@ -32,11 +11,14 @@ int main()
     system("color 1F");
     jogador j;           // Jogador Principal
     tp_pilha p_deck;     // Deck de Cartas do jogo, pilha de cartas disponiveis no total
+    tp_listase mao;
     carta cartas[25];    // ARRAY PARA BOTAR AS CARTAS ATAQUE, DEFESA, ESPECIAL
     carta_monstro cartas_m[25]; // ARRAY PARA BOTAR AS CARTAS Do MONSTRO     
     monstro monstros[5]; // ARRAY PARA OS MONSTROS
     tp_fila seqmons1, seqmons2, seqmons3, seqmons4, seqmons5; //SEQUENCIAS DE ACOES DOS MONSTROS
     char  menu;
+    int rodadas = 1;
+    int derrota = 0;
 
     cria_cartas(cartas); //Funcao que cria as cartas do jogo
     cria_carta_monstro(cartas_m);//Funcao que cria as cartas do mosntro                                    // Funcao de Cricao das Cartas
@@ -96,7 +78,17 @@ int main()
     }
 
     cria_jogador(&j); // Funcao para criar o jogador
-    print_jogador(&j, &p_deck, cartas); // Funcao para printar o jogador
+    print_jogador(&j); // Funcao para printar o jogador
+
+    while(derrota == 0){
+        printf("Rodada %d:", rodadas);
+        for(int i = 1; i <= 5; i++){
+            cava_carta(&mao, &p_deck, i);
+        }
+        descartar_mao(&mao, &p_deck);
+        verifica_energia(&j);
+}
+    print_mao(&mao, cartas);
 
     printf("Pressione Enter para fechar o programa...\n");
 

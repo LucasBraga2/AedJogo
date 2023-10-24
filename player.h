@@ -10,10 +10,18 @@ void cria_jogador(jogador *j)
     j->e = 5; // Energia
 }
 
-void print_jogador(jogador *j, tp_pilha *p_deck, carta *c){
+void print_jogador(jogador *j){
 
     printf("#####################################\n");
     printf("Nome: %s \nVida: %d Hp \nEnergia: %d/5 \n", j->nome, j->h, j->e);
-    //print_pilha(p_deck, c);
     printf("#####################################\n");
+}
+
+void recupera_energia(jogador *j){
+    j->e = 5; // Energia
+}
+void verifica_energia(jogador *j){
+    if(j->e != 3){
+        recupera_energia(j);
+    }
 }

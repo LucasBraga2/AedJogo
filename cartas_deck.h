@@ -1,5 +1,6 @@
 #include "fila.h"
 #include "pilha.h"
+#include "listase.h"
 #include <locale.h>
 
 
@@ -322,6 +323,34 @@ void print_pilha(tp_pilha *p_deck, carta *c)
     }
 }
 
-void retira_carta()
+void cava_carta(tp_listase *mao, tp_pilha *p_deck, int i)
 {
+    tp_item e;
+    pop(p_deck, &e);
+    insere_listase_no_fim(&mao, e, i);
+}
+
+void print_mao(tp_listase *mao, carta *c){
+
+    tp_listase *atu;
+    atu = mao;
+    printf("Mao do jogador:\n");
+    printf("--------------------------------------------\n");
+    while (atu != NULL)
+    {
+        carta card = c[atu->info]; 
+        print_carta(card);
+        printf("--------------------------------------------\n");
+        atu = atu->prox;
+    }
+}
+
+void descartar_mao(tp_listase *mao, tp_pilha *p_deck){
+
+    tp_item e;
+
+    for(int i = 1; i <= 5; i++){
+     e = remove_listase(&mao, i);
+     push(p_deck, e);
+    }
 }
