@@ -4,11 +4,13 @@
 #include "monstro.h"
 #include "player.h"
 #include <locale.h>
+
 int main()
 {
     setlocale(LC_ALL, "Portuguese");
     system("cls");
     system("color 1F");
+
     jogador j;           // Jogador Principal
     tp_pilha p_deck;     // Deck de Cartas do jogo, pilha de cartas disponiveis no total
     tp_listase mao;
@@ -16,6 +18,7 @@ int main()
     carta_monstro cartas_m[25]; // ARRAY PARA BOTAR AS CARTAS Do MONSTRO     
     monstro monstros[5]; // ARRAY PARA OS MONSTROS
     tp_fila seqmons1, seqmons2, seqmons3, seqmons4, seqmons5; //SEQUENCIAS DE ACOES DOS MONSTROS
+
     char  menu;
     int rodadas = 1;
     int derrota = 0;
@@ -87,7 +90,7 @@ int main()
             cava_carta(&mao, &p_deck, i);
         }
         verifica_energia(&j);
-}
+    }
     print_mao(&mao, cartas);
 
     printf("Pressione Enter para fechar o programa...\n");
