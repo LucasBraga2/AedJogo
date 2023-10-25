@@ -4,6 +4,7 @@
 #include "monstro.h"
 #include "player.h"
 #include <locale.h>
+
 int main()
 {
     setlocale(LC_ALL, "Portuguese");
@@ -18,6 +19,7 @@ int main()
     monstro monstros[5];                                      // ARRAY PARA OS MONSTROS
     tp_fila seqmons1, seqmons2, seqmons3, seqmons4, seqmons5; // SEQUENCIAS DE ACOES DOS MONSTROS
     char menu;
+
     int rodadas = 1;
     int derrota = 0;
 
