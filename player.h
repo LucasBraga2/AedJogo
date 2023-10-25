@@ -21,7 +21,7 @@ void recupera_energia(jogador *j){
     j->e = 5; // Energia
 }
 void verifica_energia(jogador *j){
-    if(j->e != 3){
+    if(j->e != 5){
         recupera_energia(j);
     }
 }

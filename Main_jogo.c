@@ -82,10 +82,10 @@ int main()
 
     while(derrota == 0){
         printf("Rodada %d:", rodadas);
+        descartar_mao(&mao, &p_deck);
         for(int i = 1; i <= 5; i++){
             cava_carta(&mao, &p_deck, i);
         }
-        descartar_mao(&mao, &p_deck);
         verifica_energia(&j);
 }
     print_mao(&mao, cartas);
