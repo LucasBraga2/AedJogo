@@ -18,10 +18,14 @@ void print_jogador(jogador *j){
 }
 
 void recupera_energia(jogador *j){
-    j->e = 5; // Energia
+    j->e = 5; // Recuperando energia
 }
 void verifica_energia(jogador *j){
     if(j->e != 5){
         recupera_energia(j);
+        printf("Energia recuperada!\n");
+    }
+    else{
+        printf("Sua energia ja esta completa.\n");
     }
 }

@@ -133,7 +133,7 @@ void destroi_listase(tp_listase **l)
     }
     *l = NULL;
 }
-int insere_listase_ordenado(tp_listase **lista, tp_item e)
+int insere_listase_ordenado(tp_listase **lista, tp_item e, int i)
 {
 
     tp_listase *novono, *ant, *atu;
@@ -144,11 +144,12 @@ int insere_listase_ordenado(tp_listase **lista, tp_item e)
         return 0;
 
     novono->info = e;
+    novono->identificador = i;
 
     atu = *lista;
     ant = NULL;
 
-    while ((atu != NULL) && (atu->info < novono->info))
+    while ((atu != NULL) && (atu->identificador < novono->identificador))
     {
         ant = atu;
         atu = atu->prox;
@@ -219,26 +220,6 @@ void destroi_impar(tp_listase **l)
             remove_listase(l, ant->info);
         }
     }
-}
-
-void lista_circular(tp_listase **l, tp_listase **l2)
-{
-    tp_listase *atu;
-    atu = *l;
-
-    while (atu->prox != NULL)
-    {
-        atu = atu->prox;
-    }
-    atu->prox = *l2;
-
-    atu = *l2;
-    while (atu->prox != NULL)
-    {
-        atu = atu->prox;
-    }
-    atu->prox = *l;
-    *l2 = *l;
 }
 
 #endif

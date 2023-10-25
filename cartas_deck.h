@@ -279,7 +279,7 @@ void print_carta(carta c)
     }
     printf("Valor: %d\n", c.v);
     printf("Custo: %d\n", c.c);
-    printf("-----------------------------------\n");
+    //printf("-----------------------------------\n");
 }
 
 void cria_deck(tp_pilha *p_deck)
@@ -313,6 +313,7 @@ void print_pilha(tp_pilha *p_deck, carta *c)
         pop(p_deck, &e); //retira o elemento de cima do deck
         carta card = c[e]; //cria uma variavel card e faz ela receber c[o elemento retirado]
         print_carta(card);// chama a funcao de printar as cartas, serao printadas ate acabar a pilha pelo while
+        printf("-----------------------------------\n");
         push(&pilha_aux, e);//manda o elemento pra pilha auxiliar
     }
     while (!pilha_vazia(&pilha_aux))
@@ -323,11 +324,13 @@ void print_pilha(tp_pilha *p_deck, carta *c)
     }
 }
 
-void cava_carta(tp_listase *mao, tp_pilha *p_deck, int i)
+void cava_carta(tp_listase **mao, tp_pilha *p_deck, int n)
 {
     tp_item e;
+    for(int i=1; i<=n; i++){
     pop(p_deck, &e);
-    insere_listase_no_fim(&mao, e, i);
+    insere_listase_ordenado(mao, e, i);
+    }
 }
 
 void print_mao(tp_listase *mao, carta *c){
@@ -340,7 +343,8 @@ void print_mao(tp_listase *mao, carta *c){
     {
         carta card = c[atu->info]; 
         print_carta(card);
-        printf("--------------------------------------------\n");
+        printf("Posicao: %d\n", atu->identificador);
+        printf("-----------------------------------\n");
         atu = atu->prox;
     }
 }
