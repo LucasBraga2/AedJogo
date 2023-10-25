@@ -85,7 +85,7 @@ int main()
 
     // while(derrota == 0){
     printf("Rodada %d:\n", rodadas);
-    // descartar_mao(&mao, &p_deck);
+    descartar_mao(&mao, &p_deck);
     cava_carta(&mao, &p_deck, 4);//O numero sao quantos cartas serao cavadas (Digite 1 num a menos que o desejado)
     verifica_energia(&j);
     //}

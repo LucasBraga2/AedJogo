@@ -349,12 +349,12 @@ void print_mao(tp_listase *mao, carta *c){
     }
 }
 
-void descartar_mao(tp_listase *mao, tp_pilha *p_deck){
+void descartar_mao(tp_listase **mao, tp_pilha *p_deck){
 
     tp_item e;
 
-    for(int i = 1; i <= 5; i++){
-     e = remove_listase(&mao, i);
+    for(int i = 0; i < 5; i++){
+     e = remove_listase(mao, i);
      push(p_deck, e);
     }
 }

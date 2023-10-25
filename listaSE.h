@@ -82,8 +82,6 @@ int remove_listase(tp_listase **lista, int i)
         ant = atu;
         atu = atu->prox;
     }
-
-    e = atu->info;
     
     if (atu == NULL)
         return 0; // Nao econtrou o elemento
@@ -95,6 +93,7 @@ int remove_listase(tp_listase **lista, int i)
     {
         ant->prox = atu->prox; // Fazendo interligacao entre o termo anterior e o termo subsequente
     }
+    e = atu->info;
     free(atu);
     atu = NULL;
     return e;
