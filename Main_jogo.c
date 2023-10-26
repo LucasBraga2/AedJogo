@@ -81,7 +81,7 @@ int main()
     print_jogador(&j); // Funcao para printar o jogador
 
     descartar_mao(&mao, &p_deck);
-    cava_carta(&mao, &p_deck, 4);//O numero sao quantos cartas serao cavadas (Digite 1 num a menos que o desejado)
+    cava_carta(&mao, &p_deck, 5);//O numero sao quantos cartas serao cavadas (Digite 1 num a menos que o desejado)
     verifica_energia(&j);
     print_mao(mao, cartas);
 
