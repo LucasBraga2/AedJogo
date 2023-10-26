@@ -20,9 +20,6 @@ int main()
     tp_fila seqmons1, seqmons2, seqmons3, seqmons4, seqmons5; // SEQUENCIAS DE ACOES DOS MONSTROS
     char menu;
 
-    int rodadas = 1;
-    int derrota = 0;
-
     cria_cartas(cartas);                                                                // Funcao que cria as cartas do jogo
     cria_carta_monstro(cartas_m);                                                       // Funcao que cria as cartas do mosntro                                    // Funcao de Cricao das Cartas
     cria_monstro(monstros);                                                             // Funcao para Criar os Monstros
@@ -83,12 +80,9 @@ int main()
     cria_jogador(&j);  // Funcao para criar o jogador
     print_jogador(&j); // Funcao para printar o jogador
 
-    // while(derrota == 0){
-    printf("Rodada %d:\n", rodadas);
     descartar_mao(&mao, &p_deck);
     cava_carta(&mao, &p_deck, 4);//O numero sao quantos cartas serao cavadas (Digite 1 num a menos que o desejado)
     verifica_energia(&j);
-    //}
     print_mao(mao, cartas);
 
     printf("Pressione Enter para fechar o programa...\n");
