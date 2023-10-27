@@ -12,6 +12,7 @@ int main()
     system("color 1F");
     jogador j;       // Jogador Principal
     tp_pilha p_deck; // Deck de Cartas do jogo, pilha de cartas disponiveis no total
+    tp_pilha p_descarte;//Pilha de descarte
     tp_listase *mao; // Mao do jogador
     mao = aloca_listase();
     carta cartas[25];                                         // ARRAY PARA BOTAR AS CARTAS ATAQUE, DEFESA, ESPECIAL
@@ -24,7 +25,7 @@ int main()
     cria_carta_monstro(cartas_m);                                                       // Funcao que cria as cartas do mosntro                                    // Funcao de Cricao das Cartas
     cria_monstro(monstros);                                                             // Funcao para Criar os Monstros
     sequencia_monstro(cartas_m, &seqmons1, &seqmons2, &seqmons3, &seqmons4, &seqmons5); // Funcao que cria e vai inserir os elementos na sequencia
-    cria_deck(&p_deck);                                                                 // Funcao que Cria o deck de cartas
+    cria_deck(&p_deck, &p_descarte);                                                                 // Funcao que Cria o deck de cartas
     embaralhar_deck(&p_deck, cartas);                                                   // Funcao que embaralha o deck inicial
     // print_carta(cartas[14]); // Funcao para printar uma carta especifica
     // print_fila(&seqmons1, cartas_m);//Funcao que printa fila
@@ -80,7 +81,7 @@ int main()
     cria_jogador(&j);  // Funcao para criar o jogador
     print_jogador(&j); // Funcao para printar o jogador
 
-    descartar_mao(&mao, &p_deck);
+    descartar_mao(&mao, &p_descarte);
     cava_carta(&mao, &p_deck, 5);//O numero sao quantos cartas serao cavadas (Digite 1 num a menos que o desejado)
     verifica_energia(&j);
     print_mao(mao, cartas);

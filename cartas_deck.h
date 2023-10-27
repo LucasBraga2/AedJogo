@@ -282,9 +282,10 @@ void print_carta(carta c)
     //printf("-----------------------------------\n");
 }
 
-void cria_deck(tp_pilha *p_deck)
+void cria_deck(tp_pilha *p_deck, tp_pilha *p_descarte)
 {
     inicializa_pilha(p_deck);
+    inicializa_pilha(p_descarte);
 }
 
 void embaralhar_deck(tp_pilha *p_deck, carta *c)
@@ -349,12 +350,12 @@ void print_mao(tp_listase *mao, carta *c){
     }
 }
 
-void descartar_mao(tp_listase **mao, tp_pilha *p_deck){
+void descartar_mao(tp_listase **mao, tp_pilha *p_descarte){
 
     tp_item e;
 
     for(int i = 0; i < 5; i++){
      e = remove_listase(mao, i);
-     push(p_deck, e);
+     push(p_descarte, e);
     }
 }
