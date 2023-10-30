@@ -10,6 +10,7 @@ int main()
     setlocale(LC_ALL, "Portuguese");
     system("cls");
     system("color 1F");
+    
     jogador j;       // Jogador Principal
     tp_pilha p_deck; // Deck de Cartas do jogo, pilha de cartas disponiveis no total
     tp_pilha p_descarte;//Pilha de descarte
@@ -26,12 +27,14 @@ int main()
     cria_monstro(monstros);                                                             // Funcao para Criar os Monstros
     sequencia_monstro(cartas_m, &seqmons1, &seqmons2, &seqmons3, &seqmons4, &seqmons5); // Funcao que cria e vai inserir os elementos na sequencia
     cria_deck(&p_deck, &p_descarte);                                                                 // Funcao que Cria o deck de cartas
-    embaralhar_deck(&p_deck, cartas);                                                   // Funcao que embaralha o deck inicial
+    embaralhar_deck(&p_deck, cartas);                                                  // Funcao que embaralha o deck inicial
+    
     // print_carta(cartas[14]); // Funcao para printar uma carta especifica
     // print_fila(&seqmons1, cartas_m);//Funcao que printa fila
     // mostrar_cartas(cartas); // Funcao para visualizacao de todas cartas disponiveis no jogo
     // mostra_monstro(monstros, seqmons1, seqmons2, seqmons3, seqmons4, seqmons5, cartas_m); // Funcao para visualizacao dos Monstros do jogo
     // print_pilha(&p_deck, cartas); // Funcao para printar pilha
+    
     system("clear");
 
     /*printf("\n\n");

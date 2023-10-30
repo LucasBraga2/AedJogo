@@ -77,7 +77,7 @@ int remove_listase(tp_listase **lista, int i)
     tp_item e;
     atu = *lista;
     ant = NULL;
-    while ((atu != NULL) && (atu->identificador!= i))
+    while ((atu != NULL) && (atu->identificador != i))
     {
         ant = atu;
         atu = atu->prox;
@@ -108,6 +108,7 @@ tp_listase *busca_listase(tp_listase *lista, tp_item e)
     }
     return atu;
 }
+
 int tamanho_listase(tp_listase *lista)
 {
     int cont = 0;
@@ -132,6 +133,7 @@ void destroi_listase(tp_listase **l)
     }
     *l = NULL;
 }
+
 int insere_listase_ordenado(tp_listase **lista, tp_item e, int i)
 {
 

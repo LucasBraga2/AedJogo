@@ -2,6 +2,7 @@
 #include "pilha.h"
 #include "listase.h"
 #include <locale.h>
+#include <stdbool.h>
 
 
 void cria_cartas(carta *c)
@@ -348,6 +349,28 @@ void print_mao(tp_listase *mao, carta *c){
         printf("-----------------------------------\n");
         atu = atu->prox;
     }
+}
+
+int usa_carta(tp_listase *mao){
+
+    int i;
+    int efeito;
+    bool jogadainvalida;
+
+    printf("Qual carta deseja usar? (posicao)\n");
+    do
+    {
+        scanf("%d", &i);
+        efeito = remove_listase(&mao, i);
+        if(!efeito) {
+            printf("Nao ha essa carta! Informe a carta novamente. (posisao)\n");
+            jogadainvalida = true;
+        }
+        else jogadainvalida = false;
+    } while (jogadainvalida);
+
+    return efeito;
+
 }
 
 void descartar_mao(tp_listase **mao, tp_pilha *p_descarte){
