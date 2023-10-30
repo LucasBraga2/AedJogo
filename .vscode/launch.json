@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/1t1.910312/Documents/GitHub/AedJogo",
-      "program": "c:/Users/1t1.910312/Documents/GitHub/AedJogo/build/Debug/outDebug",
+      "cwd": "c:/Users/Srbig/OneDrive/Documentos/GitHub/AedJogo",
+      "program": "c:/Users/Srbig/OneDrive/Documentos/GitHub/AedJogo/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
