@@ -66,7 +66,7 @@ void imprime_listase(tp_listase *lista)
     atu = lista;
     while (atu != NULL)
     {
-        printf("%d \n", atu->info);
+        printf("%d ", atu->info);
         atu = atu->prox;
     }
 }

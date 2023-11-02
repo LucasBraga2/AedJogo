@@ -4,10 +4,9 @@
 #include <locale.h>
 #include <stdbool.h>
 
-
 void cria_cartas(carta *c)
 {
-setlocale(LC_ALL, "Portuguese");
+    setlocale(LC_ALL, "Portuguese");
     // CARTA 0 ATAQUE
     c[0].n = 0;                 // IDENTIFICADOR DA CARTA
     strcpy(c[0].nome, "Chute"); // NOME
@@ -149,44 +148,44 @@ setlocale(LC_ALL, "Portuguese");
     c[19].c = 5;                                    // CUSTO
 
     // CARTA 20 ESPECIAL
-    c[20].n = 20;                        // IDENTIFICADOR DA CARTA
-    strcpy(c[20].nome, "Piada");         // NOME
+    c[20].n = 20;                                                                                                                                                                                                                // IDENTIFICADOR DA CARTA
+    strcpy(c[20].nome, "Piada");                                                                                                                                                                                                 // NOME
     strcpy(c[20].habilidade, "Voce conta uma piada pro monstro, ele achou tao engracado que te mostrou uma carta que estava escondida no chao (+1 carta). Porem, ele te deu um tapa de tao engracada que foi a piada. (-1HP.)"); // HABILIDADE
-    c[20].t = 3;                         // TIPO
-    c[20].v = 5;                         // VALOR
-    c[20].c = 1;                         // CUSTO
+    c[20].t = 3;                                                                                                                                                                                                                 // TIPO
+    c[20].v = 5;                                                                                                                                                                                                                 // VALOR
+    c[20].c = 1;                                                                                                                                                                                                                 // CUSTO
 
     // CARTA 21 ESPECIAL
-    c[21].n = 21;                        // IDENTIFICADOR DA CARTA
-    strcpy(c[21].nome, "Esparadrapo");   // NOME
+    c[21].n = 21;                                                                                                                        // IDENTIFICADOR DA CARTA
+    strcpy(c[21].nome, "Esparadrapo");                                                                                                   // NOME
     strcpy(c[21].habilidade, "Voce achou um esparadrapo. Recupere 8HP! Ops... Parece que ele grudou em uma de suas cartas (-1 carta)."); // HABILIDADE
-    c[21].t = 3;                         // TIPO
-    c[21].v = 5;                         // VALOR
-    c[21].c = 2;                         // CUSTO
+    c[21].t = 3;                                                                                                                         // TIPO
+    c[21].v = 5;                                                                                                                         // VALOR
+    c[21].c = 2;                                                                                                                         // CUSTO
 
     // CARTA 22 ESPECIAL
-    c[22].n = 22;                             // IDENTIFICADOR DA CARTA
-    strcpy(c[22].nome, "Sopro da Abstracao"); // NOME
-    strcpy(c[22].habilidade, "Voce pede ajuda a um experiente mestre e ele lhe concede 8HP! Opa, na verdade era so um mendigo. Ele te deu algo estranho pra comer (-2HP(+6 no toal!).");      // HABILIDADE
-    c[22].t = 3;                              // TIPO
-    c[22].v = 5;                              // VALOR
-    c[22].c = 3;                              // CUSTO
+    c[22].n = 22;                                                                                                                                                                        // IDENTIFICADOR DA CARTA
+    strcpy(c[22].nome, "Sopro da Abstracao");                                                                                                                                            // NOME
+    strcpy(c[22].habilidade, "Voce pede ajuda a um experiente mestre e ele lhe concede 8HP! Opa, na verdade era so um mendigo. Ele te deu algo estranho pra comer (-2HP(+6 no toal!)."); // HABILIDADE
+    c[22].t = 3;                                                                                                                                                                         // TIPO
+    c[22].v = 5;                                                                                                                                                                         // VALOR
+    c[22].c = 3;                                                                                                                                                                         // CUSTO
 
     // CARTA 23 ESPECIAL
-    c[23].n = 23;                        // IDENTIFICADOR DA CARTA
-    strcpy(c[23].nome, "Renato Paiva");  // NOME
+    c[23].n = 23;                                                                                                                                            // IDENTIFICADOR DA CARTA
+    strcpy(c[23].nome, "Renato Paiva");                                                                                                                      // NOME
     strcpy(c[23].habilidade, " O monstro se distrai da partida e sai correndo atras da outra monstruosidade que saiu dessa carta, va para a proxima fase!"); // HABILIDADE
-    c[23].t = 3;                         // TIPO
-    c[23].v = 5;                         // VALOR
-    c[23].c = 4;                         // CUSTO
+    c[23].t = 3;                                                                                                                                             // TIPO
+    c[23].v = 5;                                                                                                                                             // VALOR
+    c[23].c = 4;                                                                                                                                             // CUSTO
 
     // CARTA 24 ESPECIAL
-    c[24].n = 24;                        // IDENTIFICADOR DA CARTA
-    strcpy(c[24].nome, "SUS");           // NOME
+    c[24].n = 24;                                                                            // IDENTIFICADOR DA CARTA
+    strcpy(c[24].nome, "SUS");                                                               // NOME
     strcpy(c[24].habilidade, "Cura 2HP, mas como o servico e lento, so na proxima rodada."); // HABILIDADE
-    c[24].t = 3;                         // TIPO
-    c[24].v = 5;                         // VALOR
-    c[24].c = 3;                         // CUSTO
+    c[24].t = 3;                                                                             // TIPO
+    c[24].v = 5;                                                                             // VALOR
+    c[24].c = 3;                                                                             // CUSTO
 }
 
 void mostrar_cartas(carta *c)
@@ -280,7 +279,7 @@ void print_carta(carta c)
     }
     printf("Valor: %d\n", c.v);
     printf("Custo: %d\n", c.c);
-    //printf("-----------------------------------\n");
+    // printf("-----------------------------------\n");
 }
 
 void cria_deck(tp_pilha *p_deck, tp_pilha *p_descarte)
@@ -306,44 +305,51 @@ void print_pilha(tp_pilha *p_deck, carta *c)
 {
     printf("Deck de cartas:\n");
     printf("-----------------------------------\n");
-    tp_pilha pilha_aux; //Criando uma pilha auxiliar 
+    tp_pilha pilha_aux; // Criando uma pilha auxiliar
     inicializa_pilha(&pilha_aux);
 
     while (!pilha_vazia(p_deck))
     {
         int e;
-        pop(p_deck, &e); //retira o elemento de cima do deck
-        carta card = c[e]; //cria uma variavel card e faz ela receber c[o elemento retirado]
-        print_carta(card);// chama a funcao de printar as cartas, serao printadas ate acabar a pilha pelo while
+        pop(p_deck, &e);   // retira o elemento de cima do deck
+        carta card = c[e]; // cria uma variavel card e faz ela receber c[o elemento retirado]
+        print_carta(card); // chama a funcao de printar as cartas, serao printadas ate acabar a pilha pelo while
         printf("-----------------------------------\n");
-        push(&pilha_aux, e);//manda o elemento pra pilha auxiliar
+        push(&pilha_aux, e); // manda o elemento pra pilha auxiliar
     }
     while (!pilha_vazia(&pilha_aux))
     {
         int e;
-        pop(&pilha_aux, &e);//retira da pilha auxuliar
-        push(p_deck, e);//manda para a original preservando a ordem
+        pop(&pilha_aux, &e); // retira da pilha auxuliar
+        push(p_deck, e);     // manda para a original preservando a ordem
     }
 }
 
 void cava_carta(tp_listase **mao, tp_pilha *p_deck, int n)
 {
+
     tp_item e;
-    for(int i=1; i<=n; i++){
-    pop(p_deck, &e);
-    insere_listase_ordenado(mao, e, i);
+    for (int i = 1; i <= n; i++)
+    {
+        pop(p_deck, &e);
+        printf("%d\n", e);
+        insere_listase_ordenado(mao, e, i);
     }
+    imprime_listase(*mao);
 }
 
-void print_mao(tp_listase *mao, carta *c){
+void print_mao(tp_listase *mao, carta *c)
+{
 
     tp_listase *atu;
     atu = mao;
     printf("Mao do jogador:\n");
     printf("--------------------------------------------\n");
-    while (atu != NULL)
+    while (atu!= NULL)
     {
-        carta card = c[atu->info]; 
+        tp_item e;
+        e = atu->info;
+        carta card = c[e];
         print_carta(card);
         printf("Posicao: %d\n", atu->identificador);
         printf("-----------------------------------\n");
@@ -351,7 +357,8 @@ void print_mao(tp_listase *mao, carta *c){
     }
 }
 
-int usa_carta(tp_listase *mao){
+int usa_carta(tp_listase *mao)
+{
 
     int i;
     int efeito;
@@ -362,23 +369,26 @@ int usa_carta(tp_listase *mao){
     {
         scanf("%d", &i);
         efeito = remove_listase(&mao, i);
-        if(!efeito) {
+        if (!efeito)
+        {
             printf("Nao ha essa carta! Informe a carta novamente. (posisao)\n");
             jogadainvalida = true;
         }
-        else jogadainvalida = false;
+        else
+            jogadainvalida = false;
     } while (jogadainvalida);
 
     return efeito;
-
 }
 
-void descartar_mao(tp_listase **mao, tp_pilha *p_descarte){
+void descartar_mao(tp_listase **mao, tp_pilha *p_descarte)
+{
 
     tp_item e;
 
-    for(int i = 0; i < 5; i++){
-     e = remove_listase(mao, i);
-     push(p_descarte, e);
+    for (int i = 0; i < 5; i++)
+    {
+        e = remove_listase(mao, i);
+        push(p_descarte, e);
     }
 }
