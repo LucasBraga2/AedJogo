@@ -364,13 +364,11 @@ int usa_carta(tp_listase *mao)
     int efeito;
     bool jogadainvalida;
 
-    printf("Qual carta deseja usar? (posicao)\n");
-    do
-    {
-        scanf("%d", &i);
+    printf("Qual carta deseja usar? (digite a posicao e o numero)\n");
+    do{
+        scanf("%d\n", &i);
         efeito = remove_listase(&mao, i);
-        if (!efeito)
-        {
+        if (!efeito){
             printf("Nao ha essa carta! Informe a carta novamente. (posisao)\n");
             jogadainvalida = true;
         }
