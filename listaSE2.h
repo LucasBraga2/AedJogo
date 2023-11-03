@@ -5,13 +5,13 @@
 #include "fila.h"
 
 typedef struct{
-    monstro m1;
-    int tipo;
-} local;
+    int monstro;
+    char tipo;
+} tp_item;
 
 typedef struct tp_no{
     tp_item info;
-    struct tp_no *prox;
+    struct tp_no *prox, *desvio;
 }tp_listase;
 
 tp_listase * inicializa_lista(){
@@ -122,11 +122,38 @@ int conecta_listase(tp_listase **l, tp_listase **l1){
     *l1 = *l;
     return 1;
 }
-
-tp_listase * cria_caminho(){
-    tp_listase *l;
-    l = inicializa_listase();
-
+void cria_desvio(tp_listase **l, tp_item e){
+    tp_listase *novo_no;
+    *novo_no = aloca_listase();
+    *l->desvio = novo_no;
+    novo_no->info = e;
+    novo_no->prox = *l->prox->prox;
+}
+tp_listase * cria_caminho(tp_listase **l){
+    *l = inicializa_lista();
+    local c1, c2, c3, c4, c5, d1, d2; 
+    c1.tipo = 'c';
+    c1.monstro = 1;
+    c2.tipo = 'c';
+    c2.monstro = 2;
+    c3.tipo = 'c';
+    c3.monstro = 3;
+    c4.tipo = 'c';
+    c4.monstro = 4;
+    c5.tipo = 'c';
+    c5.monstro = 5;
+    d1.tipo = 'd';
+    d1.monstro = 0;
+    d2.tipo = 'd';
+    d2.monstro = 0;
+    insere_listase_no_fim(*l, c1);
+    insere_listase_no_fim(*l, c2);
+    insere_listase_no_fim(*l, c3);
+    insere_listase_no_fim(*l, c4);
+    insere_listase_no_fim(*l, c5);
+    cria_desvio(l->prox, d1);
+    cria_desvio(l->desvio->prox->prox, d1);
+    printf("%c", l->info.tipo);
 }
 
 
