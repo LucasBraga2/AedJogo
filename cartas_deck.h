@@ -329,14 +329,15 @@ void cava_carta(tp_listase **mao, tp_pilha *p_deck, int n)
 {
 
     tp_item e;
-    //imprime_listase(*mao);
+    imprime_listase(*mao);
+    printf(".");
     for (int i = 1; i <= n; i++)
     {
         pop(p_deck, &e);
         printf("%d\n", e);
         insere_listase_ordenado(mao, e, i);
     }
-    //imprime_listase(*mao);
+    imprime_listase(*mao);
 }
 
 void print_mao(tp_listase *mao, carta *c)
@@ -346,7 +347,8 @@ void print_mao(tp_listase *mao, carta *c)
     atu = mao;
     printf("Mao do jogador:\n");
     printf("--------------------------------------------\n");
-    while (atu!= NULL)
+    atu = atu->prox;
+    while (atu != NULL)
     {
         tp_item e;
         e = atu->info;
