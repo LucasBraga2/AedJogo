@@ -89,8 +89,8 @@ int main()
     //usa_carta(&mao);
     verifica_energia(&j);
     print_mao(mao, cartas);
-    //descartar_mao(&mao, &p_descarte);
-    //print_pilha(&p_descarte, cartas);
+    descartar_mao(&mao, &p_descarte);
+    print_pilha(&p_descarte, cartas);
 
     printf("Pressione Enter para fechar o programa...\n");
 
