@@ -358,37 +358,42 @@ void print_mao(tp_listase *mao, carta *c)
     }
 }
 
-int usa_carta(tp_listase *mao)
+int usa_carta(tp_listase *mao, carta *c)
 {
+    int p;
+    bool jogadavalida = true;
+    int numerador, tipo, valor;
 
-    int p, t;
-    int efeito;
-    bool jogadavalida;
+    printf("Qual carta deseja usar? (posicao)\n");
+    while(jogadavalida){
+        scanf("%d", &p);
+        numerador = remove_listase(&mao, p);
+        printf("Numerador: %d\n", numerador);
 
-    printf("Qual carta deseja usar? (digite o seu tipo ('1' para ataque, '2' parra defesa e '3' para especial) e a posicao)\n");
-    do{
-        scanf("%d %d\n", &t, &p);
-        efeito = remove_listase(&mao, p);
-
-        if (!efeito){
-            printf("Nao ha essa carta! Informe a carta novamente. (posisao)\n");
+        if (!numerador){
+            printf("Nao ha essa carta! Informe a carta novamente. (posicao)\n");
             jogadavalida = false;
         }
 
-        if(t == 1){
-            printf("Voce causou %d de dano no monstro!\n", efeito);
+        valor = c[numerador].v;
+        printf("Valor: %d\n", valor);
+        tipo = c[numerador].t;
+        printf("tipo: %d\n", tipo);
+
+        if(tipo == 1){
+            printf("Voce causou %d de dano no monstro!\n", valor);
         }
-        if(t == 2){
-            printf("Voce esta com %d de defesa!\n", efeito);
+        if(tipo == 2){
+            printf("Voce esta com %d de defesa!\n", valor);
         }
-        if(t == 3){
-            printf("Voce usou uma carta especial!\n", efeito);
+        if(tipo == 3){
+            printf("Voce usou uma carta especial!\n", valor);
         }
 
         jogadavalida = true;
-    } while (jogadavalida);
+    } 
 
-    return efeito;
+    return valor;
 }
 
 void descartar_mao(tp_listase **mao, tp_pilha *p_descarte)
