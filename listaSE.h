@@ -10,10 +10,16 @@ typedef struct tp_no
 {
     tp_item info;
     tp_item identificador;
+    tp_item monstro;
     struct tp_no *prox;
-    struct tp_no *prox2;
+    struct tp_no *desvio;
 } tp_listase;
 
+typedef struct
+    {
+        int tipo_c;
+        tp_item monstro;
+    } fase;
 tp_listase *inicializa_listase()
 {
     return NULL;
@@ -82,7 +88,7 @@ int remove_listase(tp_listase **lista, int i)
         ant = atu;
         atu = atu->prox;
     }
-    
+
     if (atu == NULL)
         return 0; // Nao econtrou o elemento
     if (ant == NULL)
@@ -222,5 +228,30 @@ void destroi_impar(tp_listase **l)
         }
     }
 }
+/*void cria_caminho(tp_listase **caminho, monstro *m)
+{
+
+    fase fases[7];
+    // Tipo 1 = Combate
+    // Tipo 2 = Descanso
+
+    fases[0].tipo_c = 1;
+    fases[0].monstro = 0;
+
+    fases[1].tipo_c = 1;
+    fases[1].monstro = 1;
+
+    fases[2].tipo_c = 1;
+    fases[2].monstro = 2;
+
+    fases[3].tipo_c = 1;
+    fases[3].monstro = 3;
+
+    fases[4].tipo_c = 1;
+    fases[4].monstro = 4;
+
+    fases[6].tipo_c = 2;
+    fases[7].tipo_c = 2;
+}*/
 
 #endif
