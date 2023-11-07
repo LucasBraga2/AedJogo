@@ -361,21 +361,32 @@ void print_mao(tp_listase *mao, carta *c)
 int usa_carta(tp_listase *mao)
 {
 
-    int i;
+    int p, t;
     int efeito;
-    bool jogadainvalida;
+    bool jogadavalida;
 
-    printf("Qual carta deseja usar? (digite a posicao e o numero)\n");
+    printf("Qual carta deseja usar? (digite o seu tipo ('1' para ataque, '2' parra defesa e '3' para especial) e a posicao)\n");
     do{
-        scanf("%d\n", &i);
-        efeito = remove_listase(&mao, i);
+        scanf("%d %d\n", &t, &p);
+        efeito = remove_listase(&mao, p);
+
         if (!efeito){
             printf("Nao ha essa carta! Informe a carta novamente. (posisao)\n");
-            jogadainvalida = true;
+            jogadavalida = false;
         }
-        else
-            jogadainvalida = false;
-    } while (jogadainvalida);
+
+        if(t == 1){
+            printf("Voce causou %d de dano no monstro!\n", efeito);
+        }
+        if(t == 2){
+            printf("Voce esta com %d de defesa!\n", efeito);
+        }
+        if(t == 3){
+            printf("Voce usou uma carta especial!\n", efeito);
+        }
+
+        jogadavalida = true;
+    } while (jogadavalida);
 
     return efeito;
 }

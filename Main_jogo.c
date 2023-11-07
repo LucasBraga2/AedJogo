@@ -86,11 +86,11 @@ int main()
 
     
     cava_carta(&mao, &p_deck, 5);//O numero sao quantos cartas serao cavadas (Digite 1 num a menos que o desejado)
-    //usa_carta(&mao);
-    verifica_energia(&j);
+    //verifica_energia(&j);
     print_mao(mao, cartas);
+    usa_carta(&mao);
     descartar_mao(&mao, &p_descarte);
-    print_pilha(&p_descarte, cartas);
+    //print_pilha(&p_descarte, cartas);
 
     printf("Pressione Enter para fechar o programa...\n");
 
