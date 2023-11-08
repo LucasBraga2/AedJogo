@@ -1,8 +1,6 @@
 #include "fila.h"
 #include "pilha.h"
 // #include "cartas_deck.h"
-#include "monstro.h"
-#include "player.h"
 #include "frontend.h"
 #include <locale.h>
 
@@ -86,7 +84,8 @@ int main()
 
     cria_jogador(&j);  // Funcao para criar o jogador
     print_jogador(&j); // Funcao para printar o jogador
-    imprime_listase(caminho);
+    //imprime_listase(caminho);
+    player_e_monstro(&j, monstros);
     
     cava_carta(&mao, &p_deck, 5);//O numero sao quantos cartas serao cavadas (Digite 1 num a menos que o desejado)
     verifica_energia(&j);

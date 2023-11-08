@@ -1,6 +1,8 @@
 #include <stdio.h>
+#include"monstro.h"
+#include"player.h"
 
-void player_e_monstro(){
+void player_e_monstro(jogador *j, monstro *m){
     printf("\n");
     printf("        __                             ________       \n");
     printf("       |__|                             |____|     \n");
@@ -10,8 +12,8 @@ void player_e_monstro(){
     printf("       |__|                            __|__|__     \n");
     printf("       |  |                           /  |  |  |    \n");
     printf("       |_ |_                         _| _| _| _|    \n\n");
-    printf("    Player: Eren                  Monstro: Homem Gosma     \n");
-    printf(" Vida: 20   Energia: 5            Vida do Monstro: 40     \n\n");
+    printf("    Player: %s                     Monstro: %s     \n", j->nome, m[0].nome);
+    printf(" Vida: %d/20   Energia: %d         Vida do Monstro: %d\n\n", j->h, j->e, m[0].h);
 }
 
 void player_ataca_monstro(){
