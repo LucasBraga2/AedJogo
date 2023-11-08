@@ -17,8 +17,8 @@ int main()
     tp_pilha p_descarte;//Pilha de descarte
     tp_listase *mao; // Mao do jogador
     tp_listase *caminho;
-    mao = aloca_listase();
-    caminho = aloca_listase();
+    mao = inicializa_listase();
+    caminho = inicializa_listase();
     carta cartas[25];                                         // ARRAY PARA BOTAR AS CARTAS ATAQUE, DEFESA, ESPECIAL
     carta_monstro cartas_m[25];                               // ARRAY PARA BOTAR AS CARTAS Do MONSTRO
     monstro monstros[5];                                      // ARRAY PARA OS MONSTROS
@@ -89,10 +89,9 @@ int main()
     imprime_listase(caminho);
     
     cava_carta(&mao, &p_deck, 5);//O numero sao quantos cartas serao cavadas (Digite 1 num a menos que o desejado)
-    //verifica_energia(&j);
-    print_mao(mao, cartas);
+    verifica_energia(&j);
     usa_carta(mao, cartas);
-    descartar_mao(&mao, &p_descarte);
+    //descartar_mao(&mao, &p_descarte);
     //print_pilha(&p_descarte, cartas);
 
     printf("Pressione Enter para fechar o programa...\n");

@@ -4,6 +4,11 @@
 #include <locale.h>
 #include <stdbool.h>
 
+typedef struct
+{
+    int dano_total;
+    int defesa_total;
+} resultadoJogada;
 void cria_cartas(carta *c)
 {
     setlocale(LC_ALL, "Portuguese");
@@ -329,11 +334,11 @@ void cava_carta(tp_listase **mao, tp_pilha *p_deck, int n)
 {
 
     tp_item e;
-    //imprime_listase(*mao);
+    // imprime_listase(*mao);
     for (int i = 1; i <= n; i++)
     {
         pop(p_deck, &e);
-        //printf("%d\n", e);
+        // printf("%d\n", e);
         insere_listase_ordenado(mao, e, i);
     }
 }
@@ -345,7 +350,6 @@ void print_mao(tp_listase *mao, carta *c)
     atu = mao;
     printf("Mao do jogador:\n");
     printf("--------------------------------------------\n");
-    atu = atu->prox;
     while (atu != NULL)
     {
         tp_item e;
@@ -358,42 +362,63 @@ void print_mao(tp_listase *mao, carta *c)
     }
 }
 
-int usa_carta(tp_listase *mao, carta *c)
+resultadoJogada usa_carta(tp_listase *mao, carta *c)
 {
-    int p;
-    bool jogadavalida = true;
-    int numerador, tipo, valor;
+    resultadoJogada resultado = {0, 0};
+    bool jogar_outra_carta;
 
-    printf("Qual carta deseja usar? (posicao)\n");
-    while(jogadavalida){
-        scanf("%d", &p);
-        numerador = remove_listase(&mao, p);
-        printf("Numerador: %d\n", numerador);
+    do
+    {
+        int p;
+        bool jogada_valida;
 
-        if (!numerador){
-            printf("Nao ha essa carta! Informe a carta novamente. (posicao)\n");
-            jogadavalida = false;
-        }
+        do
+        {
+            jogada_valida = true;
+            print_mao(mao, c);
+            printf("Qual carta deseja usar? (posicao)\n");
+            scanf("%d", &p);
+            int numerador = remove_listase(&mao, p);
 
-        valor = c[numerador].v;
-        printf("Valor: %d\n", valor);
-        tipo = c[numerador].t;
-        printf("tipo: %d\n", tipo);
+            if (numerador == -1)
+            {
+                printf("Não ha essa carta! Informe a carta novamente. (posicao)\n");
+                jogada_valida = false;
+            }
+            else
+            {
+                int valor = c[numerador].v;
+                int tipo = c[numerador].t;
+                char *nome_carta = c[numerador].nome;
 
-        if(tipo == 1){
-            printf("Voce causou %d de dano no monstro!\n", valor);
-        }
-        if(tipo == 2){
-            printf("Voce esta com %d de defesa!\n", valor);
-        }
-        if(tipo == 3){
-            printf("Voce usou uma carta especial!\n", valor);
-        }
+                if (tipo == 1)
+                {
+                    printf("Voce usou a carta %s.\n", nome_carta);
+                    printf("Voce causou %d de dano no monstro!\n", valor);
+                    resultado.dano_total += valor;
+                }
+                else if (tipo == 2)
+                {
+                    printf("Voce usou a carta %s.\n", nome_carta);
+                    printf("Voce esta com %d de defesa a mais!\n", valor);
+                    resultado.defesa_total += valor;
+                }
+                else if (tipo == 3)
+                {
+                    printf("Voce usou a carta %s.\n", nome_carta);
+                    printf("Voce usou uma carta especial!\n");
+                }
+            }
+        } while (!jogada_valida);
 
-        jogadavalida = true;
-    } 
+        printf("Deseja jogar outra carta? (1 para sim, 0 para não)\n");
+        int escolha;
+        scanf("%d", &escolha);
+        jogar_outra_carta = (escolha == 1);
 
-    return valor;
+    } while (jogar_outra_carta);
+
+    return resultado;
 }
 
 void descartar_mao(tp_listase **mao, tp_pilha *p_descarte)
