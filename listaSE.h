@@ -15,11 +15,14 @@ typedef struct tp_no
     struct tp_no *desvio;
 } tp_listase;
 
+
 typedef struct
-    {
-        int tipo_c;
-        tp_item monstro;
-    } fase;
+{
+    int tipo_c;
+    tp_item monstro;
+} fase;
+
+
 tp_listase *inicializa_listase()
 {
     return NULL;
@@ -251,7 +254,9 @@ void destroi_impar(tp_listase **l)
     fases[4].monstro = 4;
 
     fases[6].tipo_c = 2;
+    fases[6].monstro = -1;
     fases[7].tipo_c = 2;
+    fases[7].monstro = -1;
 }*/
 
 #endif

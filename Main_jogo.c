@@ -3,6 +3,7 @@
 // #include "cartas_deck.h"
 #include "monstro.h"
 #include "player.h"
+#include "frontend.h"
 #include <locale.h>
 
 int main()
