@@ -330,14 +330,23 @@ void print_pilha(tp_pilha *p_deck, carta *c)
     }
 }
 
-void cava_carta(tp_listase **mao, tp_pilha *p_deck, int n)
+void cava_carta(tp_listase **mao, tp_pilha *p_deck,tp_pilha *p_descarte, int n)
 {
 
     tp_item e;
     // imprime_listase(*mao);
     for (int i = 1; i <= n; i++)
     {
-        pop(p_deck, &e);
+        if (!pilha_vazia(p_deck))
+        {
+            pop(p_deck, &e);
+        }
+        else{
+        while(!pilha_vazia(p_descarte)){
+            pop(p_descarte,&e);
+            push(p_deck, e);
+        }
+        }
         // printf("%d\n", e);
         insere_listase_ordenado(mao, e, i);
     }
@@ -362,7 +371,7 @@ void print_mao(tp_listase *mao, carta *c)
     }
 }
 
-resultadoJogada usa_carta(tp_listase *mao,tp_pilha *p_descarte, carta *c, jogador *j)
+resultadoJogada usa_carta(tp_listase *mao, tp_pilha *p_descarte, carta *c, jogador *j)
 {
     resultadoJogada resultado = {0, 0};
     bool jogar_outra_carta;
@@ -432,12 +441,10 @@ void descartar_mao(tp_listase **mao, tp_pilha *p_descarte)
 
     for (int i = 1; i <= 5; i++)
     {
-            e = remove_listase(mao, i);
-            if(e!=-1){
-                push(p_descarte, e);
-            }
-
+        e = remove_listase(mao, i);
+        if (e != -1)
+        {
+            push(p_descarte, e);
         }
-        
     }
-
+}
