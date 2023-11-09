@@ -87,7 +87,7 @@ int main()
     
     cava_carta(&mao, &p_deck, 5);//O numero sao quantos cartas serao cavadas (Digite 1 num a menos que o desejado)
     verifica_energia(&j);
-    usa_carta(mao, cartas);
+    usa_carta(mao, &p_descarte, cartas);
     //print_mao(mao, cartas);
     descartar_mao(&mao, &p_descarte);
     print_pilha(&p_descarte, cartas);
