@@ -287,8 +287,8 @@ void cria_desvio(tp_listase **l, fase e){
 void cria_caminho(tp_listase **l){
     *l = inicializa_listase();
     fase c1, c2, c3, c4, c5, d1, d2; 
-    c1.tipo_c = 1;
-    c1.monstro = 0;
+    c1.tipo_c = 1;                          //tipo identifica se eh combate ou descanso (combate = 1; descanso = 0);
+    c1.monstro = 0;                         //monstro identifica a posição no vetor monstros para a determinada fase(-1 para descanso pois n há monstro);
     c2.tipo_c = 1;
     c2.monstro = 1;
     c3.tipo_c = 1;
@@ -301,23 +301,24 @@ void cria_caminho(tp_listase **l){
     d1.monstro = -1;
     d2.tipo_c = 0;
     d2.monstro = -1;
-    insere_listase_no_caminho(l, c1);
+    insere_listase_no_caminho(l, c1);                   //cria o caminho, de combates
     insere_listase_no_caminho(l, c2);
     insere_listase_no_caminho(l, c3);
     insere_listase_no_caminho(l, c4);
     insere_listase_no_caminho(l, c5);
     tp_listase * desvio1, *desvio2, *atu;
-    desvio1 = aloca_listase();
+    desvio1 = aloca_listase();                          //aloca os desvios
     desvio2 = aloca_listase();
     atu = *l;
-    atu->desvio = desvio1;
-    desvio1->prox = atu->prox->prox;
-    desvio1->desvio=NULL;
-    desvio1->f = d1;
+    atu->desvio = desvio1;                              //conecta o primeiro combate ao primeiro desvio 
+    desvio1->prox = atu->prox->prox;                    //conecta a saída do desvio ao terceiro combate
+    desvio1->desvio=NULL;                               //determina que não existe desvio no desvio
+    desvio1->f = d1;                                    //preenche as informações do desvio
     atu = atu->prox->prox;
-    atu ->desvio = desvio2;
-    desvio2->prox = atu->prox->prox;
-    desvio2->f = d2;
+    atu ->desvio = desvio2;                             //conecta o combate 3 ao desvio 2
+    desvio2->prox = atu->prox->prox;                    //conecta o desvio 2 ao combate 5
+    desvio2->desvio = NULL;                             //determina que não existe desvio no desvio
+    desvio2->f = d2;                                    //preenche as informações do desvio
 }
 
 

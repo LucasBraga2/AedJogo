@@ -14,14 +14,12 @@ int main()
     tp_pilha p_deck; // Deck de Cartas do jogo, pilha de cartas disponiveis no total
     tp_pilha p_descarte;//Pilha de descarte
     tp_listase *mao; // Mao do jogador
-    tp_listase *caminho;
     mao = inicializa_listase();
-    caminho = inicializa_listase();
     carta cartas[25];                                         // ARRAY PARA BOTAR AS CARTAS ATAQUE, DEFESA, ESPECIAL
     carta_monstro cartas_m[25];                               // ARRAY PARA BOTAR AS CARTAS Do MONSTRO
     monstro monstros[5];                                      // ARRAY PARA OS MONSTROS
     tp_fila seqmons1, seqmons2, seqmons3, seqmons4, seqmons5; // SEQUENCIAS DE ACOES DOS MONSTROS
-    char menu;
+    //char menu;
 
     cria_cartas(cartas);                                                                // Funcao que cria as cartas do jogo
     cria_carta_monstro(cartas_m);                                                       // Funcao que cria as cartas do mosntro                                    // Funcao de Cricao das Cartas
