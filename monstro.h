@@ -267,4 +267,18 @@ void print_fila(tp_fila *f, carta_monstro *c_m){
     }
 }
 
+int usar_prox_acao(tp_fila *f, carta_monstro *c_m){
+
+    int e;
+
+        remove_fila(f, &e); //retira o elemento da frente da fila
+         int valor = c_m[e].v;
+        carta_monstro card_m = c_m[e]; //cria uma variavel carta_monstro e faz ela receber c[o elemento retirado]
+        print_carta_monstro(card_m);// chama a funcao de printar as cartas, serao printadas ate acabar a pilha pelo while
+        printf("\n");
+
+        return valor;
+
+}
+
 

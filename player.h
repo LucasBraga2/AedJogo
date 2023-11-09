@@ -1,6 +1,5 @@
 #include "fila.h"
 #include "pilha.h"
-#include "cartas_deck.h"
 void cria_jogador(jogador *j)
 {
 

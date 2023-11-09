@@ -1,13 +1,23 @@
 #include <stdio.h>
-#include "listaSE.h"
-#include "cartas_deck.h"
-#include "pilha.h"
-#include "fila.h"
+
 
 monstro m;
 jogador j;
 
-int ataque_monstro(monstro m, jogador j, carta_monstro cm)
+void confronto(jogador *j, monstro *m){
+
+    //printar caminho
+
+    printf("Primeiro combate:\n");
+
+    player_e_monstro(j, m);
+
+    usar_prox_acao()
+
+}
+
+
+/*int ataque_monstro(monstro m, jogador j, carta_monstro cm)
 {
 
 }
@@ -31,4 +41,4 @@ int luta_monstro(carta c, monstro m, jogador j)
             printf("VIDA DO JOGADOR + DEFESA: %d + %d\n", j.h, c.v);
         }
     }
-}
+}*/

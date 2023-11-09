@@ -1,6 +1,4 @@
-#include "fila.h"
-#include "pilha.h"
-// #include "cartas_deck.h"
+#include "cartas_deck.h"
 #include "frontend.h"
 #include <locale.h>
 
@@ -9,25 +7,27 @@ int main()
     setlocale(LC_ALL, "Portuguese");
     system("cls");
     system("color 1F");
-    
-    jogador j;       // Jogador Principal
-    tp_pilha p_deck; // Deck de Cartas do jogo, pilha de cartas disponiveis no total
-    tp_pilha p_descarte;//Pilha de descarte
-    tp_listase *mao; // Mao do jogador
+
+    jogador j;           // Jogador Principal
+    tp_pilha p_deck;     // Deck de Cartas do jogo, pilha de cartas disponiveis no total
+    tp_pilha p_descarte; // Pilha de descarte
+    tp_listase *mao;     // Mao do jogador
     mao = inicializa_listase();
     carta cartas[25];                                         // ARRAY PARA BOTAR AS CARTAS ATAQUE, DEFESA, ESPECIAL
     carta_monstro cartas_m[25];                               // ARRAY PARA BOTAR AS CARTAS Do MONSTRO
     monstro monstros[5];                                      // ARRAY PARA OS MONSTROS
     tp_fila seqmons1, seqmons2, seqmons3, seqmons4, seqmons5; // SEQUENCIAS DE ACOES DOS MONSTROS
-    //char menu;
+    bool venceu = true;
+    char menu;
+    int opcao;
 
     cria_cartas(cartas);                                                                // Funcao que cria as cartas do jogo
     cria_carta_monstro(cartas_m);                                                       // Funcao que cria as cartas do mosntro                                    // Funcao de Cricao das Cartas
     cria_monstro(monstros);                                                             // Funcao para Criar os Monstros
     sequencia_monstro(cartas_m, &seqmons1, &seqmons2, &seqmons3, &seqmons4, &seqmons5); // Funcao que cria e vai inserir os elementos na sequencia
-    cria_deck(&p_deck, &p_descarte);                                                                 // Funcao que Cria o deck de cartas
-    embaralhar_deck(&p_deck, cartas);                                                  // Funcao que embaralha o deck inicial
-    
+    cria_deck(&p_deck, &p_descarte);                                                    // Funcao que Cria o deck de cartas
+    embaralhar_deck(&p_deck, cartas);                                                   // Funcao que embaralha o deck inicial
+
     // print_carta(cartas[14]); // Funcao para printar uma carta especifica
     // print_fila(&seqmons1, cartas_m);//Funcao que printa fila
     // mostrar_cartas(cartas); // Funcao para visualizacao de todas cartas disponiveis no jogo
@@ -80,15 +80,35 @@ int main()
 
     cria_jogador(&j);  // Funcao para criar o jogador
     print_jogador(&j); // Funcao para printar o jogador
-    //imprime_listase(caminho);
-    player_e_monstro(&j, monstros);
-    
-    cava_carta(&mao, &p_deck, 5);//O numero sao quantos cartas serao cavadas (Digite 1 num a menos que o desejado)
+
+    while (venceu)
+    {
+        printf("Primeiro combate:\n");
+        // printar caminho
+        player_e_monstro(&j, monstros);
+
+        printf("Acao do monstro:\n");
+        usar_prox_acao(&seqmons1, cartas_m);
+        printf("Para iniciar a rodada, digite '1':\n");
+        scanf("%d", &opcao);
+        if (opcao == 1)
+        {
+            verifica_energia(&j);
+            cava_carta(&mao, &p_deck, 5); // O numero sao quantos cartas serao cavadas (Digite 1 num a menos que o desejado)
+            resultadoJogada rj = usa_carta(mao, &p_descarte, cartas);
+        
+
+        }
+
+        venceu = false;
+    }
+
+    /*cava_carta(&mao, &p_deck, 5);//O numero sao quantos cartas serao cavadas (Digite 1 num a menos que o desejado)
     verifica_energia(&j);
     usa_carta(mao, &p_descarte, cartas);
     //print_mao(mao, cartas);
     descartar_mao(&mao, &p_descarte);
-    print_pilha(&p_descarte, cartas);
+    print_pilha(&p_descarte, cartas);*/
 
     printf("Pressione Enter para fechar o programa...\n");
 
