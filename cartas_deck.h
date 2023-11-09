@@ -362,7 +362,7 @@ void print_mao(tp_listase *mao, carta *c)
     }
 }
 
-resultadoJogada usa_carta(tp_listase *mao, carta *c)
+resultadoJogada usa_carta(tp_listase *mao,tp_pilha *p_descarte, carta *c)
 {
     resultadoJogada resultado = {0, 0};
     bool jogar_outra_carta;
@@ -408,10 +408,11 @@ resultadoJogada usa_carta(tp_listase *mao, carta *c)
                     printf("Voce usou a carta %s.\n", nome_carta);
                     printf("Voce usou uma carta especial!\n");
                 }
+                push(p_descarte, numerador);
             }
         } while (!jogada_valida);
 
-        printf("Deseja jogar outra carta? (1 para sim, 0 para não)\n");
+        printf("Deseja jogar outra carta? (1 para sim, 0 para nao)\n");
         int escolha;
         scanf("%d", &escolha);
         jogar_outra_carta = (escolha == 1);
@@ -426,9 +427,14 @@ void descartar_mao(tp_listase **mao, tp_pilha *p_descarte)
 
     tp_item e;
 
-    for (int i = 0; i < 5; i++)
+    for (int i = 1; i <= 5; i++)
     {
-        e = remove_listase(mao, i);
-        push(p_descarte, e);
+            e = remove_listase(mao, i);
+            if(e!=0){
+            printf("%d\n", e);
+            push(p_descarte, e);
+            }
+        }
+        
     }
-}
+

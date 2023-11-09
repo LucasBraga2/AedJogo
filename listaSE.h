@@ -231,6 +231,22 @@ void destroi_impar(tp_listase **l)
         }
     }
 }
+
+int num_de_nos(tp_listase **l){
+
+    int cnt = 0;
+    tp_listase *atu;
+    atu=*l;
+
+    while (atu!=NULL)
+    {
+        cnt++;
+        atu=atu->prox;
+    }
+
+    return cnt;
+    
+}
 /*void cria_caminho(tp_listase **caminho, monstro *m)
 {
 

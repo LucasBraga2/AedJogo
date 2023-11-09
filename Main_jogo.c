@@ -35,8 +35,6 @@ int main()
     // mostrar_cartas(cartas); // Funcao para visualizacao de todas cartas disponiveis no jogo
     // mostra_monstro(monstros, seqmons1, seqmons2, seqmons3, seqmons4, seqmons5, cartas_m); // Funcao para visualizacao dos Monstros do jogo
     // print_pilha(&p_deck, cartas); // Funcao para printar pilha
-    
-    system("clear");
 
     /*printf("\n\n");
     printf("       ______________________________________________________________________________________________ \n");
@@ -90,8 +88,9 @@ int main()
     cava_carta(&mao, &p_deck, 5);//O numero sao quantos cartas serao cavadas (Digite 1 num a menos que o desejado)
     verifica_energia(&j);
     usa_carta(mao, cartas);
-    //descartar_mao(&mao, &p_descarte);
-    //print_pilha(&p_descarte, cartas);
+    //print_mao(mao, cartas);
+    descartar_mao(&mao, &p_descarte);
+    print_pilha(&p_descarte, cartas);
 
     printf("Pressione Enter para fechar o programa...\n");
 
