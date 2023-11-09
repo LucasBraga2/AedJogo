@@ -1,5 +1,6 @@
 #include "fila.h"
 #include "pilha.h"
+#include"cartas_deck.h"
 
 void print_fila(tp_fila *f, carta_monstro *c_m);
 void cria_carta_monstro(carta_monstro *c_m){
@@ -272,13 +273,54 @@ int usar_prox_acao(tp_fila *f, carta_monstro *c_m){
     int e;
 
         remove_fila(f, &e); //retira o elemento da frente da fila
-         int valor = c_m[e].v;
         carta_monstro card_m = c_m[e]; //cria uma variavel carta_monstro e faz ela receber c[o elemento retirado]
         print_carta_monstro(card_m);// chama a funcao de printar as cartas, serao printadas ate acabar a pilha pelo while
         printf("\n");
 
-        return valor;
+        return e;
 
+}
+
+void dano_monstro_1(monstro *m, resultadoJogada rj, jogador *j){
+
+    int dano = rj.dano_total;
+    int defesa = rj.defesa_total;
+
+    m[0].h = m[0].h - dano;
+    j->esc = defesa;
+}
+
+void recebe_dano(jogador *j, carta_monstro *c_m, monstro *m, int valor_acao_mons){
+ 
+    int e;
+    int valor;
+
+    e = valor_acao_mons;
+    valor = c_m[e].v;
+
+    if(c_m[e].t == 1){//Eh de atq
+        j->h = j->h-valor;
+    }
+    else{//Eh de defesa
+        m[0].h = m[0].h + valor;
+    }
+
+   
+}
+
+int verifica_monstro_vivo(monstro *m){
+    if (m[0].h <= 0) {
+        return 1;
+    }
+    return 0;
+}
+
+int verifica_player_vivo(jogador *j){
+
+    if(j->h <= 0){
+        return 1;
+    }
+    return 0;
 }
 
 

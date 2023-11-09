@@ -23,6 +23,7 @@ typedef struct
 typedef struct
 {
     vida h;
+    vida esc;
     energia e;
     char nome[30];
     tp_pilha deck;

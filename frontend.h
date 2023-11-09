@@ -13,7 +13,7 @@ void player_e_monstro(jogador *j, monstro *m){
     printf("       |  |                           /  |  |  |    \n");
     printf("       |_ |_                         _| _| _| _|    \n\n");
     printf("    Player: %s                     Monstro: %s     \n", j->nome, m[0].nome);
-    printf(" Vida: %d/20   Energia: %d         Vida do Monstro: %d\n\n", j->h, j->e, m[0].h);
+    printf(" Vida: %d/20   Energia: %d/5         Vida do Monstro: %d/20\n\n", j->h, j->e, m[0].h);
 }
 
 void player_ataca_monstro(){
@@ -72,7 +72,7 @@ void mosntro_se_defende(){
     printf(" Vida: 20   Energia: 5            Vida do Monstro: 40     \n\n");
 }
 
-void player_ganha(){
+void player_ganha(jogador *j, monstro *m){
     printf("\n");
     printf("           __                  \n");
     printf("          |__|                 \n");
@@ -82,12 +82,12 @@ void player_ganha(){
     printf("          |__|                 \n");
     printf("          |  |                 \n");
     printf("         _|  |_                \n\n");
-    printf("      Player: Eren             \n");
-    printf("   Vida: 20   Energia: 5      \n\n");
+    printf("      Player: %s             \n", j->nome);
+    printf("   Vida: %d/20   Energia: %d/5      \n\n", j->h, j->e);
     printf("   VOCE MATOU O MONSTRO!      \n\n"); 
 }
 
-void player_morre(){
+void player_morre(jogador *j, monstro *m){
     printf("\n");
     printf("                               \n");
     printf("                               \n");
@@ -97,7 +97,7 @@ void player_morre(){
     printf("          |__|                 \n");
     printf("          |  |       __        \n");
     printf("         _|  |_     |__|       \n\n");
-    printf("      Player: Eren             \n");
-    printf("   Vida: 20   Energia: 5      \n\n");
+    printf("      Player: %s              \n", j->nome);
+    printf("   Vida: %d/20   Energia: %d/5      \n\n", j->h, j->e);
     printf("      VOCE MORREU!            \n\n");
 }

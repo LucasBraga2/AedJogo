@@ -1,4 +1,3 @@
-#include "cartas_deck.h"
 #include "frontend.h"
 #include <locale.h>
 
@@ -81,26 +80,35 @@ int main()
     cria_jogador(&j);  // Funcao para criar o jogador
     print_jogador(&j); // Funcao para printar o jogador
 
+    printf("Primeiro combate:\n");
     while (venceu)
     {
-        printf("Primeiro combate:\n");
         // printar caminho
         player_e_monstro(&j, monstros);
 
-        printf("Acao do monstro:\n");
-        usar_prox_acao(&seqmons1, cartas_m);
+        verifica_energia(&j);
+        printf("Acao do monstro da rodada:\n");
+        int valor_acao_mons = usar_prox_acao(&seqmons1, cartas_m);
         printf("Para iniciar a rodada, digite '1':\n");
         scanf("%d", &opcao);
         if (opcao == 1)
         {
-            verifica_energia(&j);
             cava_carta(&mao, &p_deck, 5); // O numero sao quantos cartas serao cavadas (Digite 1 num a menos que o desejado)
-            resultadoJogada rj = usa_carta(mao, &p_descarte, cartas);
-        
-
+            resultadoJogada rj = usa_carta(mao, &p_descarte, cartas, &j);
+            dano_monstro_1(monstros, rj, &j);
+            recebe_dano(&j, cartas_m, monstros, valor_acao_mons);
+            if (verifica_monstro_vivo(monstros) == 1)
+            {
+                player_ganha(&j, monstros);
+                venceu = false;
+            }
+            if (verifica_player_vivo(&j) == 1)
+            {
+                player_morre(&j, monstros);
+                venceu = false;
+            }
+            descartar_mao(&mao, &p_descarte);
         }
-
-        venceu = false;
     }
 
     /*cava_carta(&mao, &p_deck, 5);//O numero sao quantos cartas serao cavadas (Digite 1 num a menos que o desejado)

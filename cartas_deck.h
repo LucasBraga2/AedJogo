@@ -362,7 +362,7 @@ void print_mao(tp_listase *mao, carta *c)
     }
 }
 
-resultadoJogada usa_carta(tp_listase *mao,tp_pilha *p_descarte, carta *c)
+resultadoJogada usa_carta(tp_listase *mao,tp_pilha *p_descarte, carta *c, jogador *j)
 {
     resultadoJogada resultado = {0, 0};
     bool jogar_outra_carta;
@@ -377,6 +377,7 @@ resultadoJogada usa_carta(tp_listase *mao,tp_pilha *p_descarte, carta *c)
             jogada_valida = true;
             print_mao(mao, c);
             printf("Qual carta deseja usar? (posicao)\n");
+            printf("Energia disponivel %d/5\n", j->e);
             scanf("%d", &p);
             int numerador = remove_listase(&mao, p);
 
@@ -389,7 +390,9 @@ resultadoJogada usa_carta(tp_listase *mao,tp_pilha *p_descarte, carta *c)
             {
                 int valor = c[numerador].v;
                 int tipo = c[numerador].t;
+                int eng = c[numerador].c;
                 char *nome_carta = c[numerador].nome;
+                j->e = j->e - eng;
 
                 if (tipo == 1)
                 {
@@ -430,10 +433,10 @@ void descartar_mao(tp_listase **mao, tp_pilha *p_descarte)
     for (int i = 1; i <= 5; i++)
     {
             e = remove_listase(mao, i);
-            if(e!=0){
-            printf("%d\n", e);
-            push(p_descarte, e);
+            if(e!=-1){
+                push(p_descarte, e);
             }
+
         }
         
     }

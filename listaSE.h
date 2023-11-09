@@ -8,7 +8,7 @@ typedef int tp_item;
 
 typedef struct
 {
-    int tipo_c;
+    char tipo_c;
     tp_item monstro;
 } fase;
 
@@ -121,7 +121,7 @@ int remove_listase(tp_listase **lista, int i)
     }
 
     if (atu == NULL)
-        return 0; // Nao econtrou o elemento
+        return -1; // Nao econtrou o elemento
     if (ant == NULL)
     {                       // se for retirado o primeiro termo
         *lista = atu->prox; // Fazendo a lista apontar para o termo subsequente que foi retirado
@@ -287,19 +287,19 @@ void cria_desvio(tp_listase **l, fase e){
 void cria_caminho(tp_listase **l){
     *l = inicializa_listase();
     fase c1, c2, c3, c4, c5, d1, d2; 
-    c1.tipo_c = 1;                          //tipo identifica se eh combate ou descanso (combate = 1; descanso = 0);
+    c1.tipo_c = 'c';                          //tipo identifica se eh combate ou descanso (combate = 1; descanso = 0);
     c1.monstro = 0;                         //monstro identifica a posição no vetor monstros para a determinada fase(-1 para descanso pois n há monstro);
-    c2.tipo_c = 1;
+    c2.tipo_c = 'c';
     c2.monstro = 1;
-    c3.tipo_c = 1;
+    c3.tipo_c = 'c';
     c3.monstro = 2;
-    c4.tipo_c = 1;
+    c4.tipo_c = 'c';
     c4.monstro = 3;
-    c5.tipo_c = 1;
+    c5.tipo_c = 'b';
     c5.monstro = 4;
-    d1.tipo_c = 0;
+    d1.tipo_c = 'd';
     d1.monstro = -1;
-    d2.tipo_c = 0;
+    d2.tipo_c = 'd';
     d2.monstro = -1;
     insere_listase_no_caminho(l, c1);                   //cria o caminho, de combates
     insere_listase_no_caminho(l, c2);
@@ -319,6 +319,15 @@ void cria_caminho(tp_listase **l){
     desvio2->prox = atu->prox->prox;                    //conecta o desvio 2 ao combate 5
     desvio2->desvio = NULL;                             //determina que não existe desvio no desvio
     desvio2->f = d2;                                    //preenche as informações do desvio
+}
+
+void printa_caminho(tp_listase *l){
+    printf("\n\n");
+    printf("                 -----|%c|----|\n",l->prox->prox->desvio->f.tipo_c);
+    printf("                |            v");
+    printf("\n|%c%d|-->|%c%d|-->|%c%d|-->|%c%d|-->|%c|\n", l->f.tipo_c, l->f.monstro+1, l->prox->f.tipo_c,l->prox->f.monstro+1,l->prox->prox->f.tipo_c,l->prox->prox->f.monstro+1,l->prox->prox->prox->f.tipo_c,l->prox->prox->prox->f.monstro+1,l->prox->prox->prox->prox->f.tipo_c,l->prox->prox->prox->prox->f.monstro+1);
+    printf("  |             ^\n");
+    printf("   -----|%c|-----|\n", l->desvio->f.tipo_c);
 }
 
 

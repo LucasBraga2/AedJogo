@@ -7,6 +7,7 @@ void cria_jogador(jogador *j)
     scanf(" %[^\n]s", &j->nome);
     j->h = 20; // Vida
     j->e = 5; // Energia
+    j->esc = 0; //Escudo
 }
 
 void print_jogador(jogador *j){
