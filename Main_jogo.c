@@ -84,19 +84,19 @@ int main()
     while (venceu)
     {
         // printar caminho
+        verifica_energia(&j);
         player_e_monstro(&j, monstros);
 
-        verifica_energia(&j);
         printf("Acao do monstro da rodada:\n");
         int valor_acao_mons = usar_prox_acao(&seqmons1, cartas_m);
         printf("Para iniciar a rodada, digite '1':\n");
         scanf("%d", &opcao);
         if (opcao == 1)
         {
-            cava_carta(&mao, &p_deck, 5); // O numero sao quantos cartas serao cavadas (Digite 1 num a menos que o desejado)
+            cava_carta(&mao, &p_deck, &p_descarte, 5); // O numero sao quantos cartas serao cavadas (Digite 1 num a menos que o desejado)
             resultadoJogada rj = usa_carta(mao, &p_descarte, cartas, &j);
-            dano_monstro_1(monstros, rj, &j);
-            recebe_dano(&j, cartas_m, monstros, valor_acao_mons);
+            acao_player_no_monstro(monstros, rj, &j);
+            acao_monstro_no_player(&j, cartas_m, monstros, valor_acao_mons);
             if (verifica_monstro_vivo(monstros) == 1)
             {
                 player_ganha(&j, monstros);

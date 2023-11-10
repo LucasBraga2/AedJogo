@@ -14,6 +14,7 @@ void player_e_monstro(jogador *j, monstro *m){
     printf("       |_ |_                         _| _| _| _|    \n\n");
     printf("    Player: %s                     Monstro: %s     \n", j->nome, m[0].nome);
     printf(" Vida: %d/20   Energia: %d/5         Vida do Monstro: %d/20\n\n", j->h, j->e, m[0].h);
+    printf("         Escudo: %d                            \n\n", j->esc);
 }
 
 void player_ataca_monstro(){
