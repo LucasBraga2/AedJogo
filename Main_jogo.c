@@ -126,8 +126,8 @@ int main()
                 {
                     cava_carta(&mao, &p_deck, &p_descarte, 5); // O numero sao quantos cartas serao cavadas (Digite 1 num a menos que o desejado)
                     resultadoJogada rj = usa_carta(mao, &p_descarte, cartas, &j);
-                    acao_player_no_monstro(monstros, rj, &j, mns);
                     acao_monstro_no_player(&j, cartas_m, monstros, valor_acao_mons, mns);
+                    acao_player_no_monstro(monstros, rj, &j, mns);
                     if (verifica_monstro_vivo(monstros) == 1)
                     {
                         player_ganha(&j);
