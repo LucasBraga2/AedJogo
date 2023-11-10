@@ -284,17 +284,17 @@ int usar_prox_acao(tp_fila *f, carta_monstro *c_m)
     return e;
 }
 
-void acao_player_no_monstro(monstro *m, resultadoJogada rj, jogador *j)
+void acao_player_no_monstro(monstro *m, resultadoJogada rj, jogador *j, int mns)
 {
 
     int dano = rj.dano_total;
     int defesa = rj.defesa_total;
 
-    m[0].h = m[0].h - dano;
+    m[mns].h = m[mns].h - dano;
     j->esc = defesa;
 }
 
-void acao_monstro_no_player(jogador *j, carta_monstro *c_m, monstro *m, int valor_acao_mons)
+void acao_monstro_no_player(jogador *j, carta_monstro *c_m, monstro *m, int valor_acao_mons, int mns)
 {
 
     int e;
@@ -326,7 +326,7 @@ void acao_monstro_no_player(jogador *j, carta_monstro *c_m, monstro *m, int valo
     }
     else
     {                            // É uma defesa
-        m[0].h = m[0].h + valor; // Aumenta a vida do monstro
+        m[mns].h = m[mns].h + valor; // Aumenta a vida do monstro
     }
 }
 

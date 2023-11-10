@@ -20,8 +20,9 @@ int main()
     bool venceu = true;
     char menu;
     int opcao;
-    bool fim =false;
-    int cnt =1;
+    char opcao2;
+    bool fim = false;
+    int cnt = 1;
 
     cria_cartas(cartas);                                                                // Funcao que cria as cartas do jogo
     cria_carta_monstro(cartas_m);                                                       // Funcao que cria as cartas do mosntro                                    // Funcao de Cricao das Cartas
@@ -82,43 +83,70 @@ int main()
 
     cria_jogador(&j);  // Funcao para criar o jogador
     print_jogador(&j); // Funcao para printar o jogador
-    cria_caminho(caminho);
+    cria_caminho(&caminho);
     tp_listase *atu;
-    atu = *caminho;
-
-while(fim==false){
-
-    printf("Combate %d:\n", cnt);
-    while (venceu)
+    atu = caminho;
+    printa_caminho(caminho);
+    while (fim == false)
     {
-        // printar caminho
-        verifica_energia(&j);
-        player_e_monstro(&j, monstros);
 
-        printf("Acao do monstro da rodada:\n");
-        int valor_acao_mons = usar_prox_acao(&seqmons1, cartas_m);
-        printf("Para iniciar a rodada, digite '1':\n");
-        scanf("%d", &opcao);
-        if (opcao == 1)
+        if (cnt > 1)
         {
-            cava_carta(&mao, &p_deck, &p_descarte, 5); // O numero sao quantos cartas serao cavadas (Digite 1 num a menos que o desejado)
-            resultadoJogada rj = usa_carta(mao, &p_descarte, cartas, &j);
-            acao_player_no_monstro(monstros, rj, &j);
-            acao_monstro_no_player(&j, cartas_m, monstros, valor_acao_mons);
-            if (verifica_monstro_vivo(monstros) == 1)
+            printa_caminho(caminho);
+            printf("Voce deseja ir para proximo combate(c) ou o descanso(d)");
+            scanf("%c", &opcao2);
+            if (opcao2 == 'c')
             {
-                player_ganha(&j, monstros);
-                venceu = false;
+                atu = atu->prox;
             }
-            if (verifica_player_vivo(&j) == 1)
+            else
             {
-                player_morre(&j, monstros);
-                venceu = false;
+                atu = atu->desvio;
             }
-            descartar_mao(&mao, &p_descarte);
         }
+        int mns = atu->f.monstro;
+        char tipo = atu->f.tipo_c;
+
+        if (tipo == 'c')
+        {
+            printf("Combate %d:\n", cnt);
+            cnt++;
+            while (venceu)
+            {
+
+                verifica_energia(&j);
+                player_e_monstro(&j, monstros);
+
+                printf("Acao do monstro da rodada:\n");
+                int valor_acao_mons = usar_prox_acao(&seqmons1, cartas_m);
+                printf("Para iniciar a rodada, digite '1':\n");
+                scanf("%d", &opcao);
+                if (opcao == 1)
+                {
+                    cava_carta(&mao, &p_deck, &p_descarte, 5); // O numero sao quantos cartas serao cavadas (Digite 1 num a menos que o desejado)
+                    resultadoJogada rj = usa_carta(mao, &p_descarte, cartas, &j);
+                    acao_player_no_monstro(monstros, rj, &j, mns);
+                    acao_monstro_no_player(&j, cartas_m, monstros, valor_acao_mons, mns);
+                    if (verifica_monstro_vivo(monstros) == 1)
+                    {
+                        player_ganha(&j);
+                        venceu = false;
+                    }
+                    if (verifica_player_vivo(&j) == 1)
+                    {
+                        player_morre(&j);
+                        venceu = false;
+                    }
+                    descartar_mao(&mao, &p_descarte, &j, cartas);
+                }
+            }
+        }
+        else{
+            printf("Sua vida foi recuperada\n");
+            recupera_vida(&j);
+        }
+        fim=true;
     }
-}
 
     /*cava_carta(&mao, &p_deck, 5);//O numero sao quantos cartas serao cavadas (Digite 1 num a menos que o desejado)
     verifica_energia(&j);

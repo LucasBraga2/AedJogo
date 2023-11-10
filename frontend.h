@@ -73,7 +73,7 @@ void mosntro_se_defende(){
     printf(" Vida: 20   Energia: 5            Vida do Monstro: 40     \n\n");
 }
 
-void player_ganha(jogador *j, monstro *m){
+void player_ganha(jogador *j){
     printf("\n");
     printf("           __                  \n");
     printf("          |__|                 \n");
@@ -88,7 +88,7 @@ void player_ganha(jogador *j, monstro *m){
     printf("   VOCE MATOU O MONSTRO!      \n\n"); 
 }
 
-void player_morre(jogador *j, monstro *m){
+void player_morre(jogador *j){
     printf("\n");
     printf("                               \n");
     printf("                               \n");

@@ -108,33 +108,6 @@ void imprime_listase(tp_listase *lista)
     }
 }
 
-int remove_listase(tp_listase **lista, int i)
-{
-    tp_listase *ant, *atu;
-    tp_item e;
-    atu = *lista;
-    ant = NULL;
-    while ((atu != NULL) && (atu->identificador != i))
-    {
-        ant = atu;
-        atu = atu->prox;
-    }
-
-    if (atu == NULL)
-        return -1; // Nao econtrou o elemento
-    if (ant == NULL)
-    {                       // se for retirado o primeiro termo
-        *lista = atu->prox; // Fazendo a lista apontar para o termo subsequente que foi retirado
-    }
-    else
-    {
-        ant->prox = atu->prox; // Fazendo interligacao entre o termo anterior e o termo subsequente
-    }
-    e = atu->info;
-    free(atu);
-    atu = NULL;
-    return e;
-}
 tp_listase *busca_listase(tp_listase *lista, tp_item e)
 {
     tp_listase *atu;

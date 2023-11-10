@@ -9,6 +9,8 @@ typedef struct
     int dano_total;
     int defesa_total;
 } resultadoJogada;
+
+int remove_listase(tp_listase **lista, int i, jogador *j, carta *c);
 void cria_cartas(carta *c)
 {
     setlocale(LC_ALL, "Portuguese");
@@ -330,17 +332,19 @@ void print_pilha(tp_pilha *p_deck, carta *c)
     }
 }
 
-void cava_carta(tp_listase **mao, tp_pilha *p_deck,tp_pilha *p_descarte, int n)
+void cava_carta(tp_listase **mao, tp_pilha *p_deck, tp_pilha *p_descarte, int n)
 {
 
     tp_item e;
     // imprime_listase(*mao);
 
-    if(pilha_vazia(p_deck)){
-         while(!pilha_vazia(p_descarte)){
-            pop(p_descarte,&e);
+    if (pilha_vazia(p_deck))
+    {
+        while (!pilha_vazia(p_descarte))
+        {
+            pop(p_descarte, &e);
             push(p_deck, e);
-    }
+        }
     }
     for (int i = 1; i <= n; i++)
     {
@@ -348,11 +352,10 @@ void cava_carta(tp_listase **mao, tp_pilha *p_deck,tp_pilha *p_descarte, int n)
         {
             pop(p_deck, &e);
         }
-    
+
         // printf("%d\n", e);
         insere_listase_ordenado(mao, e, i);
     }
-
 }
 void print_mao(tp_listase *mao, carta *c)
 {
@@ -377,6 +380,7 @@ resultadoJogada usa_carta(tp_listase *mao, tp_pilha *p_descarte, carta *c, jogad
 {
     resultadoJogada resultado = {0, 0};
     bool jogar_outra_carta;
+    int escolha;
 
     do
     {
@@ -390,9 +394,14 @@ resultadoJogada usa_carta(tp_listase *mao, tp_pilha *p_descarte, carta *c, jogad
             printf("Qual carta deseja usar? (posicao)\n");
             printf("Energia disponivel %d/5\n", j->e);
             scanf("%d", &p);
-            int numerador = remove_listase(&mao, p);
-
+            int numerador = remove_listase(&mao, p, j, c);
             if (numerador == -1)
+            {
+                printf("Voce nao tem energia para jogar essa carta\n");
+                printf("Sua rodada sera encerrada\n");
+            }
+
+            if (numerador == -2)
             {
                 printf("Não ha essa carta! Informe a carta novamente. (posicao)\n");
                 jogada_valida = false;
@@ -427,7 +436,6 @@ resultadoJogada usa_carta(tp_listase *mao, tp_pilha *p_descarte, carta *c, jogad
         } while (!jogada_valida);
 
         printf("Deseja jogar outra carta? (1 para sim, 0 para nao)\n");
-        int escolha;
         scanf("%d", &escolha);
         jogar_outra_carta = (escolha == 1);
 
@@ -436,17 +444,51 @@ resultadoJogada usa_carta(tp_listase *mao, tp_pilha *p_descarte, carta *c, jogad
     return resultado;
 }
 
-void descartar_mao(tp_listase **mao, tp_pilha *p_descarte)
+void descartar_mao(tp_listase **mao, tp_pilha *p_descarte, jogador *j, carta *c)
 {
 
     tp_item e;
 
     for (int i = 1; i <= 5; i++)
     {
-        e = remove_listase(mao, i);
-        if (e != -1)
+        e = remove_listase(mao, i, j, c);
+        if (e != -2)
         {
             push(p_descarte, e);
         }
     }
+}
+
+int remove_listase(tp_listase **lista, int i, jogador *j, carta *c)
+{
+    tp_listase *ant, *atu;
+    tp_item e;
+    atu = *lista;
+    ant = NULL;
+
+    while ((atu != NULL) && (atu->identificador != i))
+    {
+        ant = atu;
+        atu = atu->prox;
+    }
+
+    if (atu == NULL)
+        return -2; // Nao econtrou o elemento
+    if (ant == NULL)
+    {                       // se for retirado o primeiro termo
+        *lista = atu->prox; // Fazendo a lista apontar para o termo subsequente que foi retirado
+    }
+    else
+    {
+        ant->prox = atu->prox; // Fazendo interligacao entre o termo anterior e o termo subsequente
+    }
+    e = atu->info;
+    int eng = c[e].c;
+    if (eng > j->e)
+    {
+        return -1;
+    }
+    free(atu);
+    atu = NULL;
+    return e;
 }

@@ -20,6 +20,9 @@ void print_jogador(jogador *j){
 void recupera_energia(jogador *j){
     j->e = 5; // Recuperando energia
 }
+void recupera_vida(jogador *j){
+    j->h = 20; // Recuperando energia
+}
 void verifica_energia(jogador *j){
     if(j->e != 5){
         recupera_energia(j);
