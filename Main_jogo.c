@@ -11,6 +11,7 @@ int main()
     tp_pilha p_deck;     // Deck de Cartas do jogo, pilha de cartas disponiveis no total
     tp_pilha p_descarte; // Pilha de descarte
     tp_listase *mao;     // Mao do jogador
+    tp_listase *caminho;
     mao = inicializa_listase();
     carta cartas[25];                                         // ARRAY PARA BOTAR AS CARTAS ATAQUE, DEFESA, ESPECIAL
     carta_monstro cartas_m[25];                               // ARRAY PARA BOTAR AS CARTAS Do MONSTRO
@@ -19,6 +20,8 @@ int main()
     bool venceu = true;
     char menu;
     int opcao;
+    bool fim =false;
+    int cnt =1;
 
     cria_cartas(cartas);                                                                // Funcao que cria as cartas do jogo
     cria_carta_monstro(cartas_m);                                                       // Funcao que cria as cartas do mosntro                                    // Funcao de Cricao das Cartas
@@ -79,8 +82,13 @@ int main()
 
     cria_jogador(&j);  // Funcao para criar o jogador
     print_jogador(&j); // Funcao para printar o jogador
+    cria_caminho(caminho);
+    tp_listase *atu;
+    atu = *caminho;
 
-    printf("Primeiro combate:\n");
+while(fim==false){
+
+    printf("Combate %d:\n", cnt);
     while (venceu)
     {
         // printar caminho
@@ -110,6 +118,7 @@ int main()
             descartar_mao(&mao, &p_descarte);
         }
     }
+}
 
     /*cava_carta(&mao, &p_deck, 5);//O numero sao quantos cartas serao cavadas (Digite 1 num a menos que o desejado)
     verifica_energia(&j);
