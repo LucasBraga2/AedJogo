@@ -309,7 +309,7 @@ void acao_player_no_monstro(monstro *m, resultadoJogada rj, jogador *j, int mns)
         m[mns].h = m[mns].h - dano;
     }
     j->esc = defesa;
-}
+} 
 
 void acao_monstro_no_player(jogador *j, carta_monstro *c_m, monstro *m, int valor_acao_mons, int mns)
 {
