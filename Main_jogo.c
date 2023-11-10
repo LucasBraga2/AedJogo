@@ -1,4 +1,5 @@
 #include "frontend.h"
+#include <stdbool.h>
 #include <locale.h>
 
 int main()

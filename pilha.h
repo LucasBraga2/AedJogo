@@ -28,6 +28,7 @@ typedef struct
     char nome[30];
     tp_pilha deck;
 } jogador;
+
 void inicializa_pilha(tp_pilha *p)
 {
     p->topo = -1;

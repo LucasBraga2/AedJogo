@@ -23,6 +23,7 @@ typedef struct{
   tp_fila seq;
   tipo t;
   valor v;
+  vida esc;
 }monstro;
 
 

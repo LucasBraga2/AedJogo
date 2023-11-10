@@ -290,6 +290,11 @@ void acao_player_no_monstro(monstro *m, resultadoJogada rj, jogador *j, int mns)
     int dano = rj.dano_total;
     int defesa = rj.defesa_total;
 
+    if(m[mns].esc != 0){
+        for(int i = 0; i < m[mns].esc; i++) dano--;
+        m[mns].h = 0;
+    }
+
     m[mns].h = m[mns].h - dano;
     j->esc = defesa;
 }
@@ -326,7 +331,7 @@ void acao_monstro_no_player(jogador *j, carta_monstro *c_m, monstro *m, int valo
     }
     else
     {                            // É uma defesa
-        m[mns].h = m[mns].h + valor; // Aumenta a vida do monstro
+        m[mns].esc = m[mns].esc + valor; // Adiciona a defesa no escudo do monstro
     }
 }
 
