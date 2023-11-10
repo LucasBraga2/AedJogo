@@ -335,23 +335,25 @@ void cava_carta(tp_listase **mao, tp_pilha *p_deck,tp_pilha *p_descarte, int n)
 
     tp_item e;
     // imprime_listase(*mao);
+
+    if(pilha_vazia(p_deck)){
+         while(!pilha_vazia(p_descarte)){
+            pop(p_descarte,&e);
+            push(p_deck, e);
+    }
+    }
     for (int i = 1; i <= n; i++)
     {
         if (!pilha_vazia(p_deck))
         {
             pop(p_deck, &e);
         }
-        else{
-        while(!pilha_vazia(p_descarte)){
-            pop(p_descarte,&e);
-            push(p_deck, e);
-        }
-        }
+    
         // printf("%d\n", e);
         insere_listase_ordenado(mao, e, i);
     }
-}
 
+}
 void print_mao(tp_listase *mao, carta *c)
 {
 
