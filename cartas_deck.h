@@ -1,6 +1,7 @@
 #include "fila.h"
 #include "pilha.h"
 #include "listase.h"
+#include"player.h"
 #include <locale.h>
 #include <stdbool.h>
 
@@ -338,7 +339,7 @@ void cava_carta(tp_listase **mao, tp_pilha *p_deck, tp_pilha *p_descarte, int n)
     tp_item e;
     // imprime_listase(*mao);
 
-    if (pilha_vazia(p_deck))
+    if (pilha_vazia(p_deck)) //Caso acabe as cartas do deck
     {
         while (!pilha_vazia(p_descarte))
         {
@@ -401,7 +402,7 @@ resultadoJogada usa_carta(tp_listase *mao, tp_pilha *p_descarte, carta *c, jogad
                 printf("Sua rodada sera encerrada\n");
             }
 
-            if (numerador == -2)
+            else if (numerador == -2)
             {
                 printf("Não ha essa carta! Informe a carta novamente. (posicao)\n");
                 jogada_valida = false;

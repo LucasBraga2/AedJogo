@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include"monstro.h"
-#include"player.h"
 
 void player_e_monstro(jogador *j, monstro *m){
     printf("\n");
