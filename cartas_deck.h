@@ -339,7 +339,7 @@ void cava_carta(tp_listase **mao, tp_pilha *p_deck, tp_pilha *p_descarte, int n)
     tp_item e;
     // imprime_listase(*mao);
 
-    if (pilha_vazia(p_deck)) //Caso acabe as cartas do deck
+    if (pilha_vazia(p_deck)) //Caso acabe as cartas do deck 
     {
         while (!pilha_vazia(p_descarte))
         {
