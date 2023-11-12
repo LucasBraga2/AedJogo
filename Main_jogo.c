@@ -87,8 +87,10 @@ int main()
     cria_caminho(&caminho);
     tp_listase *atu;
     atu = caminho;
-    printf("Caminho:\n");
+    printf("\n================================");
+    printf("\nCaminho:\n");
     printa_caminho(caminho);
+    printf("================================\n\n");
     /*while (fim == false)
     {
 
@@ -127,6 +129,8 @@ int main()
                 {
                     cava_carta(&mao, &p_deck, &p_descarte, 5); // O numero sao quantos cartas serao cavadas (Digite 1 num a menos que o desejado)
                     resultadoJogada rj = usa_carta(mao, &p_descarte, cartas, &j); // Resultado da jogada de cartas(Atq, Def)
+                    escudo_player(&j, rj);
+                    escudo_monstro(monstros, mns, rj, valor_acao_mons, cartas_m);
                     acao_player_no_monstro(monstros, rj, &j, mns);//Acoes do player no monstro
                     acao_monstro_no_player(&j, cartas_m, monstros, valor_acao_mons, mns);//Acao do monstro no player
                     if (verifica_monstro_vivo(monstros) == 1)

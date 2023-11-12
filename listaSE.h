@@ -295,7 +295,6 @@ void cria_caminho(tp_listase **l){
 }
 
 void printa_caminho(tp_listase *l){
-    printf("\n\n");
     printf("                ^-----|%c|----|\n",l->prox->prox->desvio->f.tipo_c);
     printf("                |            v");
     printf("\n|%c%d|-->|%c%d|-->|%c%d|-->|%c%d|-->|%c|\n", l->f.tipo_c, l->f.monstro+1, l->prox->f.tipo_c,l->prox->f.monstro+1,l->prox->prox->f.tipo_c,l->prox->prox->f.monstro+1,l->prox->prox->prox->f.tipo_c,l->prox->prox->prox->f.monstro+1,l->prox->prox->prox->prox->f.tipo_c,l->prox->prox->prox->prox->f.monstro+1);

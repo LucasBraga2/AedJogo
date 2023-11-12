@@ -284,11 +284,22 @@ int usar_prox_acao(tp_fila *f, carta_monstro *c_m)
     return e;
 }
 
+void escudo_player(jogador *j, resultadoJogada rj){
+    j->esc = rj.defesa_total;
+}
+
+void escudo_monstro(monstro *m, int mns, resultadoJogada rj, int valor_acao_monstro, carta_monstro *c_m){
+    int e = valor_acao_monstro;
+
+    if(c_m[e].t == 2) {
+        m[mns].esc += c_m[e].v;
+    }
+}
+
 void acao_player_no_monstro(monstro *m, resultadoJogada rj, jogador *j, int mns)
 {
 
     int dano = rj.dano_total;
-    int defesa = rj.defesa_total;
 
     if (m[mns].esc != 0)
     { // Se o monstro tiver escudo
@@ -308,7 +319,6 @@ void acao_player_no_monstro(monstro *m, resultadoJogada rj, jogador *j, int mns)
     {
         m[mns].h = m[mns].h - dano;
     }
-    j->esc = defesa;
 } 
 
 void acao_monstro_no_player(jogador *j, carta_monstro *c_m, monstro *m, int valor_acao_mons, int mns)
@@ -320,31 +330,23 @@ void acao_monstro_no_player(jogador *j, carta_monstro *c_m, monstro *m, int valo
     e = valor_acao_mons;
     valor = c_m[e].v;
 
-    if (c_m[e].t == 1)
-    {                    // É um ataque
-        if (j->esc != 0) // O player tem escudo
+    if (j->esc != 0) // O player tem escudo
+    {
+        if (j->esc >= valor)
         {
-            if (j->esc >= valor)
-            {
-                j->esc = j->esc - valor;
-                j->esc = 0;
-            }
-            else
-            {
-                // O escudo não é suficiente para cobrir todo o dano
-                valor -= j->esc;
-                j->esc = 0;
-                j->h -= valor; // Reduz a vida restante
-            }
+            j->esc = j->esc - valor;
+            j->esc = 0;
         }
-        else
+        else     // O escudo não é suficiente para cobrir todo o dano
         {
-            j->h -= valor; // Não há escudo, então reduz a vida diretamente
+            valor -= j->esc;
+            j->esc = 0;
+            j->h -= valor; // Reduz a vida restante
         }
     }
     else
-    {                                    // É uma defesa
-        m[mns].esc = m[mns].esc + valor; // Adiciona a defesa no escudo do monstro
+    {
+        j->h -= valor; // Não há escudo, então reduz a vida diretamente
     }
 }
 
