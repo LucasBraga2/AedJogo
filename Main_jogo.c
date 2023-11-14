@@ -138,7 +138,7 @@ int main()
                         player_ganha(&j);
                         venceu = false;
                     }
-                    if (verifica_player_vivo(&j) == 1)
+                    else if (verifica_player_vivo(&j) == 1)
                     { // Se o monstro matou o player
                         player_morre(&j);
                         venceu = false;

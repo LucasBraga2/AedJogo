@@ -1,7 +1,7 @@
 #include "fila.h"
 #include "pilha.h"
 #include "listase.h"
-#include"player.h"
+#include "player.h"
 #include <locale.h>
 #include <stdbool.h>
 
@@ -339,7 +339,7 @@ void cava_carta(tp_listase **mao, tp_pilha *p_deck, tp_pilha *p_descarte, int n)
     tp_item e;
     // imprime_listase(*mao);
 
-    if (pilha_vazia(p_deck)) //Caso acabe as cartas do deck 
+    if (pilha_vazia(p_deck)) // Caso acabe as cartas do deck
     {
         while (!pilha_vazia(p_descarte))
         {
@@ -352,10 +352,9 @@ void cava_carta(tp_listase **mao, tp_pilha *p_deck, tp_pilha *p_descarte, int n)
         if (!pilha_vazia(p_deck))
         {
             pop(p_deck, &e);
+            insere_listase_ordenado(mao, e, i);
         }
-
         // printf("%d\n", e);
-        insere_listase_ordenado(mao, e, i);
     }
 }
 void print_mao(tp_listase *mao, carta *c)

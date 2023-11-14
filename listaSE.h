@@ -216,22 +216,6 @@ int verifica_igualdade(tp_listase **l, tp_listase **l2)
     return 1;
 }
 
-void destroi_impar(tp_listase **l)
-{
-    tp_listase *atu, *ant;
-    atu = *l;
-    ant = NULL;
-
-    while (atu != NULL)
-    {
-        ant = atu;
-        atu = atu->prox;
-        if (atu->info % 2 != 0)
-        { // Se for impar
-            remove_listase(l, ant->info);
-        }
-    }
-}
 
 int num_de_nos(tp_listase **l){
 
