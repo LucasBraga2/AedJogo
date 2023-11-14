@@ -288,7 +288,7 @@ void escudo_player(jogador *j, resultadoJogada rj){
     j->esc = rj.defesa_total;
 }
 
-void escudo_monstro(monstro *m, int mns, resultadoJogada rj, int valor_acao_monstro, carta_monstro *c_m){
+void escudo_monstro(monstro *m, int mns, int valor_acao_monstro, carta_monstro *c_m){
     int e = valor_acao_monstro;
 
     if(c_m[e].t == 2) {
@@ -296,7 +296,7 @@ void escudo_monstro(monstro *m, int mns, resultadoJogada rj, int valor_acao_mons
     }
 }
 
-void acao_player_no_monstro(monstro *m, resultadoJogada rj, jogador *j, int mns)
+void acao_player_no_monstro(monstro *m, resultadoJogada rj, int mns)
 {
 
     int dano = rj.dano_total;
@@ -321,7 +321,7 @@ void acao_player_no_monstro(monstro *m, resultadoJogada rj, jogador *j, int mns)
     }
 } 
 
-void acao_monstro_no_player(jogador *j, carta_monstro *c_m, monstro *m, int valor_acao_mons, int mns)
+void acao_monstro_no_player(jogador *j, carta_monstro *c_m, int valor_acao_mons)
 {
 
     int e;
