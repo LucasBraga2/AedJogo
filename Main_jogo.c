@@ -94,7 +94,7 @@ int main()
     while (fim == false)
     {
 
-        if (cnt > 1)
+        if (cnt == 2 || cnt== 3)
         {
             printa_caminho(caminho);
             printf("Voce deseja ir para proximo combate(c) ou o descanso(d)\n");
@@ -111,7 +111,7 @@ int main()
         int mns = atu->f.monstro;
         char tipo = atu->f.tipo_c;
 
-        if (tipo == 'c')
+        if (tipo != 'd')
         {//Se for combate
             printf("Combate %d:\n", cnt);
             cnt++;
@@ -119,7 +119,7 @@ int main()
             {
 
                 verifica_energia(&j); //Enche a energia do player apos uma rodada completa
-                player_e_monstro(&j, monstros);//Printa o player e o mosntro
+                player_e_monstro(&j, monstros, cnt);//Printa o player e o mosntro
 
                 printf("Acao do monstro da rodada:\n");
                 int valor_acao_mons = usar_prox_acao(&seqmons1, cartas_m); // Acao do monstro na rodada
