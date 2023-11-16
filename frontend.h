@@ -98,6 +98,6 @@ void player_morre(jogador *j){
     printf("          |  |       __        \n");
     printf("         _|  |_     |__|       \n\n");
     printf("      Player: %s              \n", j->nome);
-    printf("   Vida: %d/20   Energia: %d/5      \n\n", j->h, j->e);
+    printf("       Vida: 0/20         \n\n");
     printf("      VOCE MORREU!            \n\n");
 }
