@@ -5,8 +5,8 @@
 int main()
 {
     setlocale(LC_ALL, "Portuguese");
-    system("cls");
-    system("color 1F");
+    //system("cls");
+    //system("color 2F");
 
     jogador j;           // Jogador Principal
     tp_pilha p_deck;     // Deck de Cartas do jogo, pilha de cartas disponiveis no total
@@ -38,7 +38,7 @@ int main()
     // mostra_monstro(monstros, seqmons1, seqmons2, seqmons3, seqmons4, seqmons5, cartas_m); // Funcao para visualizacao dos Monstros do jogo
     // print_pilha(&p_deck, cartas); // Funcao para printar pilha
 
-    /*printf("\n\n");
+    printf("\n\n");
     printf("       ______________________________________________________________________________________________ \n");
     printf("      /                                                                                            / |\n");
     printf("     /############################################################################################/# |\n");
@@ -80,7 +80,7 @@ int main()
     {
         printf("Saindo...\n");
         return 0;
-    }*/
+    }
 
     cria_jogador(&j);  // Funcao para criar o jogador
     print_jogador(&j); // Funcao para printar o jogador
@@ -91,13 +91,13 @@ int main()
     printf("\nCaminho:\n");
     printa_caminho(caminho);
     printf("================================\n\n");
-    /*while (fim == false)
+    while (fim == false)
     {
 
         if (cnt > 1)
         {
             printa_caminho(caminho);
-            printf("Voce deseja ir para proximo combate(c) ou o descanso(d)");
+            printf("Voce deseja ir para proximo combate(c) ou o descanso(d)\n");
             scanf("%c", &opcao2);
             if (opcao2 == 'c')
             {
@@ -107,7 +107,7 @@ int main()
             {
                 atu = atu->desvio;
             }
-        }*/
+        }
         int mns = atu->f.monstro;
         char tipo = atu->f.tipo_c;
 
@@ -152,7 +152,7 @@ int main()
             recupera_vida(&j);
         }
         //fim=true;
-    //}
+    }
 
 
     printf("Pressione Enter para fechar o programa...\n");

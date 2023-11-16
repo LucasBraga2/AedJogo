@@ -83,7 +83,7 @@ void cria_cartas(carta *c)
     strcpy(c[9].nome, "Raios Infinitos"); // NOME
     c[9].t = 1;                           // TIPO
     c[9].v = 30;                          // VALOR
-    c[9].c = 6;                           // CUSTO
+    c[9].c = 5;                           // CUSTO
 
     // CARTA 10 DEFESA
     c[10].n = 10;                 // IDENTIFICADOR DA CARTA
