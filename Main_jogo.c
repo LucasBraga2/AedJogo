@@ -98,7 +98,7 @@ int main()
         {
             printa_caminho(caminho);
             printf("Voce deseja ir para proximo combate(c) ou o descanso(d)\n");
-            scanf("%c", &opcao2);
+            scanf(" %c", &opcao2);
             if (opcao2 == 'c')
             {
                 atu = atu->prox;
@@ -108,14 +108,16 @@ int main()
                 atu = atu->desvio;
             }
         }
+        else{
+            atu = atu->prox;
+        }
         int mns = atu->f.monstro;
         char tipo = atu->f.tipo_c;
 
         if (tipo != 'd')
-        {//Se for combate
+        {//Se for combate  
             printf("Combate %d:\n", cnt);
-            cnt++;
-            while (venceu)
+            while (venceu == false)
             {
 
                 verifica_energia(&j); //Enche a energia do player apos uma rodada completa
@@ -136,12 +138,13 @@ int main()
                     if (verifica_monstro_vivo(monstros) == 1)
                     { //Se o player matou o monstro
                         player_ganha(&j);
-                        venceu = false;
+                        cnt++;
+                        venceu = true;
                     }
                     else if (verifica_player_vivo(&j) == 1)
                     { // Se o monstro matou o player
                         player_morre(&j);
-                        venceu = false;
+                        fim = true;
                     }
                     descartar_mao(&mao, &p_descarte, &j, cartas);//Descarte da mao para a pilha de descarte
                 }
