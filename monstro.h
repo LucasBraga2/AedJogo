@@ -350,10 +350,11 @@ void acao_monstro_no_player(jogador *j, carta_monstro *c_m, int valor_acao_mons)
     }
 }
 
-int verifica_monstro_vivo(monstro *m)
+int verifica_monstro_vivo(monstro *m, int mns)
 {
-    if (m[0].h <= 0)
+    if (m[mns].h <= 0)
     {
+        m[mns].h = 0;
         return 1;
     }
     return 0;
@@ -364,6 +365,7 @@ int verifica_player_vivo(jogador *j)
 
     if (j->h <= 0)
     {
+        j->h = 0;
         return 1;
     }
     return 0;
