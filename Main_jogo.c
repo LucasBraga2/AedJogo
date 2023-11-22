@@ -123,7 +123,7 @@ int main()
             {
 
                 verifica_energia(&j); //Enche a energia do player apos uma rodada completa
-                player_e_monstro(&j, monstros, cnt);//Printa o player e o mosntro
+                player_e_monstro(&j, monstros, mns);//Printa o player e o mosntro
 
                 printf("Acao do monstro da rodada:\n");
                 int valor_acao_mons = usar_prox_acao(&seqmons[mns], cartas_m); // Acao do monstro na rodada
