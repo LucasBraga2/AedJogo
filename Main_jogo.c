@@ -5,20 +5,19 @@
 int main()
 {
     setlocale(LC_ALL, "Portuguese");
-    //system("cls");
-    //system("color 2F");
+    // system("cls");
+    // system("color 2F");
 
     jogador j;           // Jogador Principal
     tp_pilha p_deck;     // Deck de Cartas do jogo, pilha de cartas disponiveis no total
     tp_pilha p_descarte; // Pilha de descarte
     tp_listase *mao;     // Mao do jogador
     tp_listase *caminho;
-    FILE *resumo_jogo;
     mao = inicializa_listase();
-    carta cartas[25];                                         // ARRAY PARA BOTAR AS CARTAS ATAQUE, DEFESA, ESPECIAL
-    carta_monstro cartas_m[25];                               // ARRAY PARA BOTAR AS CARTAS Do MONSTRO
-    monstro monstros[5];                                      // ARRAY PARA OS MONSTROS
-    tp_fila seqmons[5]; // SEQUENCIAS DE ACOES DOS MONSTROS
+    carta cartas[25];           // ARRAY PARA BOTAR AS CARTAS ATAQUE, DEFESA, ESPECIAL
+    carta_monstro cartas_m[25]; // ARRAY PARA BOTAR AS CARTAS Do MONSTRO
+    monstro monstros[5];        // ARRAY PARA OS MONSTROS
+    tp_fila seqmons[5];         // SEQUENCIAS DE ACOES DOS MONSTROS
     bool venceu = false;
     char menu;
     int opcao;
@@ -26,13 +25,19 @@ int main()
     bool fim = false;
     int cnt = 1;
 
-    cria_cartas(cartas);                                                                // Funcao que cria as cartas do jogo
-    cria_carta_monstro(cartas_m);                                                       // Funcao que cria as cartas do mosntro                                    // Funcao de Cricao das Cartas
-    cria_monstro(monstros);                                                             // Funcao para Criar os Monstros
+    cria_cartas(cartas);                  // Funcao que cria as cartas do jogo
+    cria_carta_monstro(cartas_m);         // Funcao que cria as cartas do mosntro                                    // Funcao de Cricao das Cartas
+    cria_monstro(monstros);               // Funcao para Criar os Monstros
     sequencia_monstro(cartas_m, seqmons); // Funcao que cria e vai inserir os elementos na sequencia
-    cria_deck(&p_deck, &p_descarte);                                                    // Funcao que Cria o deck de cartas
-    embaralhar_deck(&p_deck, cartas);      
-    cria_arquivo(resumo_jogo);                                          // Funcao que embaralha o deck inicial
+    cria_deck(&p_deck, &p_descarte);      // Funcao que Cria o deck de cartas
+    embaralhar_deck(&p_deck, cartas);     // Funcao que embaralha o deck inicial
+    FILE *arq = fopen("resumo_jogo.txt", "w+");
+
+    if (arq == NULL)
+    {
+        printf("Erro ao abrir o arquivo");
+        return 1;
+    }
 
     // print_carta(cartas[14]); // Funcao para printar uma carta especifica
     // print_fila(&seqmons1, cartas_m);//Funcao que printa fila
@@ -93,75 +98,83 @@ int main()
     printf("\nCaminho:\n");
     printa_caminho(caminho);
     printf("================================\n\n");
-   /* while (fim == false)
-    {
+    /* while (fim == false)
+     {
 
-        if (cnt == 2 || cnt== 3)
+         if (cnt == 2 || cnt== 3)
+         {
+             printa_caminho(caminho);
+             printf("Voce deseja ir para proximo combate(c) ou o descanso(d)\n");
+             scanf(" %c", &opcao2);
+             if (opcao2 == 'c')
+             {
+                 atu = atu->prox;
+             }
+             else
+             {
+                 atu = atu->desvio;
+             }
+         }
+         else{
+             atu = atu->prox;
+         }*/
+    int mns = atu->f.monstro;
+    char tipo = atu->f.tipo_c;
+    printf("%d", mns);
+    printf(" %c", tipo);
+
+    if (tipo != 'd')
+    { // Se for combate
+        printf("Combate %d:\n", cnt);
+        while (venceu == false)
         {
-            printa_caminho(caminho);
-            printf("Voce deseja ir para proximo combate(c) ou o descanso(d)\n");
-            scanf(" %c", &opcao2);
-            if (opcao2 == 'c')
-            {
-                atu = atu->prox;
-            }
-            else
-            {
-                atu = atu->desvio;
-            }
-        }
-        else{
-            atu = atu->prox;
-        }*/
-        int mns = atu->f.monstro;
-        char tipo = atu->f.tipo_c;
-        printf("%d", mns);
-        printf(" %c", tipo);
 
-        if (tipo != 'd')
-        {//Se for combate  
-            printf("Combate %d:\n", cnt);
-            while (venceu == false)
+            verifica_energia(&j);                // Enche a energia do player apos uma rodada completa
+            player_e_monstro(&j, monstros, mns); // Printa o player e o mosntro
+
+            printf("Acao do monstro da rodada:\n");
+            int valor_acao_mons = usar_prox_acao(&seqmons[mns], cartas_m); // Acao do monstro na rodada
+            printf("Para iniciar a rodada, digite '1':\n");
+            scanf("%d", &opcao);
+            if (opcao == 1)
             {
-
-                verifica_energia(&j); //Enche a energia do player apos uma rodada completa
-                player_e_monstro(&j, monstros, mns);//Printa o player e o mosntro
-
-                printf("Acao do monstro da rodada:\n");
-                int valor_acao_mons = usar_prox_acao(&seqmons[mns], cartas_m); // Acao do monstro na rodada
-                printf("Para iniciar a rodada, digite '1':\n");
-                scanf("%d", &opcao);
-                if (opcao == 1)
-                {
-                    cava_carta(&mao, &p_deck, &p_descarte, 5); // O numero sao quantos cartas serao cavadas (Digite 1 num a menos que o desejado)
-                    resultadoJogada rj = usa_carta(mao, &p_descarte, cartas, &j); // Resultado da jogada de cartas(Atq, Def)
-                    escudo_player(&j, rj);
-                    escudo_monstro(monstros, mns, valor_acao_mons, cartas_m);
-                    acao_player_no_monstro(monstros, rj, mns);//Acoes do player no monstro
-                    acao_monstro_no_player(&j, cartas_m, valor_acao_mons);//Acao do monstro no player
-                    if (verifica_monstro_vivo(monstros, mns) == 1)
-                    { //Se o player matou o monstro
-                        player_ganha(&j);
-                        cnt++;
-                        venceu = true;
-                    }
-                    else if (verifica_player_vivo(&j) == 1)
-                    { // Se o monstro matou o player
-                        player_morre(&j);
-                        fim = true;
-                    }
-                    descartar_mao(&mao, &p_descarte, &j, cartas);//Descarte da mao para a pilha de descarte
+                cava_carta(&mao, &p_deck, &p_descarte, 5);                         // O numero sao quantos cartas serao cavadas (Digite 1 num a menos que o desejado)
+                resultadoJogada rj = usa_carta(mao, &p_descarte, cartas, &j, arq); // Resultado da jogada de cartas(Atq, Def)
+                escudo_player(&j, rj);
+                escudo_monstro(monstros, mns, valor_acao_mons, cartas_m);
+                acao_player_no_monstro(monstros, rj, mns);             // Acoes do player no monstro
+                acao_monstro_no_player(&j, cartas_m, valor_acao_mons); // Acao do monstro no player
+                if (verifica_monstro_vivo(monstros, mns) == 1)
+                { // Se o player matou o monstro
+                    player_ganha(&j);
+                    cnt++;
+                    venceu = true;
                 }
+                else if (verifica_player_vivo(&j) == 1)
+                { // Se o monstro matou o player
+                    player_morre(&j);
+                    fim = true;
+                }
+                descartar_mao(&mao, &p_descarte, &j, cartas); // Descarte da mao para a pilha de descarte
             }
         }
-        else{ //Se for descanso
-            printf("Sua vida foi recuperada\n");
-            recupera_vida(&j);
-        }
-        //fim=true;
+    }
+    else
+    { // Se for descanso
+        printf("Sua vida foi recuperada\n");
+        recupera_vida(&j);
+    }
+    // fim=true;
     //}
 
-
+    printf("Deseja visualizar um resumo do seu jogo?(S/N)\n");
+    scanf(" %c", &opcao2);
+    if (opcao2 == 'S' || opcao2 == 's')
+    {
+        printf("Resumo do jogo:\n");
+        ler_arquivo(arq);
+    }
+    fclose(arq);
     printf("Pressione Enter para fechar o programa...\n");
 
     system("pause"); // Pausa até que o usuário pressione Enter

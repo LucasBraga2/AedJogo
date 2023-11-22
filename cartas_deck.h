@@ -12,6 +12,23 @@ typedef struct
 } resultadoJogada;
 
 int remove_listase(tp_listase **lista, int i, jogador *j, carta *c);
+
+void registrar_carta_em_arquivo(FILE *arq, char *str)
+{
+    fprintf(arq, "Nome: %s\n", str);
+}
+
+void ler_arquivo(FILE *arq)
+{
+    rewind(arq); // Retorna ao início do arquivo
+
+    printf("\nCartas lancadas durante o jogo:\n");
+    char linha[1000]; 
+
+    while (fgets(linha, sizeof(linha), arq) != NULL) {
+        printf("%s", linha);
+    }
+}
 void cria_cartas(carta *c)
 {
     setlocale(LC_ALL, "Portuguese");
@@ -376,7 +393,7 @@ void print_mao(tp_listase *mao, carta *c)
     }
 }
 
-resultadoJogada usa_carta(tp_listase *mao, tp_pilha *p_descarte, carta *c, jogador *j)
+resultadoJogada usa_carta(tp_listase *mao, tp_pilha *p_descarte, carta *c, jogador *j, FILE *arq)
 {
     resultadoJogada resultado = {0, 0};
     bool jogar_outra_carta;
@@ -414,6 +431,7 @@ resultadoJogada usa_carta(tp_listase *mao, tp_pilha *p_descarte, carta *c, jogad
                 char *nome_carta = c[numerador].nome;
                 j->e = j->e - eng;
 
+                registrar_carta_em_arquivo(arq, nome_carta);
                 if (tipo == 1)
                 {
                     printf("Voce usou a carta %s.\n", nome_carta);

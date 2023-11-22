@@ -9,12 +9,3 @@ typedef int valor;
 typedef int tipo;
 typedef int custo;
 typedef int numero;
-
-void cria_arquivo(FILE *arq){
-
-    fopen(".txt", "w+");
-
-}
-
-
-
