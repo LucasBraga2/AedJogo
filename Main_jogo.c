@@ -13,6 +13,7 @@ int main()
     tp_pilha p_descarte; // Pilha de descarte
     tp_listase *mao;     // Mao do jogador
     tp_listase *caminho;
+    FILE *resumo_jogo;
     mao = inicializa_listase();
     carta cartas[25];                                         // ARRAY PARA BOTAR AS CARTAS ATAQUE, DEFESA, ESPECIAL
     carta_monstro cartas_m[25];                               // ARRAY PARA BOTAR AS CARTAS Do MONSTRO
@@ -30,7 +31,8 @@ int main()
     cria_monstro(monstros);                                                             // Funcao para Criar os Monstros
     sequencia_monstro(cartas_m, seqmons); // Funcao que cria e vai inserir os elementos na sequencia
     cria_deck(&p_deck, &p_descarte);                                                    // Funcao que Cria o deck de cartas
-    embaralhar_deck(&p_deck, cartas);                                                   // Funcao que embaralha o deck inicial
+    embaralhar_deck(&p_deck, cartas);      
+    cria_arquivo(resumo_jogo);                                          // Funcao que embaralha o deck inicial
 
     // print_carta(cartas[14]); // Funcao para printar uma carta especifica
     // print_fila(&seqmons1, cartas_m);//Funcao que printa fila
