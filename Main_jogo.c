@@ -13,7 +13,9 @@ int main()
     tp_pilha p_descarte; // Pilha de descarte
     tp_listase *mao;     // Mao do jogador
     tp_listase *caminho;
+    tp_listase *opcoes_cartas;
     mao = inicializa_listase();
+    opcoes_cartas = inicializa_listase();
     carta cartas[25];           // ARRAY PARA BOTAR AS CARTAS ATAQUE, DEFESA, ESPECIAL
     carta_monstro cartas_m[25]; // ARRAY PARA BOTAR AS CARTAS Do MONSTRO
     monstro monstros[5];        // ARRAY PARA OS MONSTROS
@@ -22,6 +24,7 @@ int main()
     char menu;
     int opcao;
     char opcao2;
+    int opcao3;
     bool fim = false;
     int cnt = 1;
 
@@ -120,8 +123,8 @@ int main()
          }*/
     int mns = atu->f.monstro;
     char tipo = atu->f.tipo_c;
-    printf("%d", mns);
-    printf(" %c", tipo);
+    //printf("%d", mns);
+    //printf(" %c", tipo);
 
     if (tipo != 'd')
     { // Se for combate
@@ -147,6 +150,13 @@ int main()
                 if (verifica_monstro_vivo(monstros, mns) == 1)
                 { // Se o player matou o monstro
                     player_ganha(&j);
+                    printf("Voce pode escolher uma dessa 3 cartas para seu deck de cartas:\n");
+                    gerar_cartas_novas(&opcoes_cartas);
+                    print_mao(opcoes_cartas, cartas);
+                    printf("Digite a posicao da carta desejada:\n");
+                    scanf("%d",&opcao3);
+                    int numerador = remove_listase(&opcoes_cartas, opcao3, &j, cartas);
+                    push(&p_deck, numerador);
                     cnt++;
                     venceu = true;
                 }

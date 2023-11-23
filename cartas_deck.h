@@ -23,15 +23,17 @@ void ler_arquivo(FILE *arq)
     rewind(arq); // Retorna ao início do arquivo
 
     printf("\nCartas lancadas durante o jogo:\n");
-    char linha[1000]; 
+    char linha[1000];
 
-    while (fgets(linha, sizeof(linha), arq) != NULL) {
+    while (fgets(linha, sizeof(linha), arq) != NULL)
+    {
         printf("%s", linha);
     }
 }
 void cria_cartas(carta *c)
 {
     setlocale(LC_ALL, "Portuguese");
+    srand(time(NULL)); // inicializa o gerador de numeros aleatório
     // CARTA 0 ATAQUE
     c[0].n = 0;                 // IDENTIFICADOR DA CARTA
     strcpy(c[0].nome, "Chute"); // NOME
@@ -173,20 +175,24 @@ void cria_cartas(carta *c)
     c[19].c = 5;                                    // CUSTO
 
     // CARTA 20 ESPECIAL
-    c[20].n = 20;                                                                                                                                                                                                                // IDENTIFICADOR DA CARTA
-    strcpy(c[20].nome, "Piada");                                                                                                                                                                                                 // NOME
-    strcpy(c[20].habilidade, "Voce conta uma piada pro monstro, ele achou tao engracado que te mostrou uma carta que estava escondida no chao (+1 carta). Porem, ele te deu um tapa de tao engracada que foi a piada. (-1HP.)"); // HABILIDADE
-    c[20].t = 3;                                                                                                                                                                                                                 // TIPO
-    c[20].v = 5;                                                                                                                                                                                                                 // VALOR
-    c[20].c = 1;                                                                                                                                                                                                                 // CUSTO
+    c[20].n = 20;                                                                           // IDENTIFICADOR DA CARTA
+    strcpy(c[20].nome, "Ataque de sorte");                                                  // NOME
+    strcpy(c[20].habilidade, "Voce ira atacar o monstro com um valor aleatoria de 0 a 20"); // HABILIDADE
+    int a;
+    a = rand() % 21; // Gera valores de 0 a 24
+    c[20].t = 3;     // TIPO
+    c[20].v = a;     // VALOR
+    c[20].c = 3;     // CUSTO
 
     // CARTA 21 ESPECIAL
-    c[21].n = 21;                                                                                                                        // IDENTIFICADOR DA CARTA
-    strcpy(c[21].nome, "Esparadrapo");                                                                                                   // NOME
-    strcpy(c[21].habilidade, "Voce achou um esparadrapo. Recupere 8HP! Ops... Parece que ele grudou em uma de suas cartas (-1 carta)."); // HABILIDADE
-    c[21].t = 3;                                                                                                                         // TIPO
-    c[21].v = 5;                                                                                                                         // VALOR
-    c[21].c = 2;                                                                                                                         // CUSTO
+    c[21].n = 21;                                                                                 // IDENTIFICADOR DA CARTA
+    strcpy(c[21].nome, "Defesa de sorte");                                                        // NOME
+    strcpy(c[21].habilidade, "Voce ira se defender do monstro com um valor aleatoria de 0 a 20"); // HABILIDADE
+    int b;
+    b = rand() % 21; // Gera valores de 0 a 24
+    c[21].t = 3;     // TIPO
+    c[21].v = b;     // VALOR
+    c[21].c = 3;     // CUSTO
 
     // CARTA 22 ESPECIAL
     c[22].n = 22;                                                                                                                                                                        // IDENTIFICADOR DA CARTA
@@ -293,16 +299,18 @@ void print_carta(carta c)
     if (c.t == 1)
     {
         printf("Tipo: Ataque\n");
+        printf("Valor: %d\n", c.v);
     }
     if (c.t == 2)
     {
         printf("Tipo: Defesa\n");
+        printf("Valor: %d\n", c.v);
     }
     if (c.t == 3)
     {
         printf("Tipo: Especial\n");
+        printf("Habilidade: %s\n", c.habilidade);
     }
-    printf("Valor: %d\n", c.v);
     printf("Custo: %d\n", c.c);
     // printf("-----------------------------------\n");
 }
@@ -385,10 +393,13 @@ void print_mao(tp_listase *mao, carta *c)
     {
         tp_item e;
         e = atu->info;
-        carta card = c[e];
-        print_carta(card);
-        printf("Posicao: %d\n", atu->identificador);
-        printf("-----------------------------------\n");
+        if (c[e].c != 10)
+        {
+            carta card = c[e];
+            print_carta(card);
+            printf("Posicao: %d\n", atu->identificador);
+            printf("-----------------------------------\n");
+        }
         atu = atu->prox;
     }
 }
@@ -448,6 +459,15 @@ resultadoJogada usa_carta(tp_listase *mao, tp_pilha *p_descarte, carta *c, jogad
                 {
                     printf("Voce usou a carta %s.\n", nome_carta);
                     printf("Voce usou uma carta especial!\n");
+                    printf("O valor gerado foi %d\n", valor);
+                    if (numerador == 20)
+                    {
+                        resultado.dano_total += valor;
+                    }
+                    if (numerador == 21)
+                    {
+                        resultado.defesa_total += valor;
+                    }
                 }
                 push(p_descarte, numerador);
             }
@@ -474,6 +494,20 @@ void descartar_mao(tp_listase **mao, tp_pilha *p_descarte, jogador *j, carta *c)
         {
             push(p_descarte, e);
         }
+    }
+}
+
+void gerar_cartas_novas(tp_listase **opcoes_cartas)
+{
+
+    int a;
+    srand(time(NULL)); // inicializa o gerador de numeros aleatório
+
+    for (int i = 1; i <= 3; i++)
+    {
+        a = rand() % 25; // Gera valores de 0 a 24
+        // printf("%d\n", a); // Exibe os valores gerado
+        insere_listase_ordenado(opcoes_cartas, a, i);
     }
 }
 
