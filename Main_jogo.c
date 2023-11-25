@@ -101,10 +101,10 @@ int main()
     printf("\nCaminho:\n");
     printa_caminho(caminho);
     printf("================================\n\n");
-    /* while (fim == false)
+     while (fim == false)
      {
 
-         if (cnt == 2 || cnt== 3)
+         if (cnt == 2 || cnt== 4)
          {
              printa_caminho(caminho);
              printf("Voce deseja ir para proximo combate(c) ou o descanso(d)\n");
@@ -118,13 +118,13 @@ int main()
                  atu = atu->desvio;
              }
          }
-         else{
+         else if(cnt!=1){
              atu = atu->prox;
-         }*/
+         }
     int mns = atu->f.monstro;
     char tipo = atu->f.tipo_c;
-    //printf("%d", mns);
-    //printf(" %c", tipo);
+    printf("%d", mns);
+    printf(" %c", tipo);
 
     if (tipo != 'd')
     { // Se for combate
@@ -174,8 +174,8 @@ int main()
         printf("Sua vida foi recuperada\n");
         recupera_vida(&j);
     }
-    // fim=true;
-    //}
+     //fim=true;
+    }
 
     printf("Deseja visualizar um resumo do seu jogo?(S/N)\n");
     scanf(" %c", &opcao2);

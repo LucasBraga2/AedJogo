@@ -179,7 +179,7 @@ void cria_cartas(carta *c)
     strcpy(c[20].nome, "Ataque de sorte");                                                  // NOME
     strcpy(c[20].habilidade, "Voce ira atacar o monstro com um valor aleatoria de 0 a 20"); // HABILIDADE
     int a;
-    a = rand() % 21; // Gera valores de 0 a 24
+    a = rand() % 21; // Gera valores de 0 a 20
     c[20].t = 3;     // TIPO
     c[20].v = a;     // VALOR
     c[20].c = 3;     // CUSTO
@@ -189,7 +189,7 @@ void cria_cartas(carta *c)
     strcpy(c[21].nome, "Defesa de sorte");                                                        // NOME
     strcpy(c[21].habilidade, "Voce ira se defender do monstro com um valor aleatoria de 0 a 20"); // HABILIDADE
     int b;
-    b = rand() % 21; // Gera valores de 0 a 24
+    b = rand() % 21; // Gera valores de 0 a 20
     c[21].t = 3;     // TIPO
     c[21].v = b;     // VALOR
     c[21].c = 3;     // CUSTO
