@@ -26,7 +26,8 @@ int main()
     char opcao2;
     int opcao3;
     bool fim = false;
-    int cnt = 1;
+    int cnt = 0;
+    int vidaRes = 0;
 
     cria_cartas(cartas);                  // Funcao que cria as cartas do jogo
     cria_carta_monstro(cartas_m);         // Funcao que cria as cartas do mosntro                                    // Funcao de Cricao das Cartas
@@ -104,7 +105,7 @@ int main()
      while (fim == false)
      {
 
-         if (cnt == 2 || cnt== 4)
+         if ((cnt == 1 && vidaRes == 0)||(cnt== 3 && vidaRes == 0))
          {
              printa_caminho(caminho);
              printf("Voce deseja ir para proximo combate(c) ou o descanso(d)\n");
@@ -112,22 +113,27 @@ int main()
              if (opcao2 == 'c')
              {
                  atu = atu->prox;
+                 venceu=false;
              }
              else
              {
                  atu = atu->desvio;
+                 venceu=false;
              }
          }
-         else if(cnt!=1){
+         else if(cnt!=0){
              atu = atu->prox;
+             venceu=false;
          }
     int mns = atu->f.monstro;
     char tipo = atu->f.tipo_c;
-    printf("%d", mns);
-    printf(" %c", tipo);
+    //printf("%d", mns);
+    //printf(" %c", tipo);
 
     if (tipo != 'd')
     { // Se for combate
+        cnt++;
+        vidaRes = 0;
         printf("Combate %d:\n", cnt);
         while (venceu == false)
         {
@@ -157,7 +163,6 @@ int main()
                     scanf("%d",&opcao3);
                     int numerador = remove_listase(&opcoes_cartas, opcao3, &j, cartas);
                     push(&p_deck, numerador);
-                    cnt++;
                     venceu = true;
                 }
                 else if (verifica_player_vivo(&j) == 1)
@@ -173,6 +178,7 @@ int main()
     { // Se for descanso
         printf("Sua vida foi recuperada\n");
         recupera_vida(&j);
+        vidaRes = 1;
     }
      //fim=true;
     }
