@@ -182,7 +182,7 @@ int main()
     }
      //fim=true;
     }
-
+    fprintf(arq, "Voce chegou ate a rodada: %d\n", cnt);
     printf("Deseja visualizar um resumo do seu jogo?(S/N)\n");
     scanf(" %c", &opcao2);
     if (opcao2 == 'S' || opcao2 == 's')
