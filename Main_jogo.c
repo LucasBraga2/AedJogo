@@ -152,7 +152,6 @@ int main()
                 escudo_player(&j, rj);
                 escudo_monstro(monstros, mns, valor_acao_mons, cartas_m);
                 acao_player_no_monstro(monstros, rj, mns);             // Acoes do player no monstro
-                acao_monstro_no_player(&j, cartas_m, valor_acao_mons); // Acao do monstro no player
                 if (verifica_monstro_vivo(monstros, mns) == 1)
                 { // Se o player matou o monstro
                     player_ganha(&j);
@@ -165,7 +164,10 @@ int main()
                     push(&p_deck, numerador);
                     venceu = true;
                 }
-                else if (verifica_player_vivo(&j) == 1)
+                else{
+                    acao_monstro_no_player(&j, cartas_m, valor_acao_mons); // Acao do monstro no player
+                }
+                if (verifica_player_vivo(&j) == 1)
                 { // Se o monstro matou o player
                     player_morre(&j);
                     fim = true;
