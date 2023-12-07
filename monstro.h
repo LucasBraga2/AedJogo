@@ -141,12 +141,12 @@ void cria_monstro(monstro *m)
 
     // MONSTRO 2
     int vida2 = 30;                    // VIDA DO SEGUNDO MONSTRO
-    strcpy(m[1].nome, "Gaviao Feroz"); // NOME DO MOSNTRO 2
+    strcpy(m[1].nome, "Gigante de Pedra"); // NOME DO MOSNTRO 2
     m[1].h = vida2;
 
     // MONSTRO 3
     int vida3 = 40;                        // VIDA DO TERCEIRO MONSTRO
-    strcpy(m[2].nome, "Gigante de Pedra"); // NOME DO MOSNTRO 3
+    strcpy(m[2].nome, "Maniaca de uma so perna"); // NOME DO MOSNTRO 3
     m[2].h = vida3;
 
     // MONSTRO 4
