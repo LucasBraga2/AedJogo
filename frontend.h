@@ -37,6 +37,7 @@ void player_morre(jogador *j)
 void player_e_monstro(jogador *j, monstro *m, int mns)
 {
 
+if(mns==0){
     printf("\n");
     printf("        __                             ________       \n");
     printf("       |__|                             |____|     \n");
@@ -48,7 +49,67 @@ void player_e_monstro(jogador *j, monstro *m, int mns)
     printf("       |_ |_                         _| _| _| _|    \n\n");
     printf("    Player: %s                     Monstro: %s     \n", j->nome, m[mns].nome);
     printf(" Vida: %d/20   Energia: %d/5         Vida do Monstro: %d/20\n\n", j->h, j->e, m[mns].h);
-    printf("         Escudo: %d                            \n\n", j->esc);
+    printf("         Escudo: %d                            \n\n", j->esc);}
+    
+    if(mns==1){
+        printf("\n");
+    printf("        __                              ______                      \n");
+    printf("       |__|                      __    /      \\    __              \n");
+    printf("      _ || _                    /  \\  / %d   %d  \\  /  \\         \n", 0, 0);
+    printf("     | |--| |                  +    \\|    |     |/    +            \n");
+    printf("     | |  | |                        |    _     |                   \n");
+    printf("       |__|                           \\  |_|   /                   \n");
+    printf("       |  |                            \\______/                    \n");
+    printf("       |_ |_                            _| _|                     \n\n");
+    printf("    Player: %s                          Monstro: %s     \n", j->nome, m[mns].nome);
+    printf(" Vida: %d/20   Energia: %d/5               Vida do Monstro: %d/30\n\n", j->h, j->e, m[mns].h);
+    printf("         Escudo: %d                             \n\n", j->esc);
+    }
+
+    if(mns==2){
+        printf("\n");
+    printf("        __                              +++__+++        \n");
+    printf("       |__|                            +++/  \\+++     \n");
+    printf("      _ || _                            ++\\__/++  \n");
+    printf("     | |--| |                              ||         \n");
+    printf("     | |  | |                          +--/  \\--+    \n");
+    printf("       |__|                              /____\\      \n");
+    printf("       |  |                                 |         \n");
+    printf("       |_ |_                               _|       \n\n");
+    printf("    Player: %s                          Monstro: %s     \n", j->nome, m[mns].nome);
+    printf(" Vida: %d/20   Energia: %d/5               Vida do Monstro: %d/40\n\n", j->h, j->e, m[mns].h);
+    printf("         Escudo: %d                             \n\n", j->esc);
+    }
+
+    if(mns==3){
+        printf("\n");
+    printf("        __                           _       _                           \n");
+    printf("       |__|                         |_|     |_|                          \n");
+    printf("      _ || _                         ||     ||                           \n");
+    printf("     | |--| |                         \\\\   //                          \n");
+    printf("     | |  | |                          \\\\ //                 _         \n");
+    printf("       |__|                          \\   \\\\     /          /   \\     \n");
+    printf("       |  |                           \\---\\\\---/           |_/  |     \n");
+    printf("       |_ |_                               \\\\__________________/     \n\n");
+    printf("    Player: %s                          Monstro: %s     \n", j->nome, m[mns].nome);
+    printf(" Vida: %d/20   Energia: %d/5               Vida do Monstro: %d/50\n\n", j->h, j->e, m[mns].h);
+    printf("         Escudo: %d                             \n\n", j->esc);
+    }
+
+    if(mns==4){
+        printf("\n");
+    printf("        __                            _______________             \n");
+    printf("       |__|                   \\|/    /     ___       \\    \\|/  \n");
+    printf("      _ || _                   |    /     /   \\       \\    |    \n");
+    printf("     | |--| |                  |___|     | 0   |       |___|      \n");
+    printf("     | |  | |                      |     |     |       |          \n");  //poderia ser sem esses braços
+    printf("       |__|                         \\     \\___/       /         \n");  //e pensei no nome ser o olho q tudo ve
+    printf("       |  |                          \\_______________/           \n");
+    printf("       |_ |_                                                    \n\n");
+    printf("    Player: %s                          Monstro: %s     \n", j->nome, m[mns].nome);
+    printf(" Vida: %d/20   Energia: %d/5               Vida do Monstro: %d/60\n\n", j->h, j->e, m[mns].h);
+    printf("         Escudo: %d                             \n\n", j->esc);
+    }
 }
 
 /*void player_e_monstro2(jogador *j, monstro *m, int mns)

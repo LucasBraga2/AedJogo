@@ -329,7 +329,7 @@ void embaralhar_deck(tp_pilha *p_deck, carta *c)
     for (int i = 0; i < 10; i++)
     {
         a = rand() % 25; // Gera valores de 0 a 24
-        // printf("%d\n", a); // Exibe os valores gerado
+        printf("%d\n", a); // Exibe os valores gerado
         push(p_deck, c[a].n); // inserindo na pilha de cava
     }
 }
@@ -447,6 +447,7 @@ resultadoJogada usa_carta(tp_listase *mao, tp_pilha *p_descarte, carta *c, jogad
                 {
                     printf("Voce usou a carta %s.\n", nome_carta);
                     printf("Voce causou %d de dano no monstro!\n", valor);
+                    printf("Voce gastou %d de energia, e agora tem %d/5.\n", eng, j->e);
                     resultado.dano_total += valor;
                 }
                 else if (tipo == 2)

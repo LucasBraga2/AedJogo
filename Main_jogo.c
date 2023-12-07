@@ -184,6 +184,7 @@ int main()
     { // Se for descanso
         printf("Sua vida foi recuperada\n");
         recupera_vida(&j);
+        cnt++;
         vidaRes = 1;
     }
      //fim=true;
