@@ -196,10 +196,12 @@ void cria_cartas(carta *c)
 
     // CARTA 22 ESPECIAL
     c[22].n = 22;                                                                                                                                                                        // IDENTIFICADOR DA CARTA
-    strcpy(c[22].nome, "Sopro da Abstracao");                                                                                                                                            // NOME
-    strcpy(c[22].habilidade, "Voce pede ajuda a um experiente mestre e ele lhe concede 8HP! Opa, na verdade era so um mendigo. Ele te deu algo estranho pra comer (-2HP(+6 no toal!)."); // HABILIDADE
-    c[22].t = 3;                                                                                                                                                                         // TIPO
-    c[22].v = 5;                                                                                                                                                                         // VALOR
+    strcpy(c[22].nome, "50/50");                                                                                                                                            // NOME
+    strcpy(c[22].habilidade, "Voce tem metade de chance de matar o monstro e metade de morrer."); // HABILIDADE
+    int d;
+    d = rand() % 2; // Gera valores de 0 a 1                                                                                                                                                           // TIPO                                                                                                                                                                       // TIPO
+    c[22].t = 3; 
+    c[22].v = d;                                                                                                                                                                         // VALOR
     c[22].c = 3;                                                                                                                                                                         // CUSTO
 
     // CARTA 23 ESPECIAL
@@ -468,6 +470,14 @@ resultadoJogada usa_carta(tp_listase *mao, tp_pilha *p_descarte, carta *c, jogad
                     if (numerador == 21)
                     {
                         resultado.defesa_total += valor;
+                    }
+                    if(numerador == 22){
+                        if(valor==0){
+                            resultado.dano_total += 10000;
+                        }
+                        else{
+                            j->h = 0;
+                        }
                     }
                 }
                 push(p_descarte, numerador);
