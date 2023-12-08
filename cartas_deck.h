@@ -360,7 +360,7 @@ void print_pilha(tp_pilha *p_deck, carta *c)
     }
 }
 
-void cava_carta(tp_listase **mao, tp_pilha *p_deck, carta *c, tp_pilha *p_descarte, int n)
+void cava_carta(tp_listase **mao, tp_pilha *p_deck, tp_pilha *p_descarte, int n)
 {
 
     tp_item e;
@@ -508,7 +508,7 @@ void cava_carta(tp_listase **mao, tp_pilha *p_deck, carta *c, tp_pilha *p_descar
         return resultado;
     }
 
-    void descartar_mao(tp_listase * *mao, tp_pilha * p_descarte, jogador * j, carta * c)
+    void descartar_mao(tp_listase * *mao, tp_pilha * p_descarte)
     {
 
         tp_item e;
