@@ -108,9 +108,10 @@ int main()
     printf("================================\n\n");
     while (fim == false)
     {
-        if(cnt>5){
+        if (cnt == 5)
+        {
             printf("Voce venceu o jogo!!!!!!\n");
-            fim=true;
+            break;
         }
         if ((cnt == 1 && vidaRes == 0) || (cnt == 4 && vidaRes == 0))
         {
@@ -156,12 +157,15 @@ int main()
                 if (opcao == 1)
                 {
                     int alt = altura_pilha(&p_deck);
-                    if (alt >= 5){
-                        cava_carta(&mao, &p_deck, cartas, &p_descarte, 5);
+                    if (alt >= 5)
+                    {
+                        cava_carta(&mao, &p_deck, &p_descarte, 5);
                     }
-                    else{
-                        printf("Entrou\n");
-                        cava_carta(&mao, &p_deck, cartas, &p_descarte, alt);
+                    else
+                    {
+                        //printf("Entrou\n");
+                        //printf("Altura: %d\n", alt);
+                        cava_carta(&mao, &p_deck, &p_descarte, alt);
                     }
                     resultadoJogada rj = usa_carta(mao, &p_descarte, cartas, &j, arq); // Resultado da jogada de cartas(Atq, Def)
                     escudo_player(&j, rj);
@@ -170,14 +174,19 @@ int main()
                     if (verifica_monstro_vivo(monstros, mns) == 1)
                     { // Se o player matou o monstro
                         player_ganha(&j);
-                        printf("Voce pode escolher uma dessa 3 cartas para seu deck de cartas:\n");
-                        gerar_cartas_novas(&opcoes_cartas);
-                        print_mao(opcoes_cartas, cartas);
-                        printf("Digite a posicao da carta desejada:\n");
-                        scanf("%d", &opcao3);
-                        int numerador = remove_listase(&opcoes_cartas, opcao3, &j, cartas);
-                        push(&p_deck, numerador);
-                        destroi_listase(opcoes_cartas);
+                        if (tipo != 'b')
+                        {
+                            verifica_energia(&j);
+                            printf("Voce pode escolher uma dessa 3 cartas para seu deck de cartas:\n");
+                            gerar_cartas_novas(&opcoes_cartas);
+                            print_mao(opcoes_cartas, cartas);
+                            printf("Digite a posicao da carta desejada:\n");
+                            scanf("%d", &opcao3);
+                            int numerador = remove_listase(&opcoes_cartas, opcao3, &j, cartas);
+                            //printf("Carta retirada nas opcoes :%d\n", numerador);
+                            push(&p_deck, numerador);
+                            destroi_listase(&opcoes_cartas);
+                        }
                         venceu = true;
                     }
                     else
@@ -190,7 +199,7 @@ int main()
                         fim = true;
                         break;
                     }
-                    descartar_mao(&mao, &p_descarte, &j, cartas); // Descarte da mao para a pilha de descarte
+                    descartar_mao(&mao, &p_descarte); // Descarte da mao para a pilha de descarte
                 }
             }
         }

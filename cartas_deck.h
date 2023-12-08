@@ -331,7 +331,7 @@ void embaralhar_deck(tp_pilha *p_deck, carta *c)
     for (int i = 0; i < 10; i++)
     {
         a = rand() % 25;      // Gera valores de 0 a 24
-        printf("%d\n", a);    // Exibe os valores gerado
+        //printf("%d\n", a);    // Exibe os valores gerado
         push(p_deck, c[a].n); // inserindo na pilha de cava
     }
 }
@@ -385,9 +385,10 @@ void cava_carta(tp_listase **mao, tp_pilha *p_deck, tp_pilha *p_descarte, int n)
             {
                 
                     pop(p_deck, &e);
+                    //printf("%d\n", e);
                     insere_listase_ordenado(mao, e, i);
                 
-                // printf("%d\n", e);
+                
             }
         }
 }
@@ -436,6 +437,8 @@ void cava_carta(tp_listase **mao, tp_pilha *p_deck, tp_pilha *p_descarte, int n)
                 {
                     printf("Voce nao tem energia para jogar essa carta\n");
                     printf("Sua rodada sera encerrada\n");
+                    jogar_outra_carta = false;
+                    break;
                 }
 
                 else if (numerador == -2)
@@ -450,6 +453,7 @@ void cava_carta(tp_listase **mao, tp_pilha *p_deck, tp_pilha *p_descarte, int n)
                     int eng = c[numerador].c;
                     char *nome_carta = c[numerador].nome;
                     j->e = j->e - eng;
+                    push(p_descarte, numerador);
 
                     registrar_carta_em_arquivo(arq, nome_carta);
                     if (tipo == 1)
@@ -495,7 +499,7 @@ void cava_carta(tp_listase **mao, tp_pilha *p_deck, tp_pilha *p_descarte, int n)
                             }
                         }
                     }
-                    push(p_descarte, numerador);
+                    
                 }
             } while (!jogada_valida);
 
@@ -518,6 +522,8 @@ void cava_carta(tp_listase **mao, tp_pilha *p_deck, tp_pilha *p_descarte, int n)
         while (atu != NULL)
         {
             e = atu->info;
+            //printf("Descarte:\n");
+            //printf("%d\n", e);
             push(p_descarte, e);
             atu = atu->prox;
         }
@@ -535,7 +541,7 @@ void cava_carta(tp_listase **mao, tp_pilha *p_deck, tp_pilha *p_descarte, int n)
         for (int i = 1; i <= 3; i++)
         {
             a = rand() % 25; // Gera valores de 0 a 24
-            // printf("%d\n", a); // Exibe os valores gerado
+            //printf("Valores opcoes:%d\n", a); // Exibe os valores gerado
             insere_listase_ordenado(opcoes_cartas, a, i);
         }
     }
