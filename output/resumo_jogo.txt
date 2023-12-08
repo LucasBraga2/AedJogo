@@ -1,7 +1,0 @@
-Nome: Lanca chamas
-Nome: Bombas Explosivas
-Nome: Soco
-Nome: Facada
-Nome: Martelo de Espinhos
-Nome: Soco
-Voce chegou ate a rodada: 5

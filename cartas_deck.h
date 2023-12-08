@@ -207,7 +207,7 @@ void cria_cartas(carta *c)
     // CARTA 23 ESPECIAL
     c[23].n = 23;                                                                                                                                            // IDENTIFICADOR DA CARTA
     strcpy(c[23].nome, "Renato Paiva");                                                                                                                      // NOME
-    strcpy(c[23].habilidade, " O monstro se distrai da partida e sai correndo atras da outra monstruosidade que saiu dessa carta, va para a proxima fase!"); // HABILIDADE
+    strcpy(c[23].habilidade, " "); // HABILIDADE
     c[23].t = 3;                                                                                                                                             // TIPO
     c[23].v = 5;                                                                                                                                             // VALOR
     c[23].c = 4;                                                                                                                                             // CUSTO
@@ -215,10 +215,10 @@ void cria_cartas(carta *c)
     // CARTA 24 ESPECIAL
     c[24].n = 24;                                                                            // IDENTIFICADOR DA CARTA
     strcpy(c[24].nome, "SUS");                                                               // NOME
-    strcpy(c[24].habilidade, "Cura 2HP, mas como o servico e lento, so na proxima rodada."); // HABILIDADE
+    strcpy(c[24].habilidade, "Cura 10HP."); // HABILIDADE
     c[24].t = 3;                                                                             // TIPO
-    c[24].v = 5;                                                                             // VALOR
-    c[24].c = 3;                                                                             // CUSTO
+    c[24].v = 10;                                                                             // VALOR
+    c[24].c = 5;                                                                             // CUSTO
 }
 
 void mostrar_cartas(carta *c)
@@ -424,6 +424,7 @@ void cava_carta(tp_listase **mao, tp_pilha *p_deck, tp_pilha *p_descarte, int n)
         {
             int p;
             bool jogada_valida;
+            bool sair_loop = false;
 
             do
             {
@@ -438,12 +439,13 @@ void cava_carta(tp_listase **mao, tp_pilha *p_deck, tp_pilha *p_descarte, int n)
                     printf("Voce nao tem energia para jogar essa carta\n");
                     printf("Sua rodada sera encerrada\n");
                     jogar_outra_carta = false;
+                    sair_loop = true;
                     break;
                 }
 
                 else if (numerador == -2)
                 {
-                    printf("Não ha essa carta! Informe a carta novamente. (posicao)\n");
+                    printf("Nao ha essa carta! Informe a carta novamente. (posicao)\n");
                     jogada_valida = false;
                 }
                 else
@@ -498,10 +500,24 @@ void cava_carta(tp_listase **mao, tp_pilha *p_deck, tp_pilha *p_descarte, int n)
                                 j->h = 0;
                             }
                         }
+                        if(numerador == 23){
+                            printf("Voce tera 10 de HP curado pelo SUS.\n");
+                            if(j->h >= 10){
+                                j->h = 20;
+                            }
+                            else{
+                            j->h = j->h + valor;
+                            }
+                        }
                     }
                     
                 }
             } while (!jogada_valida);
+
+              if (sair_loop)
+        {
+            break;
+        }
 
             printf("Deseja jogar outra carta? (1 para sim, 0 para nao)\n");
             scanf("%d", &escolha);
