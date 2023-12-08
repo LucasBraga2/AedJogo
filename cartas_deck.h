@@ -38,70 +38,70 @@ void cria_cartas(carta *c)
     c[0].n = 0;                 // IDENTIFICADOR DA CARTA
     strcpy(c[0].nome, "Chute"); // NOME
     c[0].t = 1;                 // TIPO
-    c[0].v = 5;                 // VALOR
+    c[0].v = 100;                 // VALOR
     c[0].c = 1;                 // CUSTO
 
     // CARTA 1 ATAQUE
     c[1].n = 1;                // IDENTIFICADOR DA CARTA
     strcpy(c[1].nome, "Soco"); // NOME
     c[1].t = 1;                // TIPO
-    c[1].v = 6;                // VALOR
+    c[1].v = 100;                // VALOR
     c[1].c = 1;                // CUSTO
 
     // CARTA 2 ATAQUE
     c[2].n = 2;                  // IDENTIFICADOR DA CARTA
     strcpy(c[2].nome, "Facada"); // NOME
     c[2].t = 1;                  // TIPO
-    c[2].v = 9;                  // VALOR
+    c[2].v = 100;                  // VALOR
     c[2].c = 2;                  // CUSTO
 
     // CARTA 3 ATAQUE
     c[3].n = 3;                    // IDENTIFICADOR DA CARTA
     strcpy(c[3].nome, "Espadada"); // NOME
     c[3].t = 1;                    // TIPO
-    c[3].v = 10;                   // VALOR
+    c[3].v = 100;                   // VALOR
     c[3].c = 2;                    // CUSTO
 
     // CARTA 4 ATAQUE
     c[4].n = 4;                          // IDENTIFICADOR DA CARTA
     strcpy(c[4].nome, "Facadas Duplas"); // NOME
     c[4].t = 1;                          // TIPO
-    c[4].v = 14;                         // VALOR
+    c[4].v = 100;                         // VALOR
     c[4].c = 3;                          // CUSTO
 
     // CARTA 5 ATAQUE
     c[5].n = 5;                               // IDENTIFICADOR DA CARTA
     strcpy(c[5].nome, "Martelo de Espinhos"); // NOME
     c[5].t = 1;                               // TIPO
-    c[5].v = 15;                              // VALOR
+    c[5].v = 100;                              // VALOR
     c[5].c = 3;                               // CUSTO
 
     // CARTA 6 ATAQUE
     c[6].n = 6;                        // IDENTIFICADOR DA CARTA
     strcpy(c[6].nome, "Lanca chamas"); // NOME
     c[6].t = 1;                        // TIPO
-    c[6].v = 18;                       // VALOR
+    c[6].v = 100;                       // VALOR
     c[6].c = 4;                        // CUSTO
 
     // CARTA 7 ATAQUE
     c[7].n = 7;                             // IDENTIFICADOR DA CARTA
     strcpy(c[7].nome, "Bombas Explosivas"); // NOME
     c[7].t = 1;                             // TIPO
-    c[7].v = 21;                            // VALOR
+    c[7].v = 100;                            // VALOR
     c[7].c = 4;                             // CUSTO
 
     // CARTA 8 ATAQUE
     c[8].n = 8;                               // IDENTIFICADOR DA CARTA
     strcpy(c[8].nome, "Chuva de Asteroides"); // NOME
     c[8].t = 1;                               // TIPO
-    c[8].v = 26;                              // VALOR
+    c[8].v = 100;                              // VALOR
     c[8].c = 5;                               // CUSTO
 
     // CARTA 9 ATAQUE
     c[9].n = 9;                           // IDENTIFICADOR DA CARTA
     strcpy(c[9].nome, "Raios Infinitos"); // NOME
     c[9].t = 1;                           // TIPO
-    c[9].v = 30;                          // VALOR
+    c[9].v = 100;                          // VALOR
     c[9].c = 5;                           // CUSTO
 
     // CARTA 10 DEFESA
@@ -195,14 +195,14 @@ void cria_cartas(carta *c)
     c[21].c = 3;     // CUSTO
 
     // CARTA 22 ESPECIAL
-    c[22].n = 22;                                                                                                                                                                        // IDENTIFICADOR DA CARTA
-    strcpy(c[22].nome, "50/50");                                                                                                                                            // NOME
+    c[22].n = 22;                                                                                 // IDENTIFICADOR DA CARTA
+    strcpy(c[22].nome, "50/50");                                                                  // NOME
     strcpy(c[22].habilidade, "Voce tem metade de chance de matar o monstro e metade de morrer."); // HABILIDADE
     int d;
     d = rand() % 2; // Gera valores de 0 a 1                                                                                                                                                           // TIPO                                                                                                                                                                       // TIPO
-    c[22].t = 3; 
-    c[22].v = d;                                                                                                                                                                         // VALOR
-    c[22].c = 3;                                                                                                                                                                         // CUSTO
+    c[22].t = 3;
+    c[22].v = d; // VALOR
+    c[22].c = 5; // CUSTO
 
     // CARTA 23 ESPECIAL
     c[23].n = 23;                                                                                                                                            // IDENTIFICADOR DA CARTA
@@ -330,8 +330,8 @@ void embaralhar_deck(tp_pilha *p_deck, carta *c)
 
     for (int i = 0; i < 10; i++)
     {
-        a = rand() % 25; // Gera valores de 0 a 24
-        printf("%d\n", a); // Exibe os valores gerado
+        a = rand() % 25;      // Gera valores de 0 a 24
+        printf("%d\n", a);    // Exibe os valores gerado
         push(p_deck, c[a].n); // inserindo na pilha de cava
     }
 }
@@ -360,7 +360,7 @@ void print_pilha(tp_pilha *p_deck, carta *c)
     }
 }
 
-void cava_carta(tp_listase **mao, tp_pilha *p_deck, tp_pilha *p_descarte, int n)
+void cava_carta(tp_listase **mao, tp_pilha *p_deck, carta *c, tp_pilha *p_descarte, int n)
 {
 
     tp_item e;
@@ -373,185 +373,203 @@ void cava_carta(tp_listase **mao, tp_pilha *p_deck, tp_pilha *p_descarte, int n)
             pop(p_descarte, &e);
             push(p_deck, e);
         }
-    }
-    for (int i = 1; i <= n; i++)
-    {
-        if (!pilha_vazia(p_deck))
+        for (int i = 1; i <= 5; i++)
         {
-            pop(p_deck, &e);
-            insere_listase_ordenado(mao, e, i);
+                pop(p_deck, &e);
+                insere_listase_ordenado(mao, e, i);
+            
         }
-        // printf("%d\n", e);
     }
+        else{
+            for (int i = 1; i <= n; i++)
+            {
+                
+                    pop(p_deck, &e);
+                    insere_listase_ordenado(mao, e, i);
+                
+                // printf("%d\n", e);
+            }
+        }
 }
-void print_mao(tp_listase *mao, carta *c)
-{
-
-    tp_listase *atu;
-    atu = mao;
-    printf("Mao do jogador:\n");
-    printf("--------------------------------------------\n");
-    while (atu != NULL)
+    void print_mao(tp_listase * mao, carta * c)
     {
-        tp_item e;
-        e = atu->info;
-        if (c[e].c != 10)
+
+        tp_listase *atu;
+        atu = mao;
+        printf("Mao do jogador:\n");
+        printf("--------------------------------------------\n");
+        while (atu != NULL)
         {
-            carta card = c[e];
-            print_carta(card);
-            printf("Posicao: %d\n", atu->identificador);
-            printf("-----------------------------------\n");
+            tp_item e;
+            e = atu->info;
+            if (c[e].c != 10)
+            {
+                carta card = c[e];
+                print_carta(card);
+                printf("Posicao: %d\n", atu->identificador);
+                printf("-----------------------------------\n");
+            }
+            atu = atu->prox;
         }
-        atu = atu->prox;
     }
-}
 
-resultadoJogada usa_carta(tp_listase *mao, tp_pilha *p_descarte, carta *c, jogador *j, FILE *arq)
-{
-    resultadoJogada resultado = {0, 0};
-    bool jogar_outra_carta;
-    int escolha;
-
-    do
+    resultadoJogada usa_carta(tp_listase * mao, tp_pilha * p_descarte, carta * c, jogador * j, FILE * arq)
     {
-        int p;
-        bool jogada_valida;
+        resultadoJogada resultado = {0, 0};
+        bool jogar_outra_carta;
+        int escolha;
 
         do
         {
-            jogada_valida = true;
-            print_mao(mao, c);
-            printf("Qual carta deseja usar? (posicao)\n");
-            printf("Energia disponivel %d/5\n", j->e);
-            scanf("%d", &p);
-            int numerador = remove_listase(&mao, p, j, c);
-            if (numerador == -1)
-            {
-                printf("Voce nao tem energia para jogar essa carta\n");
-                printf("Sua rodada sera encerrada\n");
-            }
+            int p;
+            bool jogada_valida;
 
-            else if (numerador == -2)
+            do
             {
-                printf("Não ha essa carta! Informe a carta novamente. (posicao)\n");
-                jogada_valida = false;
-            }
-            else
-            {
-                int valor = c[numerador].v;
-                int tipo = c[numerador].t;
-                int eng = c[numerador].c;
-                char *nome_carta = c[numerador].nome;
-                j->e = j->e - eng;
+                jogada_valida = true;
+                print_mao(mao, c);
+                printf("Qual carta deseja usar? (posicao)\n");
+                printf("Energia disponivel %d/5\n", j->e);
+                scanf("%d", &p);
+                int numerador = remove_listase(&mao, p, j, c);
+                if (numerador == -1)
+                {
+                    printf("Voce nao tem energia para jogar essa carta\n");
+                    printf("Sua rodada sera encerrada\n");
+                }
 
-                registrar_carta_em_arquivo(arq, nome_carta);
-                if (tipo == 1)
+                else if (numerador == -2)
                 {
-                    printf("Voce usou a carta %s.\n", nome_carta);
-                    printf("Voce causou %d de dano no monstro!\n", valor);
-                    printf("Voce gastou %d de energia, e agora tem %d/5.\n", eng, j->e);
-                    resultado.dano_total += valor;
+                    printf("Não ha essa carta! Informe a carta novamente. (posicao)\n");
+                    jogada_valida = false;
                 }
-                else if (tipo == 2)
+                else
                 {
-                    printf("Voce usou a carta %s.\n", nome_carta);
-                    printf("Voce esta com %d de defesa a mais!\n", valor);
-                    resultado.defesa_total += valor;
-                }
-                else if (tipo == 3)
-                {
-                    printf("Voce usou a carta %s.\n", nome_carta);
-                    printf("Voce usou uma carta especial!\n");
-                    printf("O valor gerado foi %d\n", valor);
-                    if (numerador == 20)
+                    int valor = c[numerador].v;
+                    int tipo = c[numerador].t;
+                    int eng = c[numerador].c;
+                    char *nome_carta = c[numerador].nome;
+                    j->e = j->e - eng;
+
+                    registrar_carta_em_arquivo(arq, nome_carta);
+                    if (tipo == 1)
                     {
+                        printf("Voce usou a carta %s.\n", nome_carta);
+                        printf("Voce causou %d de dano no monstro!\n", valor);
+                        printf("Voce gastou %d de energia, e agora tem %d/5.\n", eng, j->e);
                         resultado.dano_total += valor;
                     }
-                    if (numerador == 21)
+                    else if (tipo == 2)
                     {
+                        printf("Voce usou a carta %s.\n", nome_carta);
+                        printf("Voce esta com %d de defesa a mais!\n", valor);
+                        printf("Voce gastou %d de energia, e agora tem %d/5.\n", eng, j->e);
                         resultado.defesa_total += valor;
                     }
-                    if(numerador == 22){
-                        if(valor==0){
-                            resultado.dano_total += 10000;
+                    else if (tipo == 3)
+                    {
+                        printf("Voce usou a carta %s.\n", nome_carta);
+                        printf("Voce usou uma carta especial!\n");
+                        printf("Voce gastou %d de energia, e agora tem %d/5.\n", eng, j->e);
+                        if (numerador == 20)
+                        {
+                            printf("O valor gerado foi %d\n", valor);
+                            resultado.dano_total += valor;
                         }
-                        else{
-                            j->h = 0;
+                        if (numerador == 21)
+                        {
+                            printf("O valor gerado foi %d\n", valor);
+                            resultado.defesa_total += valor;
+                        }
+                        if (numerador == 22)
+                        {
+                            if (valor == 0)
+                            {
+                                printf("Voce teve sorte grande e matou o monstro.\n");
+                                resultado.dano_total += 10000;
+                            }
+                            else
+                            {
+                                printf("Voce teve azar e morreu para o monstro.\n");
+                                j->h = 0;
+                            }
                         }
                     }
+                    push(p_descarte, numerador);
                 }
-                push(p_descarte, numerador);
-            }
-        } while (!jogada_valida);
+            } while (!jogada_valida);
 
-        printf("Deseja jogar outra carta? (1 para sim, 0 para nao)\n");
-        scanf("%d", &escolha);
-        jogar_outra_carta = (escolha == 1);
+            printf("Deseja jogar outra carta? (1 para sim, 0 para nao)\n");
+            scanf("%d", &escolha);
+            jogar_outra_carta = (escolha == 1);
 
-    } while (jogar_outra_carta);
+        } while (jogar_outra_carta);
 
-    return resultado;
-}
+        return resultado;
+    }
 
-void descartar_mao(tp_listase **mao, tp_pilha *p_descarte, jogador *j, carta *c)
-{
-
-    tp_item e;
-
-    for (int i = 1; i <= 5; i++)
+    void descartar_mao(tp_listase * *mao, tp_pilha * p_descarte, jogador * j, carta * c)
     {
-        e = remove_listase(mao, i, j, c);
-        if (e != -2)
+
+        tp_item e;
+        tp_listase *atu;
+        atu = *mao;
+
+        while (atu != NULL)
         {
+            e = atu->info;
             push(p_descarte, e);
+            atu = atu->prox;
+        }
+        destroi_listase(mao);
+
+
+    }
+
+    void gerar_cartas_novas(tp_listase * *opcoes_cartas)
+    {
+
+        int a;
+        srand(time(NULL)); // inicializa o gerador de numeros aleatório
+
+        for (int i = 1; i <= 3; i++)
+        {
+            a = rand() % 25; // Gera valores de 0 a 24
+            // printf("%d\n", a); // Exibe os valores gerado
+            insere_listase_ordenado(opcoes_cartas, a, i);
         }
     }
-}
 
-void gerar_cartas_novas(tp_listase **opcoes_cartas)
-{
-
-    int a;
-    srand(time(NULL)); // inicializa o gerador de numeros aleatório
-
-    for (int i = 1; i <= 3; i++)
+    int remove_listase(tp_listase * *lista, int i, jogador *j, carta *c)
     {
-        a = rand() % 25; // Gera valores de 0 a 24
-        // printf("%d\n", a); // Exibe os valores gerado
-        insere_listase_ordenado(opcoes_cartas, a, i);
-    }
-}
+        tp_listase *ant, *atu;
+        tp_item e;
+        atu = *lista;
+        ant = NULL;
 
-int remove_listase(tp_listase **lista, int i, jogador *j, carta *c)
-{
-    tp_listase *ant, *atu;
-    tp_item e;
-    atu = *lista;
-    ant = NULL;
+        while ((atu != NULL) && (atu->identificador != i))
+        {
+            ant = atu;
+            atu = atu->prox;
+        }
 
-    while ((atu != NULL) && (atu->identificador != i))
-    {
-        ant = atu;
-        atu = atu->prox;
+        if (atu == NULL)
+            return -2; // Nao econtrou o elemento
+        if (ant == NULL)
+        {                       // se for retirado o primeiro termo
+            *lista = atu->prox; // Fazendo a lista apontar para o termo subsequente que foi retirado
+        }
+        else
+        {
+            ant->prox = atu->prox; // Fazendo interligacao entre o termo anterior e o termo subsequente
+        }
+        e = atu->info;
+        int eng = c[e].c;
+        if (eng > j->e)
+        {
+            return -1;
+        }
+        free(atu);
+        atu = NULL;
+        return e;
     }
-
-    if (atu == NULL)
-        return -2; // Nao econtrou o elemento
-    if (ant == NULL)
-    {                       // se for retirado o primeiro termo
-        *lista = atu->prox; // Fazendo a lista apontar para o termo subsequente que foi retirado
-    }
-    else
-    {
-        ant->prox = atu->prox; // Fazendo interligacao entre o termo anterior e o termo subsequente
-    }
-    e = atu->info;
-    int eng = c[e].c;
-    if (eng > j->e)
-    {
-        return -1;
-    }
-    free(atu);
-    atu = NULL;
-    return e;
-}

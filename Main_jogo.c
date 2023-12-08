@@ -108,8 +108,11 @@ int main()
     printf("================================\n\n");
     while (fim == false)
     {
-
-        if ((cnt == 1 && vidaRes == 0) || (cnt == 3 && vidaRes == 0))
+        if(cnt>5){
+            printf("Voce venceu o jogo!!!!!!\n");
+            fim=true;
+        }
+        if ((cnt == 1 && vidaRes == 0) || (cnt == 4 && vidaRes == 0))
         {
             printa_caminho(caminho);
             printf("Voce deseja ir para proximo combate(c) ou o descanso(d)\n");
@@ -152,7 +155,14 @@ int main()
                 scanf("%d", &opcao);
                 if (opcao == 1)
                 {
-                    cava_carta(&mao, &p_deck, &p_descarte, 5); // O numero sao quantos cartas serao cavadas (Digite 1 num a menos que o desejado)
+                    int alt = altura_pilha(&p_deck);
+                    if (alt >= 5){
+                        cava_carta(&mao, &p_deck, cartas, &p_descarte, 5);
+                    }
+                    else{
+                        printf("Entrou\n");
+                        cava_carta(&mao, &p_deck, cartas, &p_descarte, alt);
+                    }
                     resultadoJogada rj = usa_carta(mao, &p_descarte, cartas, &j, arq); // Resultado da jogada de cartas(Atq, Def)
                     escudo_player(&j, rj);
                     escudo_monstro(monstros, mns, valor_acao_mons, cartas_m);
@@ -167,6 +177,7 @@ int main()
                         scanf("%d", &opcao3);
                         int numerador = remove_listase(&opcoes_cartas, opcao3, &j, cartas);
                         push(&p_deck, numerador);
+                        destroi_listase(opcoes_cartas);
                         venceu = true;
                     }
                     else
