@@ -535,6 +535,7 @@ resultadoJogada usa_carta(tp_listase *mao, tp_pilha *p_descarte, carta *c, jogad
 
         return resultado;
     }
+}
 
     void descartar_mao(tp_listase * *mao, tp_pilha * p_descarte)
     {
@@ -554,7 +555,7 @@ resultadoJogada usa_carta(tp_listase *mao, tp_pilha *p_descarte, carta *c, jogad
         destroi_listase(mao);
     }
 
-    void gerar_cartas_novas(tp_listase * *opcoes_cartas)
+    void gerar_cartas_novas(tp_listase **opcoes_cartas)
     {
 
         int a;
