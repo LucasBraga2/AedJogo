@@ -26,7 +26,7 @@ int main()
     char opcao2;
     int opcao3;
     bool fim = false;
-    int cnt = 0;
+    int rodada = 0;
     int vidaRes = 0;
 
     cria_cartas(cartas);                  // Funcao que cria as cartas do jogo
@@ -108,12 +108,12 @@ int main()
     printf("================================\n\n");
     while (fim == false)
     {
-        if (cnt == 5)
+        if (rodada == 5)
         {
             printf("Voce venceu o jogo!!!!!!\n");
             break;
         }
-        if ((cnt == 1 && vidaRes == 0) || (cnt == 4 && vidaRes == 0))
+        if ((rodada == 1 && vidaRes == 0) || (rodada == 4 && vidaRes == 0))
         {
             printa_caminho(caminho);
             printf("Voce deseja ir para proximo combate(c) ou o descanso(d)\n");
@@ -129,7 +129,7 @@ int main()
                 venceu = false;
             }
         }
-        else if (cnt != 0)
+        else if (rodada != 0)
         {
             atu = atu->prox;
             venceu = false;
@@ -141,9 +141,9 @@ int main()
 
         if (tipo != 'd')
         { // Se for combate
-            cnt++;
+            rodada++;
             vidaRes = 0;
-            printf("Combate %d:\n", cnt);
+            printf("Combate %d:\n", rodada);
             while (venceu == false)
             {
 
@@ -207,12 +207,12 @@ int main()
         { // Se for descanso
             printf("Sua vida foi recuperada\n");
             recupera_vida(&j);
-            cnt++;
+            rodada++;
             vidaRes = 1;
         }
         // fim=true;
     }
-    fprintf(arq, "Voce chegou ate a rodada: %d\n", cnt);
+    fprintf(arq, "Voce chegou ate a rodada: %d\n", rodada);
     printf("Deseja visualizar um resumo do seu jogo?(S/N)\n");
     scanf(" %c", &opcao2);
     if (opcao2 == 'S' || opcao2 == 's')
