@@ -174,6 +174,7 @@ int main()
                     if (verifica_monstro_vivo(monstros, mns) == 1)
                     { // Se o player matou o monstro
                         player_ganha(&j);
+                        descartar_mao(&mao, &p_descarte); // Descarte da mao para a pilha de descarte
                         if (tipo != 'b')
                         {
                             verifica_energia(&j);
