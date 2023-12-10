@@ -1,8 +1,7 @@
-#include "fila.h"
-#include "pilha.h"
 #include "cartas_deck.h"
 
 void print_fila(tp_fila *f, carta_monstro *c_m);
+
 void cria_carta_monstro(carta_monstro *c_m)
 {
 

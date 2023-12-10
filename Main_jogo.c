@@ -163,8 +163,8 @@ int main()
                     }
                     else
                     {
-                        //printf("Entrou\n");
-                        //printf("Altura: %d\n", alt);
+                        // printf("Entrou\n");
+                        // printf("Altura: %d\n", alt);
                         cava_carta(&mao, &p_deck, &p_descarte, alt);
                     }
                     resultadoJogada rj = usa_carta(mao, &p_descarte, cartas, &j, arq); // Resultado da jogada de cartas(Atq, Def)
@@ -183,7 +183,7 @@ int main()
                             printf("Digite a posicao da carta desejada:\n");
                             scanf("%d", &opcao3);
                             int numerador = remove_listase(&opcoes_cartas, opcao3, &j, cartas);
-                            //printf("Carta retirada nas opcoes :%d\n", numerador);
+                            // printf("Carta retirada nas opcoes :%d\n", numerador);
                             push(&p_deck, numerador);
                             destroi_listase(&opcoes_cartas);
                         }

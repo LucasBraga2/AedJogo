@@ -521,7 +521,6 @@ resultadoJogada usa_carta(tp_listase *mao, tp_pilha *p_descarte, carta *c, jogad
             }
             while (!jogada_valida);
                 
-
             if (sair_loop)
             {
                 break;
@@ -569,7 +568,7 @@ resultadoJogada usa_carta(tp_listase *mao, tp_pilha *p_descarte, carta *c, jogad
         }
     }
 
-    int remove_listase(tp_listase * *lista, int i, jogador *j, carta *c)
+    int remove_listase(tp_listase **lista, int i, jogador *j, carta *c)
     {
         tp_listase *ant, *atu;
         tp_item e;
