@@ -366,20 +366,20 @@ void cava_carta(tp_listase **mao, tp_pilha *p_deck, tp_pilha *p_descarte, int n)
     tp_item e;
     // imprime_listase(*mao);
 
-    if (pilha_vazia(p_deck)) // Caso acabe as cartas do deck
+    if (pilha_vazia(p_deck)) // Caso nao estiver mais cartas no deck
     {
         while (!pilha_vazia(p_descarte))
         {
-            pop(p_descarte, &e);
-            push(p_deck, e);
+            pop(p_descarte, &e);//Retirando todas do descarte 
+            push(p_deck, e);//Pondo no deck
         }
-        for (int i = 1; i <= 5; i++)
+        for (int i = 1; i <= 5; i++)//Retirando 5 cartas e pondo na mao
         {
             pop(p_deck, &e);
             insere_listase_ordenado(mao, e, i);
         }
     }
-    else
+    else//Cas haja pelos menos 1
     {
         for (int i = 1; i <= n; i++)
         {
@@ -432,7 +432,7 @@ resultadoJogada usa_carta(tp_listase *mao, tp_pilha *p_descarte, carta *c, jogad
             printf("Energia disponivel %d/5\n", j->e);
             scanf("%d", &p);
             int numerador = remove_listase(&mao, p, j, c);
-            if (numerador == -1)
+            if (numerador == -1)//Se nao tiver energia para jogar a carta
             {
                 printf("Voce nao tem energia para jogar essa carta\n");
                 printf("Sua rodada sera encerrada\n");
@@ -440,7 +440,7 @@ resultadoJogada usa_carta(tp_listase *mao, tp_pilha *p_descarte, carta *c, jogad
                 sair_loop = true;
                 break;
             }
-            else if (numerador == -2)
+            else if (numerador == -2)//Se a carta nao estiver na mao
             {
                 printf("Não ha essa carta! Informe a carta novamente. (posicao)\n");
                 jogada_valida = false;
@@ -448,57 +448,57 @@ resultadoJogada usa_carta(tp_listase *mao, tp_pilha *p_descarte, carta *c, jogad
             }
             else
             {
-                int valor = c[numerador].v;
-                int tipo = c[numerador].t;
-                int eng = c[numerador].c;
-                char *nome_carta = c[numerador].nome;
-                j->e = j->e - eng;
-                push(p_descarte, numerador);
+                int valor = c[numerador].v; //Valor da carta
+                int tipo = c[numerador].t;//Tipo atq ou def ou esp
+                int eng = c[numerador].c;//Energia da carta
+                char *nome_carta = c[numerador].nome;//Nome da carta
+                j->e = j->e - eng;//Retirando a energia da carta utilizada
+                push(p_descarte, numerador);//Descartando carta para descarte
 
-                registrar_carta_em_arquivo(arq, nome_carta);
+                registrar_carta_em_arquivo(arq, nome_carta);//Resgistrando no arquivo o nome da carta
                 if (tipo == 1)
                 {
                     printf("Voce usou a carta %s.\n", nome_carta);
                     printf("Voce causou %d de dano no monstro!\n", valor);
                     printf("Voce gastou %d de energia, e agora tem %d/5.\n", eng, j->e);
-                    resultado.dano_total += valor;
+                    resultado.dano_total += valor;//Adicionando o valor de dano
                 }
                 else if (tipo == 2)
                 {
                     printf("Voce usou a carta %s.\n", nome_carta);
                     printf("Voce esta com %d de defesa a mais!\n", valor);
                     printf("Voce gastou %d de energia, e agora tem %d/5.\n", eng, j->e);
-                    resultado.defesa_total += valor;
+                    resultado.defesa_total += valor;//Adicionando o valor de defesa
                 }
                 else if (tipo == 3)
                 {
                     printf("Voce usou a carta %s.\n", nome_carta);
                     printf("Voce usou uma carta especial!\n");
                     printf("Voce gastou %d de energia, e agora tem %d/5.\n", eng, j->e);
-                    if (numerador == 20)
+                    if (numerador == 20)//Carta de numero 20
                     {
                         printf("O valor gerado foi %d\n", valor);
                         resultado.dano_total += valor;
                     }
-                    if (numerador == 21)
+                    if (numerador == 21)//Carta de numero 21
                     {
                         printf("O valor gerado foi %d\n", valor);
                         resultado.defesa_total += valor;
                     }
-                    if (numerador == 22)
+                    if (numerador == 22)//Carta de numero 22
                     {
-                        if (valor == 0)
+                        if (valor == 0)//0 mata o monstro
                         {
                             printf("Voce teve sorte grande e matou o monstro.\n");
                             resultado.dano_total += 10000;
                         }
-                        else
+                        else//1 mata o player
                         {
                             printf("Voce teve azar e morreu para o monstro.\n");
                             j->h = 0;
                         }
                     }
-                    if (numerador == 23)
+                    if (numerador == 23)//Carta de numero 23
                     {
                         printf("Voce tera 10 de HP curado pelo SUS.\n");
                         if (j->h >= 10)
@@ -510,7 +510,7 @@ resultadoJogada usa_carta(tp_listase *mao, tp_pilha *p_descarte, carta *c, jogad
                             j->h = j->h + valor;
                         }
                     }
-                    if (numerador == 24)
+                    if (numerador == 24)//Carta de numero 24
                     {
                         printf("Na vida nao existem caminhos faceis, sua rodada encerrou\n");
                         jogar_outra_carta = false;
@@ -523,7 +523,7 @@ resultadoJogada usa_carta(tp_listase *mao, tp_pilha *p_descarte, carta *c, jogad
 
         if (sair_loop)
         {
-            break; // Exit the outer loop if sair_loop is true
+            break; // sai do lopp mais externo
         }
 
         printf("Deseja jogar outra carta? (1 para sim, 0 para nao)\n");
@@ -545,8 +545,8 @@ void descartar_mao(tp_listase **mao, tp_pilha *p_descarte)
     while (atu != NULL)
     {
         e = atu->info;
-         printf("Descarte:\n");
-         printf("%d\n", e);
+         //printf("Descarte:\n");
+         //printf("%d\n", e);
         push(p_descarte, e);
         atu = atu->prox;
     }

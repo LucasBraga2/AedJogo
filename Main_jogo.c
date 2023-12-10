@@ -26,7 +26,7 @@ int main()
     char opcao2;
     int opcao3;
     bool fim = false;
-    int rodada = 0;
+    int rodada = 0;//Contador de rodadas
     int vidaRes = 0;
 
     cria_cartas(cartas);                  // Funcao que cria as cartas do jogo
@@ -101,14 +101,14 @@ int main()
     print_jogador(&j); // Funcao para printar o jogador
     cria_caminho(&caminho);
     tp_listase *atu;
-    atu = caminho;
+    atu = caminho;//atu esta no comeco do caminho
     printf("\n================================");
     printf("\nCaminho:\n");
     printa_caminho(caminho);
     printf("================================\n\n");
     while (fim == false)
     {
-        if (rodada == 5)
+        if (rodada == 5)//Ira entrar aqui ao vencer o jogo
         {
             printf("Voce venceu o jogo!!!!!!\n");
             break;
@@ -118,30 +118,30 @@ int main()
             printa_caminho(caminho);
             printf("Voce deseja ir para proximo combate(c) ou o descanso(d)\n");
             scanf(" %c", &opcao2);
-            if (opcao2 == 'c')
+            if (opcao2 == 'c')//Ir para o combate
             {
                 atu = atu->prox;
                 venceu = false;
             }
-            else
+            else//Ir para o descanso
             {
                 atu = atu->desvio;
                 venceu = false;
             }
         }
-        else if (rodada != 0)
+        else if (rodada != 0)//Andar normalmante
         {
             atu = atu->prox;
             venceu = false;
         }
-        int mns = atu->f.monstro;
-        char tipo = atu->f.tipo_c;
+        int mns = atu->f.monstro;//O monstro do caminho de 0 a 4
+        char tipo = atu->f.tipo_c;//O tipo se for c(combate) ou d(descanso)
         // printf("%d", mns);
         // printf(" %c", tipo);
 
         if (tipo != 'd')
         { // Se for combate
-            rodada++;
+            rodada++;//Soma 1 a rodada
             vidaRes = 0;
             printf("Combate %d:\n", rodada);
             while (venceu == false)
@@ -156,39 +156,40 @@ int main()
                 scanf("%d", &opcao);
                 if (opcao == 1)
                 {
-                    int alt = altura_pilha(&p_deck);
-                    if (alt >= 5)
+                    int alt = altura_pilha(&p_deck); //A quantidade de cartas no deck
+                    if (alt >= 5)//Se tiver 5 ou mais cartas no deck
                     {
-                        cava_carta(&mao, &p_deck, &p_descarte, 5);
+                        cava_carta(&mao, &p_deck, &p_descarte, 5); // Cava 5 cartas 
                     }
                     else
                     {
                         // printf("Entrou\n");
                         // printf("Altura: %d\n", alt);
-                        cava_carta(&mao, &p_deck, &p_descarte, alt);
+                        cava_carta(&mao, &p_deck, &p_descarte, alt);//Aqui ira cavar a quantidade que resta no deck, se for 0 ira reestocar o deck
                     }
                     resultadoJogada rj = usa_carta(mao, &p_descarte, cartas, &j, arq); // Resultado da jogada de cartas(Atq, Def)
-                    escudo_player(&j, rj);
-                    escudo_monstro(monstros, mns, valor_acao_mons, cartas_m);
+                    escudo_player(&j, rj);//Ativando escudo no player caso haja defesa
+                    escudo_monstro(monstros, mns, valor_acao_mons, cartas_m);//Ativando escudo do monstro caso haja
+                    player_e_monstro(&j, monstros, mns);//Printando o player e o monstro
                     acao_player_no_monstro(monstros, rj, mns); // Acoes do player no monstro
                     if (verifica_monstro_vivo(monstros, mns) == 1)
                     { // Se o player matou o monstro
-                        player_ganha(&j);
+                        player_ganha(&j);//printando tela se player mata monstro
                         descartar_mao(&mao, &p_descarte); // Descarte da mao para a pilha de descarte
                         if (tipo != 'b')
                         {
-                            verifica_energia(&j);
+                            verifica_energia(&j);//Completando energia do player
                             printf("Voce pode escolher uma dessa 3 cartas para seu deck de cartas:\n");
-                            gerar_cartas_novas(&opcoes_cartas);
-                            print_mao(opcoes_cartas, cartas);
+                            gerar_cartas_novas(&opcoes_cartas);//Gerando 3 cartas para o player escolher para seu deck
+                            print_mao(opcoes_cartas, cartas);//printando as 3 cartas
                             printf("Digite a posicao da carta desejada:\n");
                             scanf("%d", &opcao3);
-                            int numerador = remove_listase(&opcoes_cartas, opcao3, &j, cartas);
+                            int numerador = remove_listase(&opcoes_cartas, opcao3, &j, cartas);//Removendo uma para o deck
                             // printf("Carta retirada nas opcoes :%d\n", numerador);
-                            push(&p_deck, numerador);
-                            destroi_listase(&opcoes_cartas);
+                            push(&p_deck, numerador);//Pondo a carta no deck
+                            destroi_listase(&opcoes_cartas);//Reiniciando as cartas restantes
                         }
-                        venceu = true;
+                        venceu = true;//Saindo do loop mais interno
                     }
                     else
                     {
@@ -196,9 +197,9 @@ int main()
                     }
                     if (verifica_player_vivo(&j) == 1)
                     { // Se o monstro matou o player
-                        player_morre(&j);
-                        fim = true;
-                        break;
+                        player_morre(&j);//Printando morte do player
+                        fim = true;//Saindo do loop mais interno
+                        break;//Saindo do loop externo
                     }
                     descartar_mao(&mao, &p_descarte); // Descarte da mao para a pilha de descarte
                 }
@@ -207,19 +208,19 @@ int main()
         else
         { // Se for descanso
             printf("Sua vida foi recuperada\n");
-            recupera_vida(&j);
-            rodada++;
-            vidaRes = 1;
+            recupera_vida(&j);//Completando energia do player
+            rodada++;//Somando 1 a rodada
+            vidaRes = 1;//Indicando que a vida foi resetada
         }
         // fim=true;
     }
-    fprintf(arq, "Voce chegou ate a rodada: %d\n", rodada);
+    fprintf(arq, "Voce chegou ate a rodada: %d\n", rodada);//Pondo no arquivo que rodada o player chegou
     printf("Deseja visualizar um resumo do seu jogo?(S/N)\n");
     scanf(" %c", &opcao2);
     if (opcao2 == 'S' || opcao2 == 's')
     {
         printf("Resumo do jogo:\n");
-        ler_arquivo(arq);
+        ler_arquivo(arq);//Lendo arquivo
     }
     fclose(arq);
     printf("Pressione Enter para fechar o programa...\n");
