@@ -113,7 +113,7 @@ int main()
             printf("Voce venceu o jogo!!!!!!\n");
             break;
         }
-        if ((rodada == 1 && vidaRes == 0) || (rodada == 4 && vidaRes == 0))
+        if ((rodada == 1 && vidaRes == 0) || (rodada == 3 && vidaRes == 0))
         {
             printa_caminho(caminho);
             printf("Voce deseja ir para proximo combate(c) ou o descanso(d)\n");

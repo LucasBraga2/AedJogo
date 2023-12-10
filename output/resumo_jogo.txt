@@ -1,8 +1,4 @@
-Nome: Capacete Blindado
-Nome: Espadada
-Nome: Soco
-Nome: Soco
-Nome: Chuva de Asteroides
-Nome: Almofadas
+Nome: Raios Infinitos
 Nome: Martelo de Espinhos
+Nome: Raios Infinitos
 Voce chegou ate a rodada: 5

@@ -440,11 +440,11 @@ resultadoJogada usa_carta(tp_listase *mao, tp_pilha *p_descarte, carta *c, jogad
                 sair_loop = true;
                 break;
             }
-
             else if (numerador == -2)
             {
-                printf("Nao ha essa carta! Informe a carta novamente. (posicao)\n");
+                printf("Não ha essa carta! Informe a carta novamente. (posicao)\n");
                 jogada_valida = false;
+                sair_loop = true;
             }
             else
             {
@@ -519,85 +519,84 @@ resultadoJogada usa_carta(tp_listase *mao, tp_pilha *p_descarte, carta *c, jogad
                     }
                 }
             }
-            while (!jogada_valida);
-                
-            if (sair_loop)
-            {
-                break;
-            }
+        } while (!jogada_valida);
 
-            printf("Deseja jogar outra carta? (1 para sim, 0 para nao)\n");
-            scanf("%d", &escolha);
-            jogar_outra_carta = (escolha == 1);
+        if (sair_loop)
+        {
+            break; // Exit the outer loop if sair_loop is true
+        }
 
-        } while (jogar_outra_carta);
+        printf("Deseja jogar outra carta? (1 para sim, 0 para nao)\n");
+        scanf("%d", &escolha);
+        jogar_outra_carta = (escolha == 1);
 
-        return resultado;
+    } while (jogar_outra_carta);
+
+    return resultado;
+}
+
+void descartar_mao(tp_listase **mao, tp_pilha *p_descarte)
+{
+
+    tp_item e;
+    tp_listase *atu;
+    atu = *mao;
+
+    while (atu != NULL)
+    {
+        e = atu->info;
+        // printf("Descarte:\n");
+        // printf("%d\n", e);
+        push(p_descarte, e);
+        atu = atu->prox;
+    }
+    destroi_listase(mao);
+}
+
+void gerar_cartas_novas(tp_listase **opcoes_cartas)
+{
+
+    int a;
+    srand(time(NULL)); // inicializa o gerador de numeros aleatório
+
+    for (int i = 1; i <= 3; i++)
+    {
+        a = rand() % 25; // Gera valores de 0 a 24
+        // printf("Valores opcoes:%d\n", a); // Exibe os valores gerado
+        insere_listase_ordenado(opcoes_cartas, a, i);
     }
 }
 
-    void descartar_mao(tp_listase * *mao, tp_pilha * p_descarte)
+int remove_listase(tp_listase **lista, int i, jogador *j, carta *c)
+{
+    tp_listase *ant, *atu;
+    tp_item e;
+    atu = *lista;
+    ant = NULL;
+
+    while ((atu != NULL) && (atu->identificador != i))
     {
-
-        tp_item e;
-        tp_listase *atu;
-        atu = *mao;
-
-        while (atu != NULL)
-        {
-            e = atu->info;
-            // printf("Descarte:\n");
-            // printf("%d\n", e);
-            push(p_descarte, e);
-            atu = atu->prox;
-        }
-        destroi_listase(mao);
+        ant = atu;
+        atu = atu->prox;
     }
 
-    void gerar_cartas_novas(tp_listase **opcoes_cartas)
-    {
-
-        int a;
-        srand(time(NULL)); // inicializa o gerador de numeros aleatório
-
-        for (int i = 1; i <= 3; i++)
-        {
-            a = rand() % 25; // Gera valores de 0 a 24
-            // printf("Valores opcoes:%d\n", a); // Exibe os valores gerado
-            insere_listase_ordenado(opcoes_cartas, a, i);
-        }
+    if (atu == NULL)
+        return -2; // Nao econtrou o elemento
+    if (ant == NULL)
+    {                       // se for retirado o primeiro termo
+        *lista = atu->prox; // Fazendo a lista apontar para o termo subsequente que foi retirado
     }
-
-    int remove_listase(tp_listase **lista, int i, jogador *j, carta *c)
+    else
     {
-        tp_listase *ant, *atu;
-        tp_item e;
-        atu = *lista;
-        ant = NULL;
-
-        while ((atu != NULL) && (atu->identificador != i))
-        {
-            ant = atu;
-            atu = atu->prox;
-        }
-
-        if (atu == NULL)
-            return -2; // Nao econtrou o elemento
-        if (ant == NULL)
-        {                       // se for retirado o primeiro termo
-            *lista = atu->prox; // Fazendo a lista apontar para o termo subsequente que foi retirado
-        }
-        else
-        {
-            ant->prox = atu->prox; // Fazendo interligacao entre o termo anterior e o termo subsequente
-        }
-        e = atu->info;
-        int eng = c[e].c;
-        if (eng > j->e)
-        {
-            return -1;
-        }
-        free(atu);
-        atu = NULL;
-        return e;
+        ant->prox = atu->prox; // Fazendo interligacao entre o termo anterior e o termo subsequente
     }
+    e = atu->info;
+    int eng = c[e].c;
+    if (eng > j->e)
+    {
+        return -1;
+    }
+    free(atu);
+    atu = NULL;
+    return e;
+}
