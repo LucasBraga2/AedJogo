@@ -206,8 +206,8 @@ void cria_cartas(carta *c)
 
     // CARTA 23 ESPECIAL
     c[23].n = 23;                       // IDENTIFICADOR DA CARTA
-    strcpy(c[23].nome, "Renato Paiva"); // NOME
-    strcpy(c[23].habilidade, " ");      // HABILIDADE
+    strcpy(c[23].nome, "SUS"); // NOME
+    strcpy(c[23].habilidade, "Cura 10 de Hp da sua vida");      // HABILIDADE
     c[23].t = 3;                        // TIPO
     c[23].v = 5;                        // VALOR
     c[23].c = 4;                        // CUSTO
