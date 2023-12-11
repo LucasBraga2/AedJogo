@@ -59,14 +59,14 @@ void cria_cartas(carta *c)
     c[3].n = 3;                    // IDENTIFICADOR DA CARTA
     strcpy(c[3].nome, "Espadada"); // NOME
     c[3].t = 1;                    // TIPO
-    c[3].v = 5;                  // VALOR
+    c[3].v = 7;                  // VALOR
     c[3].c = 2;                    // CUSTO
 
     // CARTA 4 ATAQUE
     c[4].n = 4;                          // IDENTIFICADOR DA CARTA
     strcpy(c[4].nome, "Facadas Duplas"); // NOME
     c[4].t = 1;                          // TIPO
-    c[4].v = 8;                        // VALOR
+    c[4].v = 9;                        // VALOR
     c[4].c = 3;                          // CUSTO
 
     // CARTA 5 ATAQUE
@@ -80,14 +80,14 @@ void cria_cartas(carta *c)
     c[6].n = 6;                        // IDENTIFICADOR DA CARTA
     strcpy(c[6].nome, "Lanca chamas"); // NOME
     c[6].t = 1;                        // TIPO
-    c[6].v = 10;                      // VALOR
+    c[6].v = 12;                      // VALOR
     c[6].c = 4;                        // CUSTO
 
     // CARTA 7 ATAQUE
     c[7].n = 7;                             // IDENTIFICADOR DA CARTA
     strcpy(c[7].nome, "Bombas Explosivas"); // NOME
     c[7].t = 1;                             // TIPO
-    c[7].v = 8;                           // VALOR
+    c[7].v = 10;                           // VALOR
     c[7].c = 2;                             // CUSTO
 
     // CARTA 8 ATAQUE

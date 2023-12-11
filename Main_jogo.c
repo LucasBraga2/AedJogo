@@ -170,7 +170,10 @@ int main()
                     resultadoJogada rj = usa_carta(mao, &p_descarte, cartas, &j, arq); // Resultado da jogada de cartas(Atq, Def)
                     escudo_player(&j, rj);//Ativando escudo no player caso haja defesa
                     escudo_monstro(monstros, mns, valor_acao_mons, cartas_m);//Ativando escudo do monstro caso haja
-                    player_e_monstro(&j, monstros, mns);//Printando o player e o monstro
+                    if(j.esc>0 || monstros[mns].esc>0){
+                        player_e_monstro(&j, monstros, mns);
+                    }
+                    
                     acao_player_no_monstro(monstros, rj, mns); // Acoes do player no monstro
                     if (verifica_monstro_vivo(monstros, mns) == 1)
                     { // Se o player matou o monstro

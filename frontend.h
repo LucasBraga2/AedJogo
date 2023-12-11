@@ -47,7 +47,7 @@ if(mns==0){
     printf("       |__|                            __|__|__     \n");
     printf("       |  |                           /  |  |  |    \n");
     printf("       |_ |_                         _| _| _| _|    \n\n");
-    printf("    Player: %s                          Monstro: %s     \n", j->nome, m[mns].nome);
+    printf("    Player: %s                     Monstro: %s     \n", j->nome, m[mns].nome);
     printf(" Vida: %d/20   Energia: %d/5         Vida do Monstro: %d/20\n\n", j->h, j->e, m[mns].h);
     printf("         Escudo: %d                     Escudo: %d    \n\n", j->esc, m[mns].esc);}
     
